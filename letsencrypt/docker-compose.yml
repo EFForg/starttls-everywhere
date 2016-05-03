@@ -1,0 +1,14 @@
+production:
+  build: .
+  ports:
+    - "443:443"
+
+# For development, mount git root to /opt/certbot/src in order to
+# make the dev workflow more vagrant-like.
+development:
+  build: .
+  ports:
+    - "443:443"
+  volumes:
+    - .:/opt/certbot/src
+    - /opt/certbot/venv
