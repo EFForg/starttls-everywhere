@@ -1,1 +1,0 @@
-SSLRequire %{SSL_CLIENT_S_DN_CN} in {"foo@bar.com", "bar@foo.com"}

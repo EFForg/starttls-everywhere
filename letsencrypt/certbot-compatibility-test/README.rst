@@ -1,1 +1,0 @@
-Compatibility tests for Certbot

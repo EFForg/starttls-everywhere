@@ -1,1 +1,0 @@
-"""Certbot Display Tests"""
