@@ -3,8 +3,13 @@ import copy
 import itertools
 import logging
 import unittest
+import zope.component
 
-import Config
+from certbot.display import util as display_util
+
+from certbot.plugins import common
+
+from certbot_postfix import config
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())

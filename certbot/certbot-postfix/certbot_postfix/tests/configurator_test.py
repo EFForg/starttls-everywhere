@@ -10,9 +10,8 @@ import io
 import logging
 import unittest
 
-import Config
-import PostfixConfigGenerator as pcg
-
+from certbot_postfix import config
+from certbot_postfix import configurator
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())

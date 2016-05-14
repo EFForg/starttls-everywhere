@@ -75,7 +75,7 @@ def to_dict(config_dict):
 
 class BaseConfig(object):
     """Top level config class for common methods.
-    
+
     Requirements for using class:
     - list all properties with getters *and* setters in class
     variable 'config_properties'
@@ -104,7 +104,7 @@ class BaseConfig(object):
 
         Two methods of combining configs are possible, an 'update' and
         a 'merge', the latter set by the keyword argument 'merge=True'.
-        
+
         An update overrides older values with new values -- even if those
         new values are None.  Update will remove values that are present in
         the old config if they are not present in the new config.
@@ -187,7 +187,7 @@ class BaseConfig(object):
 
 class Config(BaseConfig):
     """Config container for StartTLS Everywhere configuration.
-    
+
     Intended as a simple container that unifies where validatation occurs,
     and is capable of comparing configs to warn of things like changing
     certificate fingerprints from one scan to the next.
@@ -378,7 +378,7 @@ class Config(BaseConfig):
             if domain_suffix not in all_mx_hosts:
                 return False
         return True
-        
+
 
 class TLSPolicy(BaseConfig):
 
@@ -387,7 +387,7 @@ class TLSPolicy(BaseConfig):
 
     config_properties = ['comment', 'enforce_mode', 'min_tls_version',
                          'require_tls', 'require_valid_certificate']
- 
+
     def __init__(self, domain_suffix=None):
         super(self.__class__, self).__init__()
         self.domain_suffix = domain_suffix
@@ -554,7 +554,7 @@ class AcceptableMX(BaseConfig):
             new_accepted_mxs = newer_policy.accept_mx_domains
         for domain in new_accepted_mxs:
             fresh_policy.add_acceptable_mx(domain)
-            
+
         return fresh_policy
 
     def merge(self, newer_policy, **kwargs):
