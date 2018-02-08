@@ -1,0 +1,5 @@
+inet_interfaces = all
+inet_protocols = all
+smtp_tls_security_level = may
+tls_random_source = dev:/dev/urandom
+smtp_tls_loglevel = 1
