@@ -7,7 +7,7 @@ import mock
 import os
 import random
 import shutil
-import stringhutii
+import string
 import tempfile
 
 rand_str = lambda n:''.join([random.choice(string.lowercase) for i in xrange(n)])

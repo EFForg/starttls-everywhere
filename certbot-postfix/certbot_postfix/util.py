@@ -59,6 +59,10 @@ class PostfixUtilBase(object):
         """
         return self._call(extra_args)[0]
 
+def get_postconf_default(base_command, config_dir, name):
+    runner = PostfixUtilBase(base_command, config_dir)
+    return runner._get_output(("-d", name,))
+
 
 def check_all_output(*args, **kwargs):
     """A version of subprocess.check_output that also captures stderr.
@@ -195,3 +199,4 @@ def _get_cmd(*args, **kwargs):
     """
     cmd = kwargs.get('args')
     return args[0] if cmd is None else cmd
+

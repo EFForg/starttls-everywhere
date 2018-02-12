@@ -12,28 +12,31 @@ from certbot.plugins import common as plugins_common
 from certbot.plugins import util as plugins_util
 
 from certbot_postfix import util
+from certbot_postfix import postconf
 
+import starttls_policy
+
+POLICY_FILENAME = "starttls_everywhere_policy"
+CA_FILENAME = "starttls_everywhere_CAfile"
+
+acceptable_security_levels = ("may", "encrypt")
+acceptable_cipher_levels = ("medium", "high")
+
+default_server_vars = {
+    "smtpd_tls_mandatory_protocols": "!SSLv2, !SSLv3",
+    "smtpd_tls_protocols": "!SSLv2, !SSLv3",
+    "smtpd_tls_security_level": acceptable_security_levels,
+    "smtpd_tls_ciphers": acceptable_cipher_levels,
+    "smtpd_tls_eecdh_grade": "strong",
+}
+
+    # "smtpd_tls_received_header": "yes",
+default_client_vars = {
+    "smtp_tls_security_level": acceptable_security_levels,
+    "smtp_tls_ciphers": acceptable_cipher_levels,
+}
 
 logger = logging.getLogger(__name__)
-
-RSA_PARAMS = {
-    "key": "smtpd_tls_key_file",
-    "cert": "smtpd_tls_cert_file",
-}
-
-EC_PARAMS = {
-    "key": "smtpd_tls_eckey_file",
-    "cert": "smtpd_tls_eccert_file",
-}
-
-RSA = "rsa"
-EC = "ecdsa"
-
-PARAMS = {
-    RSA: RSA_PARAMS,
-    EC: EC_PARAMS,
-}
-
 
 @zope.interface.implementer(interfaces.IInstaller)
 @zope.interface.provider(interfaces.IPluginFactory)
@@ -50,7 +53,6 @@ class Installer(plugins_common.Installer):
 
     description = "Configure TLS with the Postfix MTA"
     # Default algorithm is RSA; once we can support EC lineages, turn that on
-    algorithm = RSA
 
     @classmethod
     def add_parser_arguments(cls, add):
@@ -61,12 +63,46 @@ class Installer(plugins_common.Installer):
             "default configuration paths.")
         add("config-utility", default="postconf",
             help="Path to the 'postconf' executable.")
+        add("policy-file", default="config.json")
 
     def __init__(self, *args, **kwargs):
         super(Installer, self).__init__(*args, **kwargs)
         self.config_dir = None
-        self.proposed_changes = {}
+        self.postconf = None
+        # self.proposed_changes = {}
         self.save_notes = []
+        self.policy = None
+        self.policy_lines = []
+        self.policy_file = None
+        self.postfix_policy_file = None
+
+    def set_domainwise_tls_policies(self, fopen=open):
+        all_acceptable_mxs = self.policy.acceptable_mxs
+        for address_domain, properties in all_acceptable_mxs.items():
+            mx_list = properties.accept_mx_domains
+            if len(mx_list) > 1:
+                logger.warn('Lists of multiple accept-mx-domains not yet '
+                            'supported.')
+                logger.warn('Using MX {} for {}'.format(mx_list[0],
+                                                        address_domain)
+                           )
+                logger.warn('Ignoring: {}'.format(', '.join(mx_list[1:])))
+            mx_domain = mx_list[0]
+            mx_policy = self.policy.get_tls_policy(mx_domain)
+            entry = address_domain + " encrypt"
+            if mx_policy.min_tls_version.lower() == "tlsv1":
+                entry += " protocols=!SSLv2:!SSLv3"
+            elif mx_policy.min_tls_version.lower() == "tlsv1.1":
+                entry += " protocols=!SSLv2:!SSLv3:!TLSv1"
+            elif mx_policy.min_tls_version.lower() == "tlsv1.2":
+                entry += " protocols=!SSLv2:!SSLv3:!TLSv1:!TLSv1.1"
+            else:
+                logger.warn('Unknown minimum TLS version: {} '.format(
+                    mx_policy.min_tls_version)
+                )
+            self.policy_lines.append(entry)
+        with fopen(self.policy_file, "w") as f:
+            f.write("\n".join(self.policy_lines) + "\n")
 
     def prepare(self):
         """Prepare the installer.
@@ -81,10 +117,18 @@ class Installer(plugins_common.Installer):
         """
         for param in ("ctl", "config_utility",):
             self._verify_executable_is_available(param)
+        # Set initially here so we can grab configuration directory if needed.
+        self.postconf = postconf.ConfigMain(self.conf('config-utility'))
         self._set_config_dir()
+        self.policy_file = self.conf("policy-file")
+        self.policy = starttls_policy.Config()
+        self.policy.load_from_json_file(self.policy_file)
         self._check_version()
         self.config_test()
         self._lock_config_dir()
+        self.postfix_policy_file = os.path.join(self.config_dir, POLICY_FILENAME)
+        self.ca_file = os.path.join(self.config_dir, CA_FILENAME)
+        self.postconf = postconf.ConfigMain(self.conf('config-utility'), self.config_dir)
 
     def _verify_executable_is_available(self, config_name):
         """Asserts the program in the specified config param is found.
@@ -111,7 +155,7 @@ class Installer(plugins_common.Installer):
 
         """
         if self.conf("config-dir") is None:
-            self.config_dir = self._get_config_var("config_directory")
+            self.config_dir = self.postconf.get("config_directory")
         else:
             self.config_dir = self.conf("config-dir")
 
@@ -132,7 +176,7 @@ class Installer(plugins_common.Installer):
         """
         try:
             certbot_util.lock_dir_until_exit(self.config_dir)
-        except (OSError, errors.LockError):
+        except (OSError, errors.LockError) as e:
             logger.debug("Encountered error:", exc_info=True)
             raise errors.PluginError(
                 "Unable to lock %s", self.config_dir)
@@ -173,8 +217,18 @@ class Installer(plugins_common.Installer):
         :rtype: `set` of `str`
 
         """
-        return util.get_filtered_names(self._get_config_var(var)
+        return certbot_util.get_filtered_names(self.postconf.get(var)
                    for var in ('mydomain', 'myhostname', 'myorigin',))
+
+    def _set_vars(self, var_dict):
+        """Sets all parameters in var_dict to config file.
+        """
+        for param, value in var_dict.iteritems():
+            if isinstance(value, tuple):
+                if self.postconf.get(param) not in value:
+                    self.postconf.set(param, value[0])
+            else:
+                self.postconf.set(param, value)
 
     def deploy_cert(self, domain, cert_path,
                     key_path, chain_path, fullchain_path):
@@ -192,16 +246,19 @@ class Installer(plugins_common.Installer):
         """
         # pylint: disable=unused-argument
         self.save_notes.append("Configuring TLS for {0}".format(domain))
-        self._set_config_var(PARAMS[self.algorithm]["cert"], fullchain_path)
-        self._set_config_var(PARAMS[self.algorithm]["key"], key_path)
-        self._set_config_var("smtpd_tls_mandatory_protocols", "!SSLv2, !SSLv3")
-        self._set_config_var("smtpd_tls_protocols", "!SSLv2, !SSLv3")
-        self._set_config_var("smtpd_tls_loglevel", "1")
-        self._set_config_var("smtpd_tls_received_header", "yes")
+        self.postconf.set("smtpd_tls_cert_file", fullchain_path)
+        self.postconf.set("smtpd_tls_key_file", key_path)
+        self._set_vars(default_server_vars)
+        self._set_vars(default_client_vars)
+        self.set_domainwise_tls_policies()
+        policy_cf_entry = "texthash:" + self.postfix_policy_file
+        self.postconf.set("smtp_tls_policy_maps", policy_cf_entry)
+        self.postconf.set("smtp_tls_CAfile", self.ca_file)
+        self._update_CAfile()
 
-        # Don't configure opportunistic TLS if it's currently mandatory
-        if self._get_config_var("smtpd_tls_security_level") != "encrypt":
-            self._set_config_var("smtpd_tls_security_level", "may")
+    def _update_CAfile(self):
+        # TODO (sydneyli): Discover this directory or ask for user input.
+        os.system("cat /usr/share/ca-certificates/mozilla/*.crt > " + self.ca_file)
 
     def enhance(self, domain, enhancement, options=None):
         """Raises an exception for request for unsupported enhancement.
@@ -235,12 +292,10 @@ class Installer(plugins_common.Installer):
         :raises errors.PluginError: when save is unsuccessful
 
         """
-        if self.proposed_changes:
-            save_files = set((os.path.join(self.config_dir, "main.cf"),))
-            self.add_to_checkpoint(save_files,
-                                   "\n".join(self.save_notes), temporary)
-            self._write_config_changes()
-            self.proposed_changes.clear()
+        save_files = set((os.path.join(self.config_dir, "main.cf"),))
+        self.add_to_checkpoint(save_files,
+                               "\n".join(self.save_notes), temporary)
+        self._write_config_changes()
 
         del self.save_notes[:]
 
@@ -308,9 +363,13 @@ class Installer(plugins_common.Installer):
 
         """
         try:
+            self._run_postfix_subcommand("stop")
+        except subprocess.CalledProcessError as e:
+            raise errors.PluginError("Postfix failed to stop, %s" % e)
+        try:
             self._run_postfix_subcommand("start")
-        except subprocess.CalledProcessError:
-            raise errors.PluginError("Postfix failed to start")
+        except subprocess.CalledProcessError as e:
+            raise errors.PluginError("Postfix failed to start, %s" % e)
 
     def _run_postfix_subcommand(self, subcommand):
         """Runs a subcommand of the 'postfix' control program.
@@ -349,62 +408,13 @@ class Installer(plugins_common.Installer):
             raise errors.PluginError("Unable to determine the default value of"
                                      " the Postfix parameter {0}".format(name))
 
-    def _get_config_var(self, name):
-        """Return the value of the specified Postfix config parameter.
-
-        If there is an unsaved change modifying the value of the
-        specified config parameter, the value after this proposed change
-        is returned rather than the current value. If the value is
-        unset, `None` is returned.
-
-        :param str name: name of the Postfix config parameter to return
-
-        :returns: value of the parameter included in postconf_args
-        :rtype: str or types.NoneType
-
-        :raises errors.PluginError: if an error occurs while running postconf
-            or parsing its output
-
-        """
-        if name in self.proposed_changes:
-            return self.proposed_changes[name]
-
-        try:
-            return self._get_value_from_postconf((name,))
-        except (subprocess.CalledProcessError, errors.PluginError):
-            raise errors.PluginError("Unable to determine the value of"
-                                     " the Postfix parameter {0}".format(name))
-
-    def _set_config_var(self, name, value):
-        """Set the Postfix config parameter name to value.
-
-        This method only stores the requested change in memory. The
-        Postfix configuration is not modified until save() is called.
-        If there's already an identical in progress change or the
-        Postfix configuration parameter already has the specified value,
-        no changes are made.
-
-        :param str name: name of the Postfix config parameter
-        :param str value: value to set the Postfix config parameter to
-
-        """
-        if self._get_config_var(name) != value:
-            self.proposed_changes[name] = value
-            self.save_notes.append("\t* Set {0} to {1}".format(name, value))
-
     def _write_config_changes(self):
         """Write proposed changes to the Postfix config.
 
         :raises errors.PluginError: if an error occurs
 
         """
-        try:
-            self._run_postconf_command(
-                "{0}={1}".format(name, value)
-                 for name, value in self.proposed_changes.items())
-        except subprocess.CalledProcessError:
-            raise errors.PluginError(
-                "An error occurred while updating your Postfix config.")
+        self.postconf.flush()
 
     def _get_value_from_postconf(self, postconf_args):
         """Runs postconf and extracts the specified config value.

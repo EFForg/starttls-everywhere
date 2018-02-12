@@ -1,6 +1,7 @@
 """Tests for certbot_postfix.installer."""
 import functools
 import os
+import shutil
 import subprocess
 import unittest
 
@@ -18,11 +19,14 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         self.config.postfix_ctl = "postfix"
         self.config.postfix_config_dir = self.tempdir
         self.config.postfix_config_utility = "postconf"
-        self.mock_postfix = MockPostfix(self.tempdir,
-                                        {"mail_version": "3.1.4"})
+        self.config.postfix_policy_file = os.path.join(self.tempdir, "config.json")
+        shutil.copyfile("test_data/config.json", self.config.postfix_policy_file)
+    
+        self.mock_postfix = MockPostfix(self.tempdir, {"mail_version": "3.1.4"})
+        self.mock_postconf = MockPostconf(self.tempdir, {"mail_version": "3.1.4"})
 
     def test_add_parser_arguments(self):
-        options = set(('ctl', 'config-dir', 'config-utility',))
+        options = set(('ctl', 'config-dir', 'config-utility', 'policy-file',))
         mock_add = mock.MagicMock()
 
         from certbot_postfix import installer
@@ -73,6 +77,7 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         self.config.postfix_config_dir = None
 
         self.mock_postfix.set_value("config_directory", expected)
+        self.mock_postconf.set("config_directory", expected)
         exe_exists_path = "certbot_postfix.installer.certbot_util.exe_exists"
         with mock.patch(exe_exists_path, return_value=True):
             self._mock_postfix_and_call(installer.prepare)
@@ -83,6 +88,7 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         installer = self._create_installer()
         mock_exe_exists.return_value = True
         self.mock_postfix.set_value("mail_version", "0.0.1")
+        self.mock_postconf.set("mail_version", "0.0.1")
         self._mock_postfix_and_call(
             self.assertRaises, errors.NotSupportedError, installer.prepare)
 
@@ -96,6 +102,7 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         installer = self._create_prepared_installer()
         version = "3.1.2"
         self.mock_postfix.set_value("mail_version", version)
+        self.mock_postconf.set("mail_version", version)
 
         output = self._mock_postfix_and_call(installer.more_info)
         self.assertTrue("Postfix" in output)
@@ -108,6 +115,7 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
                   "myorigin": "example.org"}
         for name, value in config.items():
             self.mock_postfix.set_value(name, value)
+            self.mock_postconf.set(name, value)
 
         installer = self._create_prepared_installer()
         result = self._mock_postfix_and_call(installer.get_all_names)
@@ -131,8 +139,8 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
     def test_deploy_and_save(self):
         self._test_deploy_and_save_common({"smtpd_tls_security_level": "may"})
 
-    def test_deploy_and_save2(self):
-        self.mock_postfix.set_value("smtpd_tls_security_level", "encrypt")
+    def test_deploy_and_save_doesnt_downgrade_tls(self):
+        self.mock_postconf.set("smtpd_tls_security_level", "encrypt")
         self._test_deploy_and_save_common({"smtpd_tls_security_level":
                                            "encrypt"})
 
@@ -154,18 +162,19 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         expected_config.setdefault("smtpd_tls_cert_file", fullchain_path)
         expected_config.setdefault("smtpd_tls_key_file", key_path)
         for key, value in expected_config.items():
-            self.assertEqual(self.mock_postfix.get_value(key), value)
+            # self.assertEqual(self.mock_postfix.get_value(key), value)
+            self.assertEqual(self.mock_postconf.get(key), value)
 
-    def test_save_error(self):
-        installer = self._create_prepared_installer()
-        self._mock_postfix_and_call(
-            installer.deploy_cert, "example.org", "foo", "bar", "baz", "qux")
-
-        check_call_path = "certbot_postfix.installer.util.check_output"
-        with mock.patch(check_call_path) as mock_check_call:
-            mock_check_call.side_effect = subprocess.CalledProcessError(42,
-                                                                        "foo")
-            self.assertRaises(errors.PluginError, installer.save)
+    # TODO (sydli): put this in postconf_test
+#     def test_save_error(self):
+#         installer = self._create_prepared_installer()
+#         self._mock_postfix_and_call(
+#             installer.deploy_cert, "example.org", "foo", "bar", "baz", "qux")
+# 
+#         check_call_path = "certbot_postfix.installer.util.check_output"
+#         with mock.patch(check_call_path) as mock_check_call:
+#             mock_check_call.side_effect = subprocess.CalledProcessError(42, "foo")
+#             self.assertRaises(errors.PluginError, installer.save)
 
     def test_enhance(self):
         self.assertRaises(errors.PluginError,
@@ -252,12 +261,14 @@ class InstallerTest(certbot_test_util.ConfigTestCase):
         check_call_path = "certbot_postfix.installer.subprocess.check_call"
         check_output_path = "certbot_postfix.installer.util.check_output"
 
-        with mock.patch(check_call_path) as mock_check_call:
-            mock_check_call.side_effect = self.mock_postfix
-            with mock.patch(check_output_path) as mock_check_output:
-                mock_check_output.side_effect = self.mock_postfix
-                return func(*args, **kwargs)
+        with mock.patch("certbot_postfix.installer.postconf.ConfigMain", return_value=self.mock_postconf):
+            with mock.patch(check_call_path) as mock_check_call:
+                mock_check_call.side_effect = self.mock_postfix
+                with mock.patch(check_output_path) as mock_check_output:
+                    mock_check_output.side_effect = self.mock_postfix
+                    return func(*args, **kwargs)
 
+# TODO (sydli): Remove this object!
 
 class MockPostfix(object):
     """A callable to mimic Postfix command line utilities.
@@ -346,6 +357,17 @@ class MockPostfix(object):
             f.writelines("{0} = {1}\n".format(key, value)
                          for key, value in config.items())
 
+class MockPostconf(object):
+    def __init__(self, tempdir, init_keys={}):
+        self._db = init_keys
+        self._db['config_directory'] = tempdir
+    def get(self, name):
+        if name not in self._db: return None
+        return self._db[name]
+    def set(self, name, value):
+        self._db[name] = value
+    def flush(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()  # pragma: no cover
