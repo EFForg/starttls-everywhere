@@ -1,10 +1,46 @@
 # STARTTLS Everywhere
 
+## Layout
+
+`certbot-postfix/` contains all the code for the Certbot plugin for postfix.
+`scripts/` contains a bunch of bootstrapping scripts for running tests and `/tests/` contains all the integration tests.
+
+`starttls-policy` is the Python API for accessing the policy file.
 
 ## Example usage
 
 **WARNING: this is a pre-alpha codebase.  Do not run it on production
 mailservers!!!**
+
+[TODO(sydli): Fix up README]
+
+Our postfix plugin works for Postfix >2.6. Install `certbot` and run `pip install certbot-postfix/`.
+
+Run your favorite certbot authenticator [TODO: howto] to acquire a certificate for your server.
+```
+certbot --authenticator <nginx/apache/webroot> --installer certbot-postfix:postfix
+```
+
+Or, if you already have certificates you want to use then just run
+```
+certbot install --cert-path <certificate> --key-path <key> --installer certbot-postfix:postfix
+```
+
+## Running tests
+To run integration tests, run 
+```
+docker-compose build && docker-compose up
+```
+
+There's an even more comprehensive set of integration tests which uses `docker-compose` to spin up two servers and a local DNS in order to bounce encrypted mail between them.
+To run those, run 
+```
+docker-compose -f docker-compose.demo.yml build
+docker-compose -f docker-compose.demo.yml up
+```
+
+----
+*The below may be outdated!!!*
 
 
 If you have a Postfix server you're willing to endanger deliverability on, you

@@ -1,0 +1,34 @@
+FROM python:2-alpine
+MAINTAINER Sydney Li
+
+WORKDIR /opt/starttls-everywhere
+RUN apk add --no-cache certbot postfix dnsmasq mutt vim
+RUN apk add --no-cache gcc
+RUN apk add --no-cache musl-dev libffi-dev openssl-dev
+RUN apk add --no-cache bash openrc
+RUN pip install python-dateutil
+
+# RUN apk add --no-cache open-rc nginx
+# RUN rc-update add nginx default
+# RUN rc-service nginx start
+
+ADD vagrant-shared/ .
+ADD certbot-postfix/ certbot-postfix/
+ADD starttls-policy/ starttls-policy/
+
+# Use editable flag here to take advantage of image caching.
+# Should remove for production docker image.
+RUN pip install --no-cache-dir --editable \
+    starttls-policy
+RUN pip install --no-cache-dir --editable \
+    certbot-postfix
+
+# DNS setup
+RUN echo selfmx > /etc/dnsmasq.conf
+# RUN ["/bin/bash", "-c", "cat >> /etc/hosts <<EOF\n \
+#     10.5.0.5 sender sender.example.com\n \
+#     10.5.0.6 valid valid-example-recipient.com\n \
+#     EOF"]
+
+EXPOSE 25 587
+

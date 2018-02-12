@@ -19,12 +19,12 @@ echo selfmx > /etc/dnsmasq.conf
 # /etc/hosts to answer queries.
 /etc/init.d/dnsmasq restart
 
-if [ "`hostname`" = "sender" ]; then
-  (while sleep 10; do
-    echo -e 'Subject: hi\n\nhi' | sendmail vagrant@valid-example-recipient.com
-   done) &
-  #ln -sf "/vagrant/postfix-config-sender-tls_policy.cf" /etc/postfix/tls_policy
-fi
+# if [ "`hostname`" = "sender" ]; then
+#   (while sleep 10; do
+#     echo -e 'Subject: hi\n\nhi' | sendmail vagrant@valid-example-recipient.com
+#    done) &
+#   #ln -sf "/vagrant/postfix-config-sender-tls_policy.cf" /etc/postfix/tls_policy
+# fi
 
 #ln -sf "/vagrant/postfix-config-`hostname`.cf" /etc/postfix/main.cf
 #ln -sf "/vagrant/certificates" /etc/certificates

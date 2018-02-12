@@ -1,0 +1,13 @@
+version: '2'
+services:
+  recipient:
+    build: .
+    hostname: "valid.example-recipient.com"
+    ports:
+      - "25"
+      - "587"
+    stdin_open: true
+    tty: true
+    environment:
+      - NAME=valid-example-recipient
+    command: "/bin/bash -c ./run_tests.sh"

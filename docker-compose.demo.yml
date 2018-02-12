@@ -1,0 +1,42 @@
+version: '2'
+services:
+  sender:
+    build: .
+    hostname: "sender.example.com"
+    networks:
+      priv-net:
+        ipv4_address: 10.5.0.5
+    ports:
+      - "25:25"
+      - "587:587"
+    extra_hosts:
+      - "valid.example-recipient.com:10.5.0.6"
+    environment:
+      - NAME=sender
+    stdin_open: true
+    tty: true
+    command: "/bin/bash -c ./run_sender.sh"
+  recipient:
+    build: .
+    hostname: "valid.example-recipient.com"
+    networks:
+      priv-net:
+        ipv4_address: 10.5.0.6
+    ports:
+      - "25"
+      - "587"
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "sender.example.com:10.5.0.5"
+    environment:
+      - NAME=valid-example-recipient
+    command: "/bin/bash -c ./run_recipient.sh"
+
+networks:
+  priv-net:
+    driver: bridge
+    ipam:
+     config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
