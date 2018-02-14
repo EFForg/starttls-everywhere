@@ -1,5 +1,5 @@
 #!/bin/bash
-./setup.sh
+./scripts/setup.sh
 ./tests/libs/bats/bin/bats tests/integration.bats
 
 

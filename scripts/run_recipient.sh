@@ -1,5 +1,6 @@
 #!/bin/bash
-./setup_dns.sh
-./setup.sh
+
+./scripts/setup_dns.sh
+./scripts/setup.sh
 ./tests/libs/bats/bin/bats tests/integration_recipient.bats
 

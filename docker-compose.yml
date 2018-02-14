@@ -10,4 +10,4 @@ services:
     tty: true
     environment:
       - NAME=valid-example-recipient
-    command: "/bin/bash -c ./run_tests.sh"
+    command: "/bin/bash -c ./scripts/run_tests.sh"
