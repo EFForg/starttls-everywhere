@@ -15,6 +15,11 @@ rand_str = lambda n:''.join([random.choice(string.lowercase) for i in xrange(n)]
 class PostConfTest(unittest.TestCase):
     """Tests for certbot_postfix.util.PostfixUtilBase."""
 
+    def test_read_defalut(self):
+        from certbot_postfix.postconf import ConfigMain
+        config = ConfigMain('postconf')
+        self.assertEqual(config.get_default('smtpd_sasl_auth_enable'), 'no')
+
     def test_read_write(self):
         from certbot_postfix.postconf import ConfigMain
         tmpdir = tempfile.mkdtemp(suffix=rand_str(10))

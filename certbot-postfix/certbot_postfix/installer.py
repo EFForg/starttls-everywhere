@@ -120,11 +120,12 @@ class Installer(plugins_common.Installer):
         # Set initially here so we can grab configuration directory if needed.
         self.postconf = postconf.ConfigMain(self.conf('config-utility'))
         self._set_config_dir()
+        self.postfix = util.PostfixUtil(self.config_dir)
         self.policy_file = self.conf("policy-file")
         self.policy = starttls_policy.Config()
         self.policy.load_from_json_file(self.policy_file)
         self._check_version()
-        self.config_test()
+        self.postfix.test()
         self._lock_config_dir()
         self.postfix_policy_file = os.path.join(self.config_dir, POLICY_FILENAME)
         self.ca_file = os.path.join(self.config_dir, CA_FILENAME)
@@ -208,7 +209,7 @@ class Installer(plugins_common.Installer):
         :raises .PluginError: Unable to find Postfix version.
 
         """
-        mail_version = self._get_config_default("mail_version")
+        mail_version = self.postconf.get_default("mail_version")
         return tuple(int(i) for i in mail_version.split('.'))
 
     def get_all_names(self):
@@ -295,196 +296,17 @@ class Installer(plugins_common.Installer):
         save_files = set((os.path.join(self.config_dir, "main.cf"),))
         self.add_to_checkpoint(save_files,
                                "\n".join(self.save_notes), temporary)
-        self._write_config_changes()
+        self.postconf.flush()
 
         del self.save_notes[:]
 
         if title and not temporary:
             self.finalize_checkpoint(title)
 
-    def config_test(self):
-        """Make sure the configuration is valid.
-
-        :raises .MisconfigurationError: if the config is invalid
-
-        """
-        try:
-            self._run_postfix_subcommand("check")
-        except subprocess.CalledProcessError:
-            raise errors.MisconfigurationError(
-                "Postfix failed internal configuration check.")
-
     def restart(self):
         """Restart or refresh the server content.
 
         :raises .PluginError: when server cannot be restarted
-
         """
-        logger.info("Reloading Postfix configuration...")
-        if self._is_postfix_running():
-            self._reload()
-        else:
-            self._start()
+        self.postfix.restart()
 
-    def _is_postfix_running(self):
-        """Is Postfix currently running?
-
-        Uses the 'postfix status' command to determine if Postfix is
-        currently running using the specified configuration files.
-
-        :returns: True if Postfix is running, otherwise, False
-        :rtype: bool
-
-        """
-        try:
-            self._run_postfix_subcommand("status")
-        except subprocess.CalledProcessError:
-            return False
-        return True
-
-    def _reload(self):
-        """Instructions Postfix to reload its configuration.
-
-        If Postfix isn't currently running, this method will fail.
-
-        :raises .PluginError: when Postfix cannot reload
-
-        """
-        try:
-            self._run_postfix_subcommand("reload")
-        except subprocess.CalledProcessError:
-            raise errors.PluginError(
-                "Postfix failed to reload its configuration.")
-
-    def _start(self):
-        """Instructions Postfix to start running.
-
-        :raises .PluginError: when Postfix cannot start
-
-        """
-        try:
-            self._run_postfix_subcommand("stop")
-        except subprocess.CalledProcessError as e:
-            raise errors.PluginError("Postfix failed to stop, %s" % e)
-        try:
-            self._run_postfix_subcommand("start")
-        except subprocess.CalledProcessError as e:
-            raise errors.PluginError("Postfix failed to start, %s" % e)
-
-    def _run_postfix_subcommand(self, subcommand):
-        """Runs a subcommand of the 'postfix' control program.
-
-        If the command fails, the exception is logged at the DEBUG
-        level.
-
-        :param str subcommand: subcommand to run
-
-        :raises subprocess.CalledProcessError: if the command fails
-
-        """
-        cmd = [self.conf("ctl")]
-        if self.conf("config-dir") is not None:
-            cmd.extend(("-c", self.conf("config-dir"),))
-        cmd.append(subcommand)
-
-        util.check_call(cmd)
-
-    def _get_config_default(self, name):
-        """Return the default value of the specified config parameter.
-
-        :param str name: name of the Postfix config default to return
-
-        :returns: default for the specified configuration parameter if it
-            exists, otherwise, None
-        :rtype: str or types.NoneType
-
-        :raises errors.PluginError: if an error occurs while running postconf
-            or parsing its output
-
-        """
-        try:
-            return self._get_value_from_postconf(("-d", name,))
-        except (subprocess.CalledProcessError, errors.PluginError):
-            raise errors.PluginError("Unable to determine the default value of"
-                                     " the Postfix parameter {0}".format(name))
-
-    def _write_config_changes(self):
-        """Write proposed changes to the Postfix config.
-
-        :raises errors.PluginError: if an error occurs
-
-        """
-        self.postconf.flush()
-
-    def _get_value_from_postconf(self, postconf_args):
-        """Runs postconf and extracts the specified config value.
-
-        It is assumed that the name of the Postfix config parameter to
-        parse from the output is the last value in postconf_args. If the
-        value is unset, `None` is returned. If an error occurs, the
-        relevant information is logged before an exception is raised.
-
-        :param collections.Iterable args: arguments to postconf
-
-        :returns: value of the parameter included in postconf_args
-        :rtype: str or types.NoneType
-
-        :raises errors.PluginError: if unable to parse postconf output
-        :raises subprocess.CalledProcessError: if postconf fails
-
-        """
-        name = postconf_args[-1]
-        output = self._run_postconf_command(postconf_args)
-
-        try:
-            return self._parse_postconf_output(output, name)
-        except errors.PluginError:
-            logger.debug("An error occurred while parsing postconf output",
-                         exc_info=True)
-            raise
-
-    def _run_postconf_command(self, args):
-        """Runs a postconf command using the selected config.
-
-        If postconf exits with a nonzero status, the error is logged
-        before an exception is raised.
-
-        :param collections.Iterable args: additional arguments to postconf
-
-        :returns: stdout output of postconf
-        :rtype: str
-
-        :raises subprocess.CalledProcessError: if the command fails
-
-        """
-
-        cmd = [self.conf("config-utility")]
-        if self.conf("config-dir") is not None:
-            cmd.extend(("-c", self.conf("config-dir"),))
-        cmd.extend(args)
-
-        return util.check_output(cmd)
-
-    def _parse_postconf_output(self, output, name):
-        """Parses postconf output and returns the specified value.
-
-        If the specified Postfix parameter is unset, `None` is returned.
-        It is assumed that most one configuration parameter will be
-        included in the given output.
-
-        :param str output: output from postconf
-        :param str name: name of the Postfix config parameter to obtain
-
-        :returns: value of the parameter included in postconf_args
-        :rtype: str or types.NoneType
-
-        :raises errors.PluginError: if unable to parse postconf ouput
-
-        """
-        expected_prefix = name + " ="
-        if output.count("\n") != 1 or not output.startswith(expected_prefix):
-            raise errors.PluginError(
-                "Unexpected output '{0}' from postconf".format(output))
-
-        value = output[len(expected_prefix):].strip()
-        return value if value else None

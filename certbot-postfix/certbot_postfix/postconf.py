@@ -1,9 +1,4 @@
 """Classes that wrap the postconf command line utility.
-
-These classes allow you to interact with a Postfix config like it is a
-dictionary, with the getting and setting of values in the config being
-handled automatically by the class.
-
 """
 import collections
 
@@ -25,18 +20,39 @@ class ConfigMain(util.PostfixUtilBase):
         self._read_from_conf()
 
     def _read_from_conf(self):
+        """Reads initial parameter state from main.cf
+        """
         out = self._get_output()
         for name, value in _parse_main_output(out):
             if not value:
                 value = ""
             self._db[name] = value
 
+    def get_default(self, name):
+        """Retrieves default value of parameter |name| from postfix parameters.
+            :param str name: The name of the parameter to fetch.
+            :rtype str: The default value of parameter |name|.
+        """
+        out = self._get_output(['-d', name])
+        _, value = next(_parse_main_output(out), (None, None))
+        return value
+
     def get(self, name):
+        """Retrieves working value of parameter |name| from postfix parameters.
+            :param str name: The name of the parameter to fetch.
+            :rtype str: The value of parameter |name|.
+        """
         if name in self._updated:
             return self._updated[name]
         return self._db[name]
 
     def set(self, name, value):
+        """Sets parameter |name| to |value|.
+        Note that this function does not flush these parameter values to main.cf;
+        To do that, use |flush|.
+            :param str name: The name of the parameter to set.
+            :param str value: The value of the parameter.
+        """
         if name not in self._db:
             return # TODO: error here
         # We've updated this name before.
@@ -51,8 +67,11 @@ class ConfigMain(util.PostfixUtilBase):
             # If we're just setting the default value, ignore.
             if value != self._db[name]:
                 self._updated[name] = value
-            
+
     def flush(self):
+        """Flushes all parameter changes made using "self.set" to "main.cf".
+            :raises error.PluginError: When we can't flush to main.cf.
+        """
         if len(self._updated) == 0:
             return
         args = ['-e']
@@ -83,7 +102,6 @@ class ConfigMain(util.PostfixUtilBase):
                 all_extra_args.extend(args_list)
 
         return super(ConfigMain, self)._call(all_extra_args)
-
 
 
 def _parse_main_output(output):
