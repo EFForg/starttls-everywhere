@@ -1,0 +1,23 @@
+{
+  "author": "Electronic Frontier Foundation https://eff.org",
+  "expires": "2015-08-01T12:00:00+08:00",
+  "timestamp": 1401414363,
+  "tls-policies": {
+    ".yahoodns.net": {
+      "mode": "testing",
+      "mxs": [".yahoodns.net"],
+      "require-valid-certificate": true
+    },
+    ".eff.org": {
+      "mode": "enforce",
+      "min-tls-version": "TLSv1.1",
+      "require-valid-certificate": true
+    },
+    ".google.com": {
+      "require-valid-certificate": true,
+      "min-tls-version": "TLSv1.1",
+      "mode": "testing",
+      "tls-report": "https://google.com/post/reports/here"
+    }
+  }
+}

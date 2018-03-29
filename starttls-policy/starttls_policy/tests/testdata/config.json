@@ -1,0 +1,39 @@
+{
+  "timestamp": "2014-06-06T14:30:16+00:00",
+  "author": "Electronic Frontier Foundation https://eff.org",
+  "expires": "2014-06-06T14:30:16+00:00",
+  "pinsets": {
+    "eff": {
+      "static-spki-hashes": [
+        "sha1/5R0zeLx7EWRxqw6HRlgCRxNLHDo=",
+        "sha1/YlrkMlC6C4SJRZSVyRvnvoJ+8eM="
+      ]
+    }
+   },
+  "policy-aliases": {
+    "gmail": {
+      "mode": "testing",
+      "report-uris": ["https://google.com/post/reports/here"],
+      "mxs": [".mail.google.com"]
+    }
+  },
+  "policies": {
+    "yahoo.com": {
+      "mode": "enforce",
+      "mxs": [".yahoodns.net"]
+     },
+    "eff.org": {
+      "mode": "enforce",
+      "pin": "eff",
+      "mxs": [".eff.org"]
+    },
+    "gmail.com": {
+      "policy-alias": "gmail"
+    },
+    "example.com": {
+      "mode": "testing",
+      "mta-sts": true,
+      "mxs": ["mail.example.com", ".example.net"]
+    }
+  }
+}
