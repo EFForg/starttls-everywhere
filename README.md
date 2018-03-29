@@ -25,12 +25,16 @@ This will:
 
 ## Project status
 
+*UPDATE (3/2018)* STARTTLS Everywhere development is re-re-starting after another hiatus.
+
 STARTTLS Everywhere development is re-starting after a hiatus.  Initial
 objectives:
 
 * Postfix configuration generation: working pre-alpha, not yet safe
-* Email security database: working pre-alpha, definitely not yet safe
 * Fully integrated Let's Encrypt client postfix plugin: in progress, not yet ready
+ - Progress on these two will be tracked in [the Certbot project](https://github.com/certbot/certbot)
+* Email security database: working pre-alpha, definitely not yet safe
+ - We'll have an endpoint with this up at dl.eff.org in the coming weeks.
 * DANE support: none yet
 * DEEP support: none yet
 * SMTP-STS integration: none yet
@@ -46,6 +50,7 @@ Jacob Hoffman-Andrews <jsha@eff.org>,
 Peter Eckersley <pde@eff.org>,     
 Daniel Wilcox <dmwilcox@gmail.com>,     
 Aaron Zauner <azet@azet.org>
+Sydney Li <sydney@eff.org>
 
 ## Mailing List
 
@@ -92,98 +97,26 @@ Attacker has control of routers on the path between two MTAs of interest. Attack
 
 Our goals can also be accomplished through use of [DNSSEC and DANE](http://tools.ietf.org/html/draft-ietf-dane-smtp-with-dane-10), which is certainly a more scalable solution. However, operators have been very slow to roll out DNSSEC supprt. We feel there is value in deploying an intermediate solution that does not rely on DNSSEC. This will improve the email security situation more quickly. It will also provide operational experience with authenticated SMTP over TLS that will make eventual rollout of DANE-based solutions easier.
 
+## Interaction with MTA-STS
+
+MTA-STS is a new IETF draft that enables senders to discover and cache a TLS policy for recipients. Recipients provide a TXT record over DNS to indicate whether they support MTA-STS, and then host a policy file at `https://mta-sts.<domain>/.well-known/mta-sts.txt`. Since MTA-STS is still TOFU, STARTTLS-Everywhere can still help bootstrap that "first use" in the event of a network attacker.
+
+If a sender discovers a valid MTA-STS policy file for a recipient, or has a MTA-STS policy cached that is more recent than our database, then they should prefer that policy. Our database also provides the flag `mta-sts` (which will pre-empt the other policy settings) to indicate that senders should expect the recipient domain to have STS support.
+
+If MTA-STS is more widely deployed, the role of this database will shift towards a directory of domains that support MTA-STS.
+
 ## Detailed design
 
 Senders need to know which target hosts are known to support STARTTLS, and how to authenticate them. Since the network cannot be trusted to provide this information, it must be communicated securely out-of-band. We will provide:
 
   (a) a configuration file format to convey STARTTLS support for recipient domains,
 
-  (b) Python code (config-generator) to transform (a) into configuration files for popular MTAs., and
+  (b) Python code (in the form of various Certbot plugins) to transform (a) into configuration files for popular MTAs., and
 
   (c) a method to create and securely distribute files of type (a) for major email domains that that agree to be included, plus any other domains that proactively request to be included.
 
 ## File Format
-
-The basic file format will be JSON with comments (http://blog.getify.com/json-comments/). Example:
-
-    {
-      // Canonical URL https://eff.org/starttls-everywhere/config -- redirects to latest version
-      "timestamp": "2014-06-06T14:30:16+00:00",
-      // "timestamp": 1401414363,  : also acceptable
-      "author": "Electronic Frontier Foundation https://eff.org",
-      "expires": "2014-06-06T14:30:16+00:00",
-      "tls-policies": {
-        // These match on the MX domain.
-        "*.yahoodns.net": {
-           "require-valid-certificate": true,
-         }
-        "*.eff.org": {
-          "require-tls": true,
-          "min-tls-version": "TLSv1.1",
-          "enforce-mode": "enforce"
-          "accept-spki-hashes": [
-            "sha1/5R0zeLx7EWRxqw6HRlgCRxNLHDo=",
-            "sha1/YlrkMlC6C4SJRZSVyRvnvoJ+8eM="
-          ]
-        }
-        "*.google.com": {
-          "require-valid-certificate": true,
-          "min-tls-version": "TLSv1.1",
-          "enforce-mode": "log-only",
-          "error-notification": "https://google.com/post/reports/here"
-        },
-      }
-      // Since the MX lookup is not secure, we list valid responses for each
-      // address domain, to protect against DNS spoofing.
-      "acceptable-mxs": {
-        "yahoo.com": {
-          "accept-mx-domains": ["*.yahoodns.net"]
-        }
-        "gmail.com": {
-          "accept-mx-domains": ["*.google.com"]
-        }
-        "eff.org": {
-          "accept-mx-domains": ["*.eff.org"]
-        }
-      }
-    }
-
-
-A user of this file format may choose to accept multiple files. For instance, the EFF might provide an overall configuration covering major mail providers, and another organization might produce an overlay for mail providers in a specific country. If so, they override each other on a per-domain basis.
-
-The _timestamp_ field is an integer number of epoch seconds from 00:00:00 UTC on 1 January 1970. When retrieving a fresh configuration file, config-generator should validate that the timestamp is greater than or equal to the version number of the file it already has.
-
-There is no inline signature field. The configuration file should be distributed with authentication using an offline signing key.
-
-Option 1: Plain JSON distributed with a signature using gpg --clearsign. Config-generator should validate the signature against a known GPG public key before extracting. The public key is part of the permanent system configuration, like the fetch URL.
-
-Option 2: Git is a revision control system built on top of an authenticated, history-preserving file system.  Let's use it as an authenticated, history preserving file system: valid versions of recipient policy files may be fetched and verified via signed git tags.  [Here's an example shell recipe to do this.](https://gist.github.com/jsha/6230206e89759cc6e00d)
-
-Config-generator should attempt to fetch the configuration file daily and transform it into MTA configs. If there is a retrieval failure, and the cached configuration file has an 'expires' time past the current date, an alert should be raised to the system operator and all existing configs from config-generator should be removed, reverting the MTA configuration to use opportunistic TLS for all domains.
-
-**address-domains**
-
-The _address-domains_ field maps from mail domains (the part of an address after the "@") onto a list of properties for that domain. Matching of mail domains is on an exact-match basis, not a subdomain basis. For instance, eff.org would be listed separately from lists.eff.org in the _address-domains_ section.
-
-Currently the only property defined for _address-domains_ is _accept-mx-domains_, a list. If an MX lookup for a listed address domain returns a hostname that is not a subdomain of one of the domains listed in the _accept-mx-domains_ property, the MTA should fail delivery or log an advisory failure, as appropriate. Matching of MX hostnames against the _accept-mx-domains_ list is on a subdomain basis. For instance, if an MX record for yahoo.com lists mta7.am0.yahoodns.net, and the _accept-mx-domains_ property for yahoo.com is ["yahoodns.net"], that should be considered a match. All domains listed in any _accept-mx-domains_ list must correspond to an exactly matching field in the _mx-domains_ config section.
-
-The _accept-mx-domains_ mechanism partially solves the problem of DNS MITM. It doesn't completely solve the problem, since an attacker might somehow control a different hostname under an acceptable domain, e.g. evil.yahoodns.net. But it strikes a balance between improving security and allowing mail operators to change configuration as needed. Some mail operators delegate their MX handling to a third-party provider (i.e. Google Apps for Your Domain). If those operators are included in STARTTLS Everywhere and wish to change providers, they will have to first send an update to their _accept-mx-domains_ to include their new provider.
-
-**mx-domains**
-
-The keys of this section are MX domains as described above for the _accept-mx-domains_ property. Each _mx-domain_ entry must be an exact match with an entry in one of the _accept-mx-domains_ lists provided. No _mx-domain_can be a subdomain of any other _mx-domain_in the configuration file. Fields in this section specify minimum security requirements that should be applied when connecting to any MX hostname that is a subdomain of the specified _mx-domain_.
-
-Implicitly each _mx-domain_ listed has a property _require-tls: true_. MX domains that do not support TLS will not be listed. The only required property is _enforce-mode_, which must be either _log-only_ or _enforce_. If _enforce-mode_ is _log-only_, the generated configs will not stop mail delivery on policy failures, but will produce logging information.
-
-If the _min-tls-version_ property is present, sending mail to domains under this policy should fail if the sending MTA cannot negotiate a TLS version equal to or greater than the listed version. Valid values are _TLSv1, TLSv1.1, and TLSv1.2._
-
-_Require-valid-certificate_defaults to false. If the _require-valid-certificate_ property is 'true' for a given _mx-domain_ the certificate presented must be valid for a hostname that is subdomain of the _mx-domain_. Validity means all of these must be true:
-
-1.  The CN or a DNS entry under subjectAltName matches an appropriate hostname.
-2.  The certificate is unexpired.
-3.  There is a valid chain from the certificate to a root certificate included in [Mozilla's trust store](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/included/) (available as [Debian package ca-certificates](https://packages.debian.org/sid/ca-certificates)).
-
-The _accept-pinset_ field references an entry in the pinsets list, which has the same format and semantics as [Chrome's pinning list](https://src.chromium.org/chrome/trunk/src/net/http/transport_security_state_static.json). Most _mx-domain_s should specify a pinset that describes trust roots rather than leaf certificates, but both are possible. Pinning will only be added at the request of mail operators because it requires operators be careful when issuing new leaf certificates.
+Details w.r.t. the file format can be found in [`RULES.md`](RULES.md).
 
 ## Pinning and hostname verification
 
@@ -191,21 +124,13 @@ Like Chrome and Firefox we want to encourage pinning to a trusted root or interm
 
 The other option is to automatically pin leaf certs as observed in the wild.  This would be one solution to the hostname verification and self-signed certificate problem. However, it is a non-starter. Even if we expect mail operators to auto-update configuration on a daily basis, this approach cannot add new certs until they are observed in the wild. That means that any time an operator rotates keys on a mail server, there would be a significant window of time in which the new keys would be rejected.
 
-We do not attempt to solve the self-signed certificate problem. For mail hosts with self-signed certificates, we can require TLS but will not require validation of the certificates. Such hosts should be encouraged to upgrade to a CA-signed certificate that can be validated by senders.
+## Policy submission
 
-## Creating configuration
+Initially, changes to the policy file will be handled through pull requests to the `starttls-everywhere` Github repository. The updated policies will be validated manually, and if it's for a new domain, we ask for a contact e-mail in case we discover your configuration changes. If your domain fails policy validation in any way, we will not add it to the list until the issues are resolved.
 
-We have three options for creating the configuration file:
+In the future, we will automate this process. Operators will be able to submit mail domains to an endpoint which automatically validates the policy, and if the domain passes all checks, it will be queued for addition to the policy index. The pending changes for the policy index will be rolled into the repository on a regular (weekly or bi-weekly) basis.
 
-1.  Ask mail operators to submit policies for their domains which we incorporate.
-2.  Manually curate a set of policies for the top `N` mail domains.
-3.  Programmatically create a set of policies by connecting to the top N mail domains.
-
-For option (1), there's a bootstrapping problem: No one will opt in until it's useful; It won't be useful until people opt in. Option (1) does have the advantage that it's the only good way to get pinning directives.
-
-For option (3) we'd be likely to pull in bad policies that could result in failed delivery.
-
-We'll initially launch a demo using option (2), do some initial deployments to prove viability and delivery rate impact, and then start reaching out to operators to do option (1).
+Adding and removing domains from the list will be conservative. For inclusion in the list, the MTA's policy should be valid and its reporting endpoints, if specified, should be active. They must also present valid certificates and use at least TLS 1.0 in addition to properly supporting STARTTLS. We assume that if an MTA requests to be included on the list, they also somewhat care about security, and may as well do these other important things first! Since removal is also dangerous (allowing arbitrary removal can re-enable downgrade attacks), we will carefully audit and verify requests to be removed from the list manually.
 
 ## Distribution
 
@@ -215,11 +140,19 @@ Since recipient mail servers may abruptly stop supporting TLS, we will request t
 
 We may choose to implement a form of immutable log along the lines of certificate transparency. This would be appealing if we chose to use this mechanism to distribute expected leaf keys as a primary authentication mechanism, but as described in "Pinning and hostname verification," that's not a viable option. Instead we will rely on the CA ecosystem to do primary authentication, so an immutable log for this system is probably overkill, engineering-wise.
 
-## Python code
+## Tooling
 
-Config-generator should parse input JSON and produce output configs for various mail servers. It should not be possible for any input JSON to cause arbitrary code execution or even any MTA config directives beyond the ones that specifically impact the decision to deliver or bounce based on TLS support. For instance, it must not be possible for config-generator to output a directive to forward mail from one domain to another. Config-generator will have the option to directly pull the latest config from a URL, or from a file on local disk distributed regularly from another system that has outside network access.
+We will provide some tooling for using and enforcing the database. For starters, we've wrapped the policy index with a Python library, `policylist`.
 
-Config-generator will be manually updated by mail operators.
+In particular, the Certbot plugin for Postfix, in addition to installing certificates for the e-mail domain, will provide optional enhancements to:
+ - Enforce the policy DB (as sender) in Postfix configuration
+    - Can specify how to fall back: if hostname mismatch or STARTTLS misconfigured.
+ - Provide MTA-STS support (as receiver)
+    - This can be done for any mail domain with a valid certificate, and is not just specific to Postfix. 
+
+In the future, we plan on writing similar plugins for other popular MTAs. It should not be possible for any input JSON to cause arbitrary code execution or even any MTA config directives beyond the ones that specifically impact the decision to deliver or bounce based on TLS support. For instance, it must not be possible for any of these plugins to output a directive to forward mail from one domain to another.
+
+These plugins will have the option to directly pull the latest config from a URL, or from a file on local disk distributed regularly from another system that has outside network access. Certbot automatically comes shipped with a cronjob which runs renewal tasks; we can bootstrap this in order to occasionally fetch a more updated version of the configuration file.
 
 ## Testing
 
@@ -227,8 +160,11 @@ We will create a reproducible test configuration that can be run locally and exe
 
 Additionally, for ongoing monitoring of third-party deployments, we will create a canary mail domain that intentionally fails one of the tests but is included in the configuration file. For instance, starttls-canary.org would be listed in the configuration as requiring STARTTLS, but would not actually offer STARTTLS. Each time a mail operator commits to configuring STARTTLS Everywhere, we would request an account on their email domain from which to send automated daily email to starttls-canary.org. We should expect bounces. If such mail is successfully delivered to starttls-canary.org, that would indicate a configuration failure on the sending host, and we would manually notify the operator.
 
-## Failure reporting
+## Failure reporting and TLSRPT
 
 For the mail operator deploying STARTTLS Everywhere, we will provide log analysis scripts that can be used out-of-the-box to monitor how many delivery failures or would-be failures are due to STARTTLS Everywhere policies. These would be designed to run in a cron job or small opt-in daemon and send notices only when STARTTLS Everywhere-related failures exceed a certain percentage for any given recipient domains. For very high-volume mail operators, it would likely be necessary to adapt the analysis scripts to their own logging and analysis infrastructure.
 
 For recipient domains who are listed in the STARTTLS Everywhere configuration, we would provide a configuration field to specify an email address or HTTPS URL to which that sender domains could send failure information. This would provide a mechanism for recipient domains to identify problems with their TLS deployment and fix them. The reported information should not contain any personal information, including email addresses.  Example fields for failure reports: timestamps at minute granularity, target MX hostname, resolved MX IP address, failure type, certificate. Since failures are likely to come in batches, the error sending mechanism should batch them up and summarize as necessary to avoid flooding the recipient.
+
+The format of the failure report would match TLSRPT's specifications. TLSRPT is a new IETF draft that asks receivers to advertise a reporting endpoint via a TXT record over DNS. The endpoint can either be `mailto:` or a regular URL. Senders, when encountering either a delivery failure or configuration mismatch with an MTA-STS policy, should submit an error report to this endpoint.
+
