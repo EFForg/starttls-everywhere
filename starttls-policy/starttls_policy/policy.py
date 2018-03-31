@@ -115,7 +115,7 @@ class Config(object):
         """ Iterates TLS policies in the configuration file.
         Each item is a (mail domain, Policy) tuple.
         """
-        for domain, policy in self.policies.iteritems():
+        for domain in self.policies.keys():
             yield (domain, self.get_policy_for(domain))
 
     @property

@@ -108,5 +108,11 @@ class TestSchema(unittest.TestCase):
             obj = util.deserialize_config(f.read())
         util.serialize_config(obj)
 
+    def test_parse_actual_config(self):
+        config_file = pkg_resources.resource_filename("starttls_policy", "policy.json")
+        with open(config_file) as f:
+            obj = util.deserialize_config(f.read())
+        util.serialize_config(obj)
+
 if __name__ == '__main__':
     unittest.main()
