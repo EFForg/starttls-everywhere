@@ -4,13 +4,14 @@ try:
     import StringIO
 except ImportError:
     from io import StringIO
+import json
 import pycurl
 
 from starttls_policy import constants
-from starttls_policy import util
+from starttls_policy import policy
 
 def _should_replace(old_config, new_config):
-    return new_config['timestamp'] > old_config['timestamp']
+    return new_config.timestamp > old_config.timestamp
 
 def _get_remote_data(url):
     buf = StringIO.StringIO()
@@ -25,8 +26,10 @@ def update(remote_url=constants.POLICY_REMOTE_URL, filename=constants.POLICY_LOC
     """ Fetches and updates local copy of the policy file with the remote file,
     if local copy is outdated. """
     data = _get_remote_data(remote_url)
-    remote_config = util.deserialize_config(data)
-    local_config = util.config_from_file(constants.POLICY_LOCAL_FILE)
+    remote_config = policy.Config()
+    remote_config.load_from_dict(json.loads(data))
+    local_config = policy.Config(constants.POLICY_LOCAL_FILE)
+    local_config.load()
     if _should_replace(local_config, remote_config):
         with open(filename, 'w+') as handle:
             handle.write(data)
