@@ -6,9 +6,9 @@ import os
 import sys
 import six
 
+from starttls_policy import constants
 from starttls_policy import policy
 from starttls_policy import update
-from starttls_policy import constants
 
 class ConfigGenerator(object):
     """
@@ -20,38 +20,47 @@ class ConfigGenerator(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
-    def __init__(self, policy_dir, output=sys.stdout):
+    def __init__(self, policy_dir):
         self._policy_dir = policy_dir
         self._policy_filename = os.path.join(self._policy_dir, constants.POLICY_FILENAME)
+        self._config_filename = os.path.join(self._policy_dir, self.default_filename)
         self._policy_config = None
-        self._output = output
 
-    def _create_config(self):
+    def _load_config(self):
         if self._policy_config is None:
-            update.update(filename=self._policy_filename, force_update=True)
+            update.update(filename=self._policy_filename)
             self._policy_config = policy.Config(filename=self._policy_filename)
             self._policy_config.load()
         return self._policy_config
 
-    def _write_config(self, result):
-        six.print_(result, file=self._output)
+    def _write_config(self, result, output):
+        six.print_(result, file=output)
 
     def generate(self):
-        policy_list = self._create_config()
+        policy_list = self._load_config()
         result = self._generate(policy_list)
-        self._write_config(result)
+        with open(self._config_filename, "w") as config_file:
+            self._write_config(result, config_file)
 
-    def manual_instructions(self, filename):
-        help_install_string = self._instruct_string(filename)
-        print(help_install_string)
+    def manual_instructions(self):
+        six.print_("{line}Manual installation instructions for {mta_name}{line}{instructions}".format(
+            line="\n" + ("-" * 50) + "\n", mta_name=self.mta_name, instructions=self._instruct_string()))
 
     @abc.abstractmethod
     def _generate(self, policy_list):
         """Creates configuration file. Returns a unicode string (text to write to file)."""
 
     @abc.abstractmethod
-    def _instruct_string(self, filename):
+    def _instruct_string(self):
         """Explain how to install the configuration file that was generated."""
+
+    @abc.abstractproperty
+    def mta_name(self):
+        """The name of the MTA this generator is for."""
+
+    @abc.abstractproperty
+    def default_filename(self):
+        """The expected default filename of the generated configuration file."""
 
 def _policy_for_domain(domain, policy, max_domain_len):
     line = ("{0:%d} " % max_domain_len).format(domain)
@@ -67,8 +76,8 @@ class PostfixGenerator(ConfigGenerator):
     Configuration generator for postfix.
     """
 
-    def __init__(self, policy_dir, output):
-        super(PostfixGenerator, self).__init__(policy_dir, output)
+    def __init__(self, policy_dir):
+        super(PostfixGenerator, self).__init__(policy_dir)
 
     def _generate(self, policy_list):
         policies = []
@@ -77,11 +86,22 @@ class PostfixGenerator(ConfigGenerator):
             policies.append(_policy_for_domain(domain, tls_policy, max_domain_len))
         return "\n".join(policies)
 
-    def _instruct_string(self, filename):
+    def _instruct_string(self):
+        filename = self._config_filename
         abs_path = os.path.abspath(filename)
-        return ("\nYou'll need to point your Postfix configuration to %s.\n"
-            "Check if `postconf smtp_tls_policy_maps` includes %s.\n"
+        return ("\nFirst, run:\n\n"
+            "postmap {abs_path}\n\n"
+            "Then, you'll need to point your Postfix configuration to {filename}.\n"
+            "Check if `postconf smtp_tls_policy_maps` includes this file.\n"
             "If not, run:\n\n"
-            "export POSTFIX_CURRENT_MAPS=$(postconf -h smtp_tls_policy_maps)\n"
-            "postconf -e 'smtp_tls_policy_maps=$POSTFIX_CURRENT_MAPS hash:%s'\n\n"
-            "And you should be good to go!\n" % (filename, filename, abs_path))
+            "postconf -e \"smtp_tls_policy_maps=$(postconf -h smtp_tls_policy_maps) hash:{abs_path}\"\n\n"
+            "And finally:\n\n"
+            "postfix reload\n").format(abs_path=abs_path, filename=filename)
+
+    @property
+    def mta_name(self):
+        return "Postfix"
+
+    @property
+    def default_filename(self):
+        return "postfix_tls_policy"

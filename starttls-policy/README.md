@@ -18,7 +18,7 @@ starttls-policy --update-only [--policy-dir /path/to/dir]
 ```
 
 #### Generating a configuration file
-`starttls-policy --generate <MTA> [--output filename] [--policy-dir /path/to/dir]` will generate a configuration file corresponding to the TLS policy list and provide instructions for installing the file.
+`starttls-policy --generate <MTA> [--policy-dir /path/to/dir]` will generate a configuration file corresponding to the TLS policy list and provide instructions for installing the file.
 
-We currently only support MTA `postfix`, but contributions are welcome!
+We currently only support Postfix, but contributions are welcome!
 
