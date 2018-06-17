@@ -9,9 +9,7 @@ version = '0.0.1.dev0'
 install_requires = [
     'datetime',
     'python-dateutil',
-    # For pkg_resources. >=1.0 so pip resolves it to a version cryptography
-    # will tolerate; see #2599:
-    'setuptools>=1.0',
+    'setuptools',
     'six',
 ]
 
@@ -51,6 +49,11 @@ setup(
             'pylint',
             'mock',
         ]
+    },
+    entry_points={
+        'console_scripts': [
+            'starttls-policy = starttls_policy.main:main',
+        ],
     }
 )
 

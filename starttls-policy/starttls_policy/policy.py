@@ -1,4 +1,5 @@
 """ Policy config wrapper """
+import collections
 import logging
 import datetime
 import io
@@ -254,11 +255,29 @@ class PolicyNoAlias(Policy):
         # pylint: disable=unused-argument
         raise util.ConfigError('PolicyNoAlias object cannot have policy-alias field!')
 
-class Config(MergableConfig):
+class Config(MergableConfig, collections.Mapping):
     """Class for retrieving properties in TLS Policy config.
     If `pinsets` and `policy_aliases` are specified, they must be set
     before `policies`, so policy format validation can work properly.
     """
+
+    def __getitem__(self, key):
+        return self.get_policy_for(key)
+
+    def __len__(self):
+        return len(self.policies)
+
+    def __iter__(self):
+        """ Iterates TLS policies in the configuration file.
+        Each item is a (mail domain, Policy) tuple.
+        """
+        for domain in self.keys():
+            yield domain
+
+    def keys(self):
+        if self.policies is None:
+            return set([])
+        return self.policies.keys()
 
     def __init__(self, filename=constants.POLICY_LOCAL_FILE, schema=util.CONFIG_SCHEMA):
     # pylint: disable=dangerous-default-value
@@ -352,13 +371,6 @@ class Config(MergableConfig):
             else:
                 policies[domain] = Policy(obj, self.pinsets, self.policy_aliases)
         self._set_attr('policies', policies)
-
-    def policies_iter(self):
-        """ Iterates TLS policies in the configuration file.
-        Each item is a (mail domain, Policy) tuple.
-        """
-        for domain in self.policies.keys():
-            yield (domain, self.get_policy_for(domain))
 
     @property
     def pinsets(self):
