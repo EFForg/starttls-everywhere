@@ -23,6 +23,16 @@ This will:
 * Enforce mandatory TLS to some major email domains
 * Enforce minimum TLS versions to some major email domains
 
+## Using the STARTTLS Policy List
+
+To download and verify the most up-to-date version of the STARTTLS Policy List:
+```
+wget https://dl.eff.org/starttls-everywhere/policy.json
+wget https://dl.eff.org/starttls-everywhere/policy.json.asc
+gpg --recv-key B693F33372E965D76D55368616EEA65D03326C9D
+gpg --trusted-key 842AEA40C5BCD6E1 --verify policy.json.asc
+```
+
 ## Project status
 
 *UPDATE (3/2018)* STARTTLS Everywhere development is re-re-starting after another hiatus.

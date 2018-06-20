@@ -1,33 +1,105 @@
 {
-  "timestamp": "2018-03-30T19:45:16+00:00",
-  "author": "Electronic Frontier Foundation https://eff.org",
-  "expires": "2018-04-30T19:45:16+00:00",
+  "timestamp": "2018-06-18T09:41:50.264201364-07:00",
+  "expires": "2018-07-16T09:41:50.264201364-07:00",
   "version": "0.1",
+  "author": "Electronic Frontier Foundation https://eff.org",
   "pinsets": {},
   "policy-aliases": {
-    "google": { "mode": "testing", "mxs": [".l.google.com"] },
-    "yahoo": { "mode": "testing", "mxs": [".yahoodns.net"] },
-    "outlook": { "mode": "testing", "mxs": [".outlook.com", "outlook.com"] },
-    "icloud": { "mode": "testing", "mxs": [".icloud.com"] }
+    "google": {
+      "mode": "testing",
+      "mxs": [
+        ".l.google.com"
+      ]
+    },
+    "icloud": {
+      "mode": "testing",
+      "mxs": [
+        ".icloud.com"
+      ]
+    },
+    "outlook": {
+      "mode": "testing",
+      "mxs": [
+        ".outlook.com",
+        "outlook.com"
+      ]
+    },
+    "yahoo": {
+      "mode": "testing",
+      "mxs": [
+        ".yahoodns.net"
+      ]
+    }
   },
   "policies": {
-    "yahoo.com": { "policy-alias": "yahoo" },
-    "ymail.com": { "policy-alias": "yahoo" },
-    "yahoogroups.com": { "policy-alias": "yahoo" },
-    "aol.com": { "policy-alias": "yahoo" },
-    "rocketmail.com": { "policy-alias": "yahoo" },
-    "gmail.com": { "policy-alias": "google" },
-    "salesforce.com": { "policy-alias": "google" },
-    "me.com": { "policy-alias": "icloud" },
-    "icloud.com": { "policy-alias": "icloud" },
-    "msn.com": { "policy-alias": "outlook" },
-    "live.com": { "policy-alias": "outlook" },
-    "hotmail.com": { "policy-alias": "outlook" },
-    "outlook.com": { "policy-alias": "outlook" },
-    "qq.com": { "mode": "testing", "mxs": [".qq.com"] },
-    "yandex.ru": { "mode": "testing", "mxs": [".yandex.ru"] },
-    "comcast.net": { "mode": "testing", "mxs": [".comcast.net"] },
-    "facebook.com": { "mode": "testing", "mxs": [".facebook.com"] },
-    "eff.org": { "mode": "testing", "mxs": [".eff.org"] }
+    "aol.com": {
+      "policy-alias": "yahoo"
+    },
+    "comcast.net": {
+      "mode": "testing",
+      "mxs": [
+        ".comcast.net"
+      ]
+    },
+    "eff.org": {
+      "mode": "testing",
+      "mxs": [
+        ".eff.org"
+      ]
+    },
+    "facebook.com": {
+      "mode": "testing",
+      "mxs": [
+        ".facebook.com"
+      ]
+    },
+    "gmail.com": {
+      "policy-alias": "google"
+    },
+    "hotmail.com": {
+      "policy-alias": "outlook"
+    },
+    "icloud.com": {
+      "policy-alias": "icloud"
+    },
+    "live.com": {
+      "policy-alias": "outlook"
+    },
+    "me.com": {
+      "policy-alias": "icloud"
+    },
+    "msn.com": {
+      "policy-alias": "outlook"
+    },
+    "outlook.com": {
+      "policy-alias": "outlook"
+    },
+    "qq.com": {
+      "mode": "testing",
+      "mxs": [
+        ".qq.com"
+      ]
+    },
+    "rocketmail.com": {
+      "policy-alias": "yahoo"
+    },
+    "salesforce.com": {
+      "policy-alias": "google"
+    },
+    "yahoo.com": {
+      "policy-alias": "yahoo"
+    },
+    "yahoogroups.com": {
+      "policy-alias": "yahoo"
+    },
+    "yandex.ru": {
+      "mode": "testing",
+      "mxs": [
+        ".yandex.ru"
+      ]
+    },
+    "ymail.com": {
+      "policy-alias": "yahoo"
+    }
   }
 }
