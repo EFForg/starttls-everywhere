@@ -49,11 +49,7 @@ def _perform(arguments, parser):
 def main(cli_args=sys.argv[1:]):
     """ Entrypoint for CLI tool. """
     parser = _argument_parser()
-    arguments = parser.parse_args()
-    _perform(arguments)
+    _perform(parser.parse_args(), parser)
 
 if __name__ == "__main__":
-    err_string = main()  # pragma: no cover
-    if err_string:
-        logger.warning("Exiting with message %s", err_string)
-    sys.exit(err_string)
+    main()  # pragma: no cover

@@ -8,8 +8,6 @@ from starttls_policy import constants
 from starttls_policy import configure
 
 class MockGenerator(configure.ConfigGenerator):
-    def __init__(self, policy_dir):
-        super(MockGenerator, self).__init__(policy_dir)
 
     def _generate(self, policy_list):
         return "generated_config"

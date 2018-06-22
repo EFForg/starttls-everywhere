@@ -19,7 +19,6 @@ class ConfigGenerator(object):
     """
     __metaclass__ = abc.ABCMeta
 
-    @abc.abstractmethod
     def __init__(self, policy_dir):
         self._policy_dir = policy_dir
         self._policy_filename = os.path.join(self._policy_dir, constants.POLICY_FILENAME)
@@ -76,13 +75,10 @@ class PostfixGenerator(ConfigGenerator):
     Configuration generator for postfix.
     """
 
-    def __init__(self, policy_dir):
-        super(PostfixGenerator, self).__init__(policy_dir)
-
     def _generate(self, policy_list):
         policies = []
         max_domain_len = len(max(policy_list, key=len))
-        for domain, tls_policy in sorted(policy_list.iteritems()):
+        for domain, tls_policy in sorted(six.iteritems(policy_list)):
             policies.append(_policy_for_domain(domain, tls_policy, max_domain_len))
         return "\n".join(policies)
 
