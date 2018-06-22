@@ -27,25 +27,33 @@ def _ensure_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+def _update(arguments):
+    _ensure_directory(arguments.policy_dir)
+    update.update(filename=os.path.join(arguments.policy_dir, constants.POLICY_FILENAME),
+                  force_update=True)
 
-def main(cli_args=sys.argv[1:]):
-    """ Entrypoint for CLI tool. """
-    parser = _argument_parser()
-    arguments = parser.parse_args()
-    if arguments.update_only:
-        _ensure_directory(arguments.policy_dir)
-        update.update(filename=os.path.join(arguments.policy_dir, constants.POLICY_FILENAME),
-                      force_update=True)
-        return
-    if arguments.generate not in GENERATORS:
-        parser.error("no configuration generator exists for '%s'" % arguments.generate)
+def _generate(arguments):
     _ensure_directory(arguments.policy_dir)
     config_generator = GENERATORS[arguments.generate](arguments.policy_dir)
     config_generator.generate()
     config_generator.manual_instructions()
 
+def _perform(arguments, parser):
+    if arguments.update_only:
+        _update(arguments)
+        return
+    if arguments.generate not in GENERATORS:
+        parser.error("no configuration generator exists for '%s'" % arguments.generate)
+    _generate(arguments)
+
+def main(cli_args=sys.argv[1:]):
+    """ Entrypoint for CLI tool. """
+    parser = _argument_parser()
+    arguments = parser.parse_args()
+    _perform(arguments)
+
 if __name__ == "__main__":
-    err_string = main()
+    err_string = main()  # pragma: no cover
     if err_string:
         logger.warning("Exiting with message %s", err_string)
-    sys.exit(err_string)  # pragma: no cover
+    sys.exit(err_string)
