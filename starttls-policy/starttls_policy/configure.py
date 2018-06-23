@@ -8,7 +8,6 @@ import six
 
 from starttls_policy import constants
 from starttls_policy import policy
-from starttls_policy import update
 
 class ConfigGenerator(object):
     """
@@ -27,7 +26,6 @@ class ConfigGenerator(object):
 
     def _load_config(self):
         if self._policy_config is None:
-            update.update(filename=self._policy_filename)
             self._policy_config = policy.Config(filename=self._policy_filename)
             self._policy_config.load()
         return self._policy_config

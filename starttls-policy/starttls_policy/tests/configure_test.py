@@ -26,11 +26,10 @@ class MockGenerator(configure.ConfigGenerator):
 class TestConfigGenerator(unittest.TestCase):
     def test_generate(self):
         generator = MockGenerator("./")
-        with mock.patch("starttls_policy.configure.update.update"):
-            with mock.patch("starttls_policy.configure.open", mock.mock_open()) as m:
-                generator.generate()
-                m().write.assert_any_call("generated_config")
-                m().write.assert_any_call("\n")
+        with mock.patch("starttls_policy.configure.open", mock.mock_open()) as m:
+            generator.generate()
+            m().write.assert_any_call("generated_config")
+            m().write.assert_any_call("\n")
 
     def test_manual_instructions(self):
         generator = MockGenerator("./")
