@@ -1,6 +1,6 @@
 # Policy rule configuration format
 
-The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/draft-ietf-uta-mta-sts-14) as well as [Chromium's HSTS Preload List](https://src.chromium.org/chrome/trunk/src/net/http/transport_security_state_static.json) (and the associated CA Pinning list).
+The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/draft-ietf-uta-mta-sts) as well as [Chromium's HSTS Preload List](https://src.chromium.org/chrome/trunk/src/net/http/transport_security_state_static.json) (and the associated CA Pinning list).
 The basic file format will be JSON. Example:
 
 ```
@@ -107,7 +107,7 @@ Either `testing` or `enforce`. If `testing` is set, then any failure in TLS nego
 #### mta-sts
 Default: `false`
 
-If set, then senders should expect this recipient domain to support MTA-STS.
+If set, then senders should expect this recipient domain to support [MTA-STS](https://tools.ietf.org/html/draft-ietf-uta-mta-sts).
 
 #### mxs
 
@@ -119,4 +119,4 @@ Should match a key of `pinsets` in the higher-level config. For a given pinset, 
 
 #### report
 
-Endpoints to report errors to if TLS negotiation fails according to a particular policy. Reports should be aggregated and sent in the format specified by TLSRPT. These URIs should be `https` or `mailto` endpoints, and aggregated reports should be `POST`ed to the specified HTTPS URL or mailed to the appropriate address.
+Endpoints to report errors to if TLS negotiation fails according to a particular policy. Reports should be aggregated and sent in the format specified by [TLSRPT](https://tools.ietf.org/html/draft-ietf-uta-smtp-tlsrpt). These URIs should be `https` or `mailto` endpoints, and aggregated reports should be `POST`ed to the specified HTTPS URL or mailed to the appropriate address.
