@@ -126,16 +126,16 @@ class TestConfig(unittest.TestCase):
         conf.policy_aliases = {'valid': {'tls-report': 'https://tls.report'}}
         conf.policies = {'valid1': {'policy-alias': 'valid'},
                          'valid2': {'policy-alias': 'valid'}}
-        for _, pol in conf.policies_iter():
-            self.assertEqual(pol.tls_report, 'https://tls.report')
+        for val in conf:
+            self.assertEqual(conf[val].tls_report, 'https://tls.report')
 
     def test_iter_policies(self):
         conf = policy.Config()
         sample_policy = {'tls-report': 'https://tls.report'}
         conf.policies = {'valid1': sample_policy,
                          'valid2': sample_policy}
-        for _, pol in conf.policies_iter():
-            self.assertEqual(pol.tls_report, 'https://tls.report')
+        for val in conf:
+            self.assertEqual(conf[val].tls_report, 'https://tls.report')
 
     def test_no_aliasing_in_alias(self):
         conf = policy.Config()
