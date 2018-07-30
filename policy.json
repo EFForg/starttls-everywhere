@@ -1,6 +1,6 @@
 {
-  "timestamp": "2018-07-16T10:18:03.271900418-07:00",
-  "expires": "2018-07-30T10:18:03.271900418-07:00",
+  "timestamp": "2018-07-30T08:44:05.93935487-07:00",
+  "expires": "2018-08-13T08:44:05.93935487-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "pinsets": {},
@@ -100,6 +100,457 @@
     },
     "ymail.com": {
       "policy-alias": "yahoo"
+    },
+    "0xheap.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.0xheap.org"
+      ]
+    },
+    "alainwolf.ch": {
+      "mode": "testing",
+      "mxs": [
+        "pace.urown.net",
+        "norris.urown.net"
+      ]
+    },
+    "alainwolf.net": {
+      "mode": "testing",
+      "mxs": [
+        "norris.urown.net",
+        "pace.urown.net"
+      ]
+    },
+    "apbox.de": {
+      "mode": "testing",
+      "mxs": [
+        "srv.apbox.de"
+      ]
+    },
+    "avdagic.net": {
+      "mode": "testing",
+      "mxs": [
+        "avdagic.net"
+      ]
+    },
+    "bfg-10k.ru": {
+      "mode": "testing",
+      "mxs": [
+        "orion.bfg-10k.ru"
+      ]
+    },
+    "bitpath.de": {
+      "mode": "testing",
+      "mxs": [
+        "bitpath.de"
+      ]
+    },
+    "cfenns.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.cfenns.de"
+      ]
+    },
+    "chas.se": {
+      "mode": "testing",
+      "mxs": [
+        "mail.chas.se"
+      ]
+    },
+    "chatras.me": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.chatras.me"
+      ]
+    },
+    "compucation.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.compucation.de"
+      ]
+    },
+    "crasline.de": {
+      "mode": "testing",
+      "mxs": [
+        "ina.pt-server.de"
+      ]
+    },
+    "dahoam.de": {
+      "mode": "testing",
+      "mxs": [
+        "cloud.eltrich.name",
+        "axon.gand.de"
+      ]
+    },
+    "davidkevork.me": {
+      "mode": "testing",
+      "mxs": [
+        "mx.zoho.com",
+        "mx2.zoho.com"
+      ]
+    },
+    "dayman.net": {
+      "mode": "testing",
+      "mxs": [
+        "dayman.net"
+      ]
+    },
+    "deepztream.com": {
+      "mode": "testing",
+      "mxs": [
+        "deepztream.com",
+        "mail.deepztream.com"
+      ]
+    },
+    "delfic.org": {
+      "mode": "testing",
+      "mxs": [
+        ".delfic.org"
+      ]
+    },
+    "dietrich.cx": {
+      "mode": "testing",
+      "mxs": [
+        "ybti.net"
+      ]
+    },
+    "eltrich.name": {
+      "mode": "testing",
+      "mxs": [
+        "cloud.eltrich.name",
+        "axon.gand.de"
+      ]
+    },
+    "eruditium.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.eruditium.org"
+      ]
+    },
+    "expertisale.com": {
+      "mode": "testing",
+      "mxs": [
+        "smtpmx2.expertisale.com",
+        "smtpmx3.expertisale.com"
+      ]
+    },
+    "fabje.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fabje.nl",
+        "in.hes.trendmicro.eu"
+      ]
+    },
+    "familieblume.nl": {
+      "mode": "testing",
+      "mxs": [
+        "in.hes.trendmicro.eu",
+        "mail.fabje.nl"
+      ]
+    },
+    "fau.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fau.org"
+      ]
+    },
+    "fayeline.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fabje.nl"
+      ]
+    },
+    "federation-interstellar.org": {
+      "mode": "testing",
+      "mxs": [
+        "pace.urown.net",
+        "norris.urown.net"
+      ]
+    },
+    "fivl.it": {
+      "mode": "testing",
+      "mxs": [
+        ".fivl.it"
+      ]
+    },
+    "flawy.de": {
+      "mode": "testing",
+      "mxs": [
+        "lx1.flawy.de"
+      ]
+    },
+    "friendlyfire.ca": {
+      "mode": "testing",
+      "mxs": [
+        "mail.friendlyfire.ca"
+      ]
+    },
+    "gaertner-im-internet.de": {
+      "mode": "testing",
+      "mxs": [
+        "mailtomailserver08.de"
+      ]
+    },
+    "grepular.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.grepular.com",
+        "mx1.grepular.com"
+      ]
+    },
+    "gwalarn.eu": {
+      "mode": "testing",
+      "mxs": [
+        "gwalarn.eu",
+        "saintlu.gwalarn.eu"
+      ]
+    },
+    "hypermeganet.uk": {
+      "mode": "testing",
+      "mxs": [
+        "mail.hypermeganet.uk",
+        "mail2.hypermeganet.uk"
+      ]
+    },
+    "iddya.com": {
+      "mode": "testing",
+      "mxs": [
+        ".iddya.com"
+      ]
+    },
+    "itzer.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.itzer.de"
+      ]
+    },
+    "joelmediatv.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.codethink.de"
+      ]
+    },
+    "kjkobes.com": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "knthost.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx.knthost.com",
+        "secure-mx.knthost.com",
+        "inbound01.knthost.com",
+        "secure-inbound01.knthost.com",
+        "inbound02.knthost.com",
+        "secure-inbound02.knthost.com"
+      ]
+    },
+    "krapace.fr": {
+      "mode": "testing",
+      "mxs": [
+        "mail.krapace.fr"
+      ]
+    },
+    "latinist.net": {
+      "mode": "testing",
+      "mxs": [
+        "latinist.net",
+        "mail.latinist.net"
+      ]
+    },
+    "linecorp.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.navercorp.com",
+        "mx2.navercorp.com"
+      ]
+    },
+    "linuxfirewall.no-ip.org": {
+      "mode": "testing",
+      "mxs": [
+        "linuxfirewall.no-ip.org"
+      ]
+    },
+    "livoris.net": {
+      "mode": "testing",
+      "mxs": [
+        "livoris.net"
+      ]
+    },
+    "locker.email": {
+      "mode": "testing",
+      "mxs": [
+        "locker.email"
+      ]
+    },
+    "luup.info": {
+      "mode": "testing",
+      "mxs": [
+        "adrastea.luup.info"
+      ]
+    },
+    "macaw.me": {
+      "mode": "testing",
+      "mxs": [
+        "mail.macaw.me"
+      ]
+    },
+    "maddes.net": {
+      "mode": "testing",
+      "mxs": [
+        "mail.maddes.net"
+      ]
+    },
+    "miggy.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fysh.org"
+      ]
+    },
+    "misguide.de": {
+      "mode": "testing",
+      "mxs": [
+        "h18.ogga.de"
+      ]
+    },
+    "modum.by": {
+      "mode": "testing",
+      "mxs": [
+        "mail.office.modum.by"
+      ]
+    },
+    "mpcompany.ru": {
+      "mode": "testing",
+      "mxs": [
+        "mx.mpcompany.ru",
+        ".mpcompany.ru"
+      ]
+    },
+    "mycloudmail.ooo": {
+      "mode": "testing",
+      "mxs": [
+        "mail.mycloudmail.ooo"
+      ]
+    },
+    "myriapolis.net": {
+      "mode": "testing",
+      "mxs": [
+        ".myriapolis.net"
+      ]
+    },
+    "naver.com": {
+      "mode": "testing",
+      "mxs": [
+        ".naver.com"
+      ]
+    },
+    "navercorp.com": {
+      "mode": "testing",
+      "mxs": [
+        ".navercorp.com"
+      ]
+    },
+    "neffets.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.neffets.de"
+      ]
+    },
+    "node-nine.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx2.node-nine.com"
+      ]
+    },
+    "nottori.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.nottori.com"
+      ]
+    },
+    "pharmbiotest.com.ua": {
+      "mode": "testing",
+      "mxs": [
+        "pharmbiotest.com.ua"
+      ]
+    },
+    "pt-server.de": {
+      "mode": "testing",
+      "mxs": [
+        "ina.pt-server.de"
+      ]
+    },
+    "rbbaader.de": {
+      "mode": "testing",
+      "mxs": [
+        "ina.pt-server.de"
+      ]
+    },
+    "rbr.info": {
+      "mode": "testing",
+      "mxs": [
+        "mail.eruditium.org"
+      ]
+    },
+    "reisebuero-baader.de": {
+      "mode": "testing",
+      "mxs": [
+        "ina.pt-server.de"
+      ]
+    },
+    "saccani.net": {
+      "mode": "testing",
+      "mxs": [
+        ".fivl.it"
+      ]
+    },
+    "salesforce.com": {
+      "policy-alias": "google"
+    },
+    "sheogorath.shivering-isles.com": {
+      "mode": "testing",
+      "mxs": [
+        "srv02.shivering-isles.com"
+      ]
+    },
+    "shivering-isles.com": {
+      "mode": "testing",
+      "mxs": [
+        "srv02.shivering-isles.com"
+      ]
+    },
+    "spodhuis.org": {
+      "mode": "testing",
+      "mxs": [
+        "mx.spodhuis.org"
+      ]
+    },
+    "teichsurfer.de": {
+      "mode": "testing",
+      "mxs": [
+        "one.teichsurfer.de"
+      ]
+    },
+    "thelinuxtree.net": {
+      "mode": "testing",
+      "mxs": [
+        ".thelinuxtree.net"
+      ]
+    },
+    "tspu.edu.ru": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tspu.edu.ru"
+      ]
+    },
+    "tspu.ru": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tspu.edu.ru"
+      ]
     }
   }
 }
