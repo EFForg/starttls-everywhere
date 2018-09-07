@@ -1,6 +1,6 @@
 {
-  "timestamp": "2018-08-24T09:55:04.950137002-07:00",
-  "expires": "2018-09-07T09:55:04.950137002-07:00",
+  "timestamp": "2018-09-07T10:46:28.284618421-07:00",
+  "expires": "2018-09-21T10:46:28.284618421-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "pinsets": {},
@@ -550,6 +550,635 @@
       "mode": "testing",
       "mxs": [
         "mail.tspu.edu.ru"
+      ]
+    },
+    "4zal.net": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "anongoth.pl": {
+      "mode": "testing",
+      "mxs": [
+        "mail.anongoth.pl"
+      ]
+    },
+    "arkadiyt.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.protonmail.ch"
+      ]
+    },
+    "bewonderen.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "bingbong.epac.to": {
+      "mode": "testing",
+      "mxs": [
+        "bingbong.epac.to"
+      ]
+    },
+    "bjrn.io": {
+      "mode": "testing",
+      "mxs": [
+        "mail.bjrn.io"
+      ]
+    },
+    "boerner.click": {
+      "mode": "testing",
+      "mxs": [
+        ".boerner.click",
+        "hfyqtgmxim0iim3l.myfritz.net"
+      ]
+    },
+    "bolshaw.me.uk": {
+      "mode": "testing",
+      "mxs": [
+        "vm1.bolshaw.me.uk",
+        "vm2.bolshaw.me.uk"
+      ]
+    },
+    "c3w.at": {
+      "mode": "testing",
+      "mxs": [
+        "dergeraet.c3w.at"
+      ]
+    },
+    "cert.br": {
+      "mode": "testing",
+      "mxs": [
+        "woq.cert.br"
+      ]
+    },
+    "chamberlain.net.au": {
+      "mode": "testing",
+      "mxs": [
+        "mail.chamberlain.net.au",
+        "mail2.chamberlain.net.au",
+        "mail3.chamberlain.net.au"
+      ]
+    },
+    "clearbus.fr": {
+      "mode": "testing",
+      "mxs": [
+        "zimbra.clearbus.fr"
+      ]
+    },
+    "conchaudron.net": {
+      "mode": "testing",
+      "mxs": [
+        "mail.conchaudron.net",
+        ".conchaudron.net"
+      ]
+    },
+    "corecha.in": {
+      "mode": "testing",
+      "mxs": [
+        "mx.corecha.in"
+      ]
+    },
+    "cosysco.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.mobydog.net"
+      ]
+    },
+    "creepycraft.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "crustytoothpaste.net": {
+      "mode": "testing",
+      "mxs": [
+        ".crustytoothpaste.net"
+      ]
+    },
+    "decimatechnologies.eu": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "desgrange.net": {
+      "mode": "testing",
+      "mxs": [
+        ".desgrange.net"
+      ]
+    },
+    "desu.ne.jp": {
+      "mode": "testing",
+      "mxs": [
+        "kanna.desu.ne.jp",
+        "mx.desu.ne.jp"
+      ]
+    },
+    "dismail.de": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.dismail.de"
+      ]
+    },
+    "druwe.net": {
+      "mode": "testing",
+      "mxs": [
+        "delores.druwe.net"
+      ]
+    },
+    "ergobyte.gr": {
+      "mode": "testing",
+      "mxs": [
+        ".ergobyte.gr"
+      ]
+    },
+    "f00f.org": {
+      "mode": "testing",
+      "mxs": [
+        ".stupidest.org"
+      ]
+    },
+    "familieverberne.nl": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.verberne.nu"
+      ]
+    },
+    "fbreest.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fbreest.de"
+      ]
+    },
+    "fireserve.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fireserve.net",
+        "mx1.fireserve.net"
+      ]
+    },
+    "fireserve.net": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fireserve.net",
+        "mx1.fireserve.net"
+      ]
+    },
+    "flarn.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.flarn.com"
+      ]
+    },
+    "fran.cr": {
+      "mode": "testing",
+      "mxs": [
+        ".fran.cr"
+      ]
+    },
+    "gerardinden.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "getappetite.tv": {
+      "mode": "testing",
+      "mxs": [
+        "mail.getappetite.tv"
+      ]
+    },
+    "ggp2.com": {
+      "mode": "testing",
+      "mxs": [
+        "c.fsckd.com",
+        "d.fsckd.com",
+        "e.fsckd.com"
+      ]
+    },
+    "gkd-el.de": {
+      "mode": "testing",
+      "mxs": [
+        "mailgw.gkd-el.de",
+        "filter.gkd-el.de"
+      ]
+    },
+    "guyromm.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx.guyromm.com"
+      ]
+    },
+    "harrysmallbones.co.uk": {
+      "mode": "testing",
+      "mxs": [
+        "mail.harrysmallbones.co.uk",
+        "harrysmallbones.co.uk"
+      ]
+    },
+    "hesketh.net.au": {
+      "mode": "testing",
+      "mxs": [
+        "mail.hesketh.net.au"
+      ]
+    },
+    "incenp.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.incenp.org"
+      ]
+    },
+    "iq.pl": {
+      "mode": "testing",
+      "mxs": [
+        "mail.iq.pl"
+      ]
+    },
+    "jcea.es": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.jcea.es"
+      ]
+    },
+    "jimslop.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "jtg.business": {
+      "mode": "testing",
+      "mxs": [
+        "box.jtg.business"
+      ]
+    },
+    "jvb.ca": {
+      "mode": "testing",
+      "mxs": [
+        ".jvb.ca"
+      ]
+    },
+    "klausen.dk": {
+      "mode": "testing",
+      "mxs": [
+        "mail.klausen.dk"
+      ]
+    },
+    "klingele.me": {
+      "mode": "testing",
+      "mxs": [
+        "mail.leonklingele.de",
+        "alt1.mail.leonklingele.de",
+        "alt2.mail.leonklingele.de"
+      ]
+    },
+    "ko-sys.com": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.ko-sys.com"
+      ]
+    },
+    "kubica.ch": {
+      "mode": "testing",
+      "mxs": [
+        ".kubica.ch"
+      ]
+    },
+    "levinus.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.levinus.de"
+      ]
+    },
+    "lifechurch.at": {
+      "mode": "testing",
+      "mxs": [
+        "mail.lifechurch.at"
+      ]
+    },
+    "maclemon.at": {
+      "mode": "testing",
+      "mxs": [
+        "dungeon.maclemon.at",
+        "prometheus.maclemon.at"
+      ]
+    },
+    "menthiere.fr": {
+      "mode": "testing",
+      "mxs": [
+        ".mail.gandi.net"
+      ]
+    },
+    "michaelpjohnson.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.michaelpjohnson.com",
+        "michaelpjohnson.com"
+      ]
+    },
+    "mnium.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.mnium.de"
+      ]
+    },
+    "monopod.net": {
+      "mode": "testing",
+      "mxs": [
+        ".electricembers.net"
+      ]
+    },
+    "nic.br": {
+      "mode": "testing",
+      "mxs": [
+        "mail.nic.br",
+        "enqueuer.nic.br"
+      ]
+    },
+    "nienkeslop.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "ninetailed.ninja": {
+      "mode": "testing",
+      "mxs": [
+        ".ninetailed.ninja"
+      ]
+    },
+    "ninov.de": {
+      "mode": "testing",
+      "mxs": [
+        "ofen.nv.gw"
+      ]
+    },
+    "nothing.net.nz": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com"
+      ]
+    },
+    "petersons.me": {
+      "mode": "testing",
+      "mxs": [
+        "mail.protonmail.ch"
+      ]
+    },
+    "pf.id.au": {
+      "mode": "testing",
+      "mxs": [
+        ".pf.id.au",
+        ".ironicfate.com.au"
+      ]
+    },
+    "ppt.com": {
+      "mode": "testing",
+      "mxs": [
+        ".ppt.com"
+      ]
+    },
+    "privacyweek.at": {
+      "mode": "testing",
+      "mxs": [
+        "dergeraet.c3w.at"
+      ]
+    },
+    "raitisoja.com": {
+      "mode": "testing",
+      "mxs": [
+        "box.prvcy.email"
+      ]
+    },
+    "randolf.at": {
+      "mode": "testing",
+      "mxs": [
+        "mail.randolf.at"
+      ]
+    },
+    "registro.br": {
+      "mode": "testing",
+      "mxs": [
+        "clone.registro.br",
+        "clonev4.registro.br",
+        "fe.registro.br"
+      ]
+    },
+    "s-hertogenbosch.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.s-hertogenbosch.nl",
+        "mx2.s-hertogenbosch.nl"
+      ]
+    },
+    "sandrainden.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "sandraindenfotografie.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "sauerburger.io": {
+      "mode": "testing",
+      "mxs": [
+        "mail.sit-servers.net"
+      ]
+    },
+    "sbs.co.nz": {
+      "mode": "testing",
+      "mxs": [
+        "mail.sbs.co.nz"
+      ]
+    },
+    "schlarb.eu": {
+      "mode": "testing",
+      "mxs": [
+        ".ninetailed.ninja"
+      ]
+    },
+    "sdeziel.info": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.sdeziel.info"
+      ]
+    },
+    "sertelon.fr": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.sertelon.fr"
+      ]
+    },
+    "sixpak.org": {
+      "mode": "testing",
+      "mxs": [
+        "sixpak.sixpak.org"
+      ]
+    },
+    "sufix.cz": {
+      "mode": "testing",
+      "mxs": [
+        "mail.sufix.cz",
+        "sufix.cz"
+      ]
+    },
+    "sunsetdynamics.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fireserve.net",
+        "mx1.fireserve.net"
+      ]
+    },
+    "sven.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.sven.de"
+      ]
+    },
+    "tala.dk": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tala.dk",
+        "smtp.tala.dk",
+        "tala.dk"
+      ]
+    },
+    "tepas.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tepas.de"
+      ]
+    },
+    "tgoss.de": {
+      "mode": "testing",
+      "mxs": [
+        "tgoss.de"
+      ]
+    },
+    "thenetw.org": {
+      "mode": "testing",
+      "mxs": [
+        "thenetw-org.mail.protection.outlook.com"
+      ]
+    },
+    "thewiesners.org": {
+      "mode": "testing",
+      "mxs": [
+        "box.thewiesners.org",
+        "thewiesners.org"
+      ]
+    },
+    "thijsslop.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "tifaware.com": {
+      "mode": "testing",
+      "mxs": [
+        "sal.tifaware.com",
+        "mail.tifaware.com"
+      ]
+    },
+    "tilde.team": {
+      "mode": "testing",
+      "mxs": [
+        ".tilde.team"
+      ]
+    },
+    "tynan.com": {
+      "mode": "testing",
+      "mxs": [
+        "cloud.tynan.com"
+      ]
+    },
+    "valorizmusic.com": {
+      "mode": "testing",
+      "mxs": [
+        ".ninetailed.ninja"
+      ]
+    },
+    "volitans-software.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.volitans-software.com"
+      ]
+    },
+    "vosky.fr": {
+      "mode": "testing",
+      "mxs": [
+        "aga.vosky.fr",
+        "scw.vosky.fr"
+      ]
+    },
+    "wakesecure.com": {
+      "mode": "testing",
+      "mxs": [
+        "wakesecure.com",
+        "marcabel.com"
+      ]
+    },
+    "webgma.co.il": {
+      "mode": "testing",
+      "mxs": [
+        "mx.webgma.co.il"
+      ]
+    },
+    "willekeinden.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "wouterslop.com": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "wouterslop.eu": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "wouterslop.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx.wouterslop.nl"
+      ]
+    },
+    "xel.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.xel.nl",
+        "mx2.xel.nl",
+        "mx3.xel.nl"
+      ]
+    },
+    "yoursafe.se": {
+      "mode": "testing",
+      "mxs": [
+        "mail.yoursafe.se"
+      ]
+    },
+    "zl1ab.nz": {
+      "mode": "testing",
+      "mxs": [
+        "zl1ab.nz"
       ]
     }
   }
