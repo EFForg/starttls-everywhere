@@ -45,9 +45,11 @@ setup(
     install_requires=install_requires,
     extras_require={
         'dev': [
-            'pytest',
-            'pylint',
+            'coverage',
             'mock',
+            'pylint',
+            'pytest',
+            'pytest-cov',
         ]
     },
     entry_points={

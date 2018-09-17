@@ -33,8 +33,13 @@ class TestEnforceUtil(unittest.TestCase):
     def test_enforce_fields(self):
         func = partial(util.enforce_fields, partial(util.enforce_type, int))
         self.assertEqual(func({"a": 0, "b": 1}), {"a": 0, "b": 1})
-        with self.assertRaises(util.ConfigError):
-            func({"b": "a", "c": 2})
+
+    def test_enforce_bad_fields(self):
+        func = partial(util.enforce_fields, partial(util.enforce_type, int))
+        self.assertRaises(util.ConfigError, func, {"b": "a", "c": 2})
+
+    def test_parse_bad_datestring(self):
+        self.assertRaises(util.ConfigError, util.parse_valid_date, "fake")
 
 if __name__ == '__main__':
     unittest.main()

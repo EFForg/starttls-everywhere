@@ -1,7 +1,9 @@
 """ Tests for policy.py """
 import unittest
-import json
+
 import datetime
+import json
+import mock
 
 from starttls_policy import policy
 from starttls_policy import util
@@ -40,22 +42,28 @@ class TestConfig(unittest.TestCase):
         # If uncommented, the tests fail. TODO figure out why
         self.conf.policies = {'eff.org': self.sample_policy}
 
+    def test_flush(self):
+        with mock.patch("starttls_policy.policy.open", mock.mock_open()) as m:
+            self.conf.flush("lol.txt")
+            m.assert_called_with("lol.txt", "w")
+            m().write.assert_called_once()
+
     def test_merge_keeps_old_settings(self):
         conf2 = policy.Config()
         conf2.author = "EFF"
         updated_timestamp = self.conf.expires - datetime.timedelta(days=1)
         conf2.timestamp = updated_timestamp
         new_conf = self.conf.merge(conf2)
-        self.assertEquals(new_conf.author, "EFF")
+        self.assertEqual(new_conf.author, "EFF")
         self.assertTrue(new_conf.timestamp is not None)
-        self.assertEquals(new_conf.timestamp, updated_timestamp)
+        self.assertEqual(new_conf.timestamp, updated_timestamp)
 
     def test_update_drops_old_settings(self):
         conf2 = policy.Config()
         conf2.author = "EFF"
         new_conf = self.conf.update(conf2)
-        self.assertEquals(new_conf.author, "EFF")
-        self.assertEquals(new_conf.timestamp, None)
+        self.assertEqual(new_conf.author, "EFF")
+        self.assertEqual(new_conf.timestamp, None)
 
     def test_merge_keeps_old_policies(self):
         conf2 = policy.Config()

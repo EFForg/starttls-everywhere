@@ -44,7 +44,7 @@ def enforce_fields(enforcer, obj):
     for all the `values()` in `value` """
     try:
         all(enforcer(val) for val in obj.values())
-    except TypeError as e:
+    except (TypeError, ConfigError) as e:
         raise ConfigError('Configuration value {} has a bad type: '.format(obj) + str(e))
     return obj
 
@@ -61,10 +61,7 @@ def parse_valid_date(date):
     if isinstance(date, datetime.datetime):
         return date
     if isinstance(date, int):
-        try:
-            return datetime.datetime.fromtimestamp(date)
-        except (TypeError, ValueError):
-            raise ConfigError("Invalid date: {}".format(date))
+        return datetime.datetime.fromtimestamp(date)
     try: # Fallback: try to parse a string-like
         return parser.parse(date)
     except (TypeError, ValueError):
@@ -116,7 +113,7 @@ POLICY_SCHEMA = {
         'pin': partial(enforce_type, six.string_types),
         'policy-alias': partial(enforce_type, six.string_types),
         'mta-sts': partial(enforce_type, bool),
-        }
+}
 
 PINSET_SCHEMA = {
     'static-spki-hashes': partial(enforce_list, partial(enforce_type, six.string_types))
@@ -135,4 +132,4 @@ CONFIG_SCHEMA = {
         'policies': partial(enforce_fields, partial(enforce_type, object)),
         'policy-aliases': partial(enforce_fields, partial(enforce_type, object)),
         'pinsets': partial(enforce_fields, partial(enforce_type, object))
-        }
+}

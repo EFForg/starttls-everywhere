@@ -27,6 +27,7 @@ class ConfigEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 class MergableConfig(object):
+    # pylint: disable=useless-object-inheritance
     """Top level config object class for merging properties.
     """
 
@@ -247,7 +248,7 @@ class PolicyNoAlias(Policy):
     @property
     def policy_alias(self):
         """ This type of policy can't be aliased. Returns None."""
-        return None
+        pass
 
     @policy_alias.setter
     def policy_alias(self, value):
@@ -304,11 +305,9 @@ class Config(MergableConfig, collections.Mapping):
         """Flushes configuration to a file as JSON-ified string.
         If a new filename is not given, uses `filename` property.
         """
-        if self._data is None:
-            return # no data loaded yet
         if filename is None:
             filename = self.filename
-        with open(self.filename, 'w') as f:
+        with open(filename, 'w') as f:
             f.write(self.dump())
 
     @property

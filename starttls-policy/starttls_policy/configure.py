@@ -3,13 +3,13 @@ Config generator
 """
 import abc
 import os
-import sys
 import six
 
 from starttls_policy import constants
 from starttls_policy import policy
 
 class ConfigGenerator(object):
+    # pylint: disable=useless-object-inheritance
     """
     Generic configuration generator.
     The two primary public functions:
@@ -34,14 +34,20 @@ class ConfigGenerator(object):
         six.print_(result, file=output)
 
     def generate(self):
+        """Generates and dumps MTA configuration file to `policy_dir`.
+        """
         policy_list = self._load_config()
         result = self._generate(policy_list)
         with open(self._config_filename, "w") as config_file:
             self._write_config(result, config_file)
 
     def manual_instructions(self):
-        six.print_("{line}Manual installation instructions for {mta_name}{line}{instructions}".format(
-            line="\n" + ("-" * 50) + "\n", mta_name=self.mta_name, instructions=self._instruct_string()))
+        """Prints manual installation instructions to stdout.
+        """
+        six.print_("{line}Manual installation instructions for {mta_name}{line}{instructions}"
+            .format(line="\n" + ("-" * 50) + "\n",
+                    mta_name=self.mta_name,
+                    instructions=self._instruct_string()))
 
     @abc.abstractmethod
     def _generate(self, policy_list):
@@ -59,18 +65,17 @@ class ConfigGenerator(object):
     def default_filename(self):
         """The expected default filename of the generated configuration file."""
 
-def _policy_for_domain(domain, policy, max_domain_len):
+def _policy_for_domain(domain, tls_policy, max_domain_len):
     line = ("{0:%d} " % max_domain_len).format(domain)
-    if policy.mode == "enforce":
+    if tls_policy.mode == "enforce":
         line += " secure match="
-        line += ",".join(policy.mxs)
-    elif policy.mode == "testing":
+        line += ",".join(tls_policy.mxs)
+    elif tls_policy.mode == "testing":
         line += "may "
     return line
 
 class PostfixGenerator(ConfigGenerator):
-    """
-    Configuration generator for postfix.
+    """Configuration generator for postfix.
     """
 
     def _generate(self, policy_list):
@@ -88,7 +93,8 @@ class PostfixGenerator(ConfigGenerator):
             "Then, you'll need to point your Postfix configuration to {filename}.\n"
             "Check if `postconf smtp_tls_policy_maps` includes this file.\n"
             "If not, run:\n\n"
-            "postconf -e \"smtp_tls_policy_maps=$(postconf -h smtp_tls_policy_maps) hash:{abs_path}\"\n\n"
+            "postconf -e \"smtp_tls_policy_maps=$(postconf -h smtp_tls_policy_maps)"
+            " hash:{abs_path}\"\n\n"
             "And finally:\n\n"
             "postfix reload\n").format(abs_path=abs_path, filename=filename)
 
