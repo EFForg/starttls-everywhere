@@ -1,6 +1,6 @@
 {
-  "timestamp": "2018-09-07T10:46:28.284618421-07:00",
-  "expires": "2018-09-21T10:46:28.284618421-07:00",
+  "timestamp": "2018-09-19T10:12:09.360905944-07:00",
+  "expires": "2018-10-03T10:12:09.360905944-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "pinsets": {},
@@ -1179,6 +1179,247 @@
       "mode": "testing",
       "mxs": [
         "zl1ab.nz"
+      ]
+    },
+    "babioch.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.babioch.de"
+      ]
+    },
+    "bpce.fr": {
+      "mode": "testing",
+      "mxs": [
+        "mail-in.bpce-it.fr"
+      ]
+    },
+    "curttech.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.curttech.net"
+      ]
+    },
+    "dhautefeuille.eu": {
+      "mode": "testing",
+      "mxs": [
+        "arch-server.dhautefeuille.eu"
+      ]
+    },
+    "duesterhus.eu": {
+      "mode": "testing",
+      "mxs": [
+        ".xqk7.com"
+      ]
+    },
+    "durel.org": {
+      "mode": "testing",
+      "mxs": [
+        "arrakeen.geekwu.org",
+        "corrin.geekwu.org"
+      ]
+    },
+    "eckhofer.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tribut.de"
+      ]
+    },
+    "edam-volendam.nl": {
+      "mode": "testing",
+      "mxs": [
+        "gen1.edam-volendam.nl"
+      ]
+    },
+    "fladnag.net": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fladnag.net",
+        "gateway.mail.fladnag.net"
+      ]
+    },
+    "hany.sk": {
+      "mode": "testing",
+      "mxs": [
+        ".hany.sk"
+      ]
+    },
+    "hewgill.net": {
+      "mode": "testing",
+      "mxs": [
+        "stratus.hewgill.net"
+      ]
+    },
+    "it4sure.nl": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.it4sure.cloud",
+        "mx2.it4sure.cloud",
+        "mail.it4sure.cloud"
+      ]
+    },
+    "jndata.dk": {
+      "mode": "testing",
+      "mxs": [
+        "mailin01.jndata.dk",
+        "mailin02.jndata.dk",
+        "mailin03.jndata.dk"
+      ]
+    },
+    "knop.eu": {
+      "mode": "testing",
+      "mxs": [
+        "srv01.knop.info"
+      ]
+    },
+    "lancashirebeekeepers.org.uk": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "aspmx2.googlemail.com",
+        "aspmx3.googlemail.com"
+      ]
+    },
+    "ledovskis.lv": {
+      "mode": "testing",
+      "mxs": [
+        "ariake.ledovskis.lv"
+      ]
+    },
+    "lmcm.io": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "mail.de": {
+      "mode": "testing",
+      "mxs": [
+        ".mail.de"
+      ]
+    },
+    "mattleidholm.com": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "mingjie.info": {
+      "mode": "testing",
+      "mxs": [
+        ".mingjie.info",
+        ".messagingengine.com"
+      ]
+    },
+    "netcompany.com": {
+      "mode": "testing",
+      "mxs": [
+        "netcompany-com.mail.protection.outlook.com"
+      ]
+    },
+    "netgalaxy.ca": {
+      "mode": "testing",
+      "mxs": [
+        "nyc.netgalaxy.ca"
+      ]
+    },
+    "ozark.be": {
+      "mode": "testing",
+      "mxs": [
+        "mail.hypnotized.org"
+      ]
+    },
+    "pa5am.nl": {
+      "mode": "testing",
+      "mxs": [
+        "pa5am.nl"
+      ]
+    },
+    "sanker.by": {
+      "mode": "testing",
+      "mxs": [
+        "mail.sanker.by"
+      ]
+    },
+    "santoshpandit.com": {
+      "mode": "testing",
+      "mxs": [
+        "node487.myfcloud.com",
+        "mx.santoshpandit.com",
+        "mail.santoshpandit.com"
+      ]
+    },
+    "saskpension.com": {
+      "mode": "testing",
+      "mxs": [
+        "saskpension-com.mail.protection.outlook.com"
+      ]
+    },
+    "seffner-schlesier.de": {
+      "mode": "testing",
+      "mxs": [
+        ".seffner-schlesier.de"
+      ]
+    },
+    "sovereign-order-of-saint-john.org": {
+      "mode": "testing",
+      "mxs": [
+        "mxext1.mailbox.org",
+        "mxext2.mailbox.org",
+        "mxext3.mailbox.org"
+      ]
+    },
+    "t-senger.de": {
+      "mode": "testing",
+      "mxs": [
+        ".t-senger.de"
+      ]
+    },
+    "taintedbit.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.taintedbit.com"
+      ]
+    },
+    "thisishugo.com": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "vixrapedia.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.vixrapedia.org"
+      ]
+    },
+    "vulnscan.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.vulnscan.org"
+      ]
+    },
+    "w4eg.de": {
+      "mode": "testing",
+      "mxs": [
+        "w4eg.de"
+      ]
+    },
+    "wiktel.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.wiktel.com",
+        "mx.wiktel.com"
+      ]
+    },
+    "xylon.de": {
+      "mode": "testing",
+      "mxs": [
+        "mail.xylon.de"
       ]
     }
   }
