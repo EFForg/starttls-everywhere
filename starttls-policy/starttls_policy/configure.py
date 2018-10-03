@@ -69,7 +69,7 @@ def _policy_for_domain(domain, tls_policy, max_domain_len):
     line = ("{0:%d} " % max_domain_len).format(domain)
     if tls_policy.mode == "enforce":
         line += " secure match="
-        line += ",".join(tls_policy.mxs)
+        line += ":".join(tls_policy.mxs)
     elif tls_policy.mode == "testing":
         line += "may "
     return line
