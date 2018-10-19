@@ -71,7 +71,7 @@ def _policy_for_domain(domain, tls_policy, max_domain_len):
         line += " secure match="
         line += ":".join(tls_policy.mxs)
     elif tls_policy.mode == "testing":
-        line += "may "
+        line = "# " + line + "undefined due to testing policy"
     return line
 
 class PostfixGenerator(ConfigGenerator):

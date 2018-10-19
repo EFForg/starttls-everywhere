@@ -69,7 +69,8 @@ class TestPostfixGenerator(unittest.TestCase):
         conf.load_from_dict(json.loads(test_json))
         generator = configure.PostfixGenerator("./")
         result = generator._generate(conf) # pylint: disable=protected-access
-        self.assertEqual(result, ".testing.example-recipient.com may \n"
+        self.assertEqual(result, "# .testing.example-recipient.com "
+                         "undefined due to testing policy\n"
                          ".valid.example-recipient.com    "
                          "secure match=.valid.example-recipient.com")
 
