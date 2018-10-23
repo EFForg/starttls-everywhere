@@ -53,8 +53,7 @@ At a high level, senders will expect the following for recipient domains:
     - b. The certificate is unexpired.
     - c. There is a valid chain from the certificate to a root included in [Mozilla's trust store](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/included/) (available as [Debian package ca-certificates](https://packages.debian.org/sid/ca-certificates)).
     - d. If `pins` is set, then one of the `static_spki_hashes` SPKIs in the pinset is found in the chain.
- - 3. Successfully negotiates a TLS session.
-    - Includes honoring `min-tls-version` field.
+ - 3. Successfully negotiates a TLS session (>= TLS 1.2).
 
 A user of this file format may choose to override individual domain policies. For instance, the EFF might provide an overall configuration covering major mail providers, and another organization might produce an overlay for mail providers in a specific country.
 
@@ -93,11 +92,6 @@ Every field in `tls-policies` maps to a policy object. A policy object can have 
 #### policy-alias
 
 If set, other fields are ignored. This value should be a key in the upper-level "policy-aliases" configuration object. The policy for this domain will be configured as the denoted policy in the "policy-aliases" object.
-
-#### min-tls-version
-Default: `TLSv1.2`
-
-The minimum TLS version expected from this domain. Sending mail to domains under this policy should fail if the sending MTA cannot negotiate a TLS version equal to or greater than the listed version. Valid values are `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
 
 #### mode
 Default: `testing` (required)
