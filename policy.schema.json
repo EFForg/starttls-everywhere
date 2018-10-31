@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/EFForg/starttls-everywhere/master/policy.schema.json",
+    "title": "STARTTLS-Everywhere policy list",
+    "description": "A list of email domains who meet a minimum set of security requirements.",
+    "type": "object",
+    "properties": {
+        "timestamp": {
+            "description": "When this configuration file was distributed/fetched, in UTC. Can be in epoch seconds from 00:00:00 UTC on 1 January 1970, or a string yyyy-MM-dd'T'HH:mm:ssZZZZ. This field will be monotonically increasing for every update to the policy file. When updating this policy file, should validate that the timestamp is greater than or equal to the existing one.",
+            "type": ["string", "integer"],
+            "minimum": 0,
+            "pattern": "^(?:[1-9]\\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(\\.\\d+)?(?:Z|[+-][01]\\d:[0-5]\\d)$"
+        },
+        "expires": {
+            "description": "When this configuration file expires, in UTC. Can be in epoch seconds from 00:00:00 UTC on 1 January 1970, or a string yyyy-MM-dd'T'HH:mm:ssZZZZ. If the file has ceased being regularly updated for any reason, and the policy file has expired, the MTA should fall-back to opportunistic TLS for e-mail delivery, and the system operator should be alerted.",
+            "type": ["string", "integer"],
+            "minimum": 0,
+            "pattern": "^(?:[1-9]\\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(\\.\\d+)?(?:Z|[+-][01]\\d:[0-5]\\d)$"
+        },
+        "version": {
+            "description": "Version of the configuration file.",
+            "type": "string"
+        },
+        "author": {
+            "description": "Author of policy list.",
+            "type": "string"
+        },
+        "pinsets": {
+            "description": "Maps a unique pinset name to a list of accepted pins. For a given pinset, a certificate is accepted if at least one of the `static_spki_hashes` SPKIs is found in the chain.",
+            "type": "object",
+            "patternProperties": {
+                ".": {
+                    "type": "object",
+                    "properties": {
+                        "static-spki-hashes": {
+                            "type": "array",
+                            "description": "The set of allowed SPKIs hashes.",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^(sha256/[A-Za-z0-9+/]{43}=|sha1/[A-Za-z0-9+/]{27}=)$"
+                            },
+                            "additionalItems": false
+                        }
+                    },
+                    "required": [ "static-spki-hashes" ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "policy-aliases": {
+            "description": "A mapping of alias names onto a policy. Domains in the `policies` field can refer to policies defined in this object.",
+            "type": "object",
+            "patternProperties": {
+                ".": { "$ref": "#/definitions/policyDefinition" }
+            },
+            "additionalProperties": false
+        },
+        "policies": {
+            "description": "A mapping of mail domains (the part of an address after the `@`) onto a policy. Matching of mail domains is on an exact-match basis. For instance, `eff.org` would be listed separately from `lists.eff.org`. Fields in this policy specify security requirements that should be applied when connecting to any MTA server for a given mail domain. If the `mode` is `testing`, then the sender should not stop mail delivery on policy failures, but should produce logging information.",
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9]{2,63}$": {
+                    "oneOf": [
+                        { "$ref": "#/definitions/policyAliasReference" },
+                        { "$ref": "#/definitions/policyDefinition" }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "required": [ "timestamp", "expires", "version", "pinsets", "policies", "policy-aliases" ],
+    "additionalProperties": false,
+    "definitions": {
+        "policyAliasReference": {
+            "type": "object",
+            "properties": {
+                "policy-alias": {
+                    "type": "string",
+                    "description": "If set, other fields are ignored. This value should be a key in the upper-level `policy-aliases` configuration object. The policy for this domain will be configured as the denoted policy in the `policy-aliases` object."
+                }
+            },
+            "required": [ "policy-alias" ],
+            "additionalProperties": false
+        },
+        "policyDefinition": {
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "description": "Default: testing (required)\nEither testing or enforce. If testing is set, then any failure in TLS negotiation is logged and reported, but the message is sent over the insecure communication.",
+                    "enum": [ "testing", "enforce" ]
+                },
+                "mta-sts": {
+                    "type": "boolean",
+                    "description": "Default: testing (required)\nEither testing or enforce. If testing is set, then any failure in TLS negotiation is logged and reported, but the message is sent over the insecure communication."
+                },
+                "mxs": {
+                    "type": "array",
+                    "description": "A list of hostnames that the recipient email server's certificates could be valid for. If the server's certificate matches no entry in mxs, the MTA should fail delivery or log an advisory failure, according to mode. Entries in the mxs list can either be a suffix indicated by a leading dot .example.net or a fully qualified domain name mail.example.com. Arbitrarily deep subdomains can match a particular suffix. For instance, mta7.am0.yahoodns.net would match .yahoodns.net.",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^\\.?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9]{2,63}$"
+                    }
+                },
+                "pin": {
+                    "type": "string",
+                    "description": "Should match a key of `pinsets` in the higher-level config. For a given pinset, a certificate for this mail domain should be accepted if at least one of the `static_spki_hashes` SPKIs is found in the trust chain."
+                },
+                "report": {
+                    "type": "array",
+                    "description": "Endpoints to report errors to if TLS negotiation fails according to a particular policy. Reports should be aggregated and sent in the format specified by TLSRPT. These URIs should be https or mailto endpoints, and aggregated reports should be POSTed to the specified HTTPS URL or mailed to the appropriate address.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "type": "string",
+                                "pattern": "^(https|mailto):"
+                            },
+                            {
+                                "format": "uri"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [ "mxs", "mode" ],
+            "additionalProperties": false
+        }
+    }
+}
