@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://raw.githubusercontent.com/EFForg/starttls-everywhere/master/policy.schema.json",
+    "$id": "https://raw.githubusercontent.com/EFForg/starttls-everywhere/master/schema/policy-0.1.schema.json",
     "title": "STARTTLS-Everywhere policy list",
     "description": "A list of email domains who meet a minimum set of security requirements.",
     "type": "object",
@@ -19,7 +19,8 @@
         },
         "version": {
             "description": "Version of the configuration file.",
-            "type": "string"
+            "type": "string",
+            "const": "0.1"
         },
         "author": {
             "description": "Author of policy list.",
