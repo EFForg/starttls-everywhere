@@ -40,6 +40,7 @@
                                 "type": "string",
                                 "pattern": "^(sha256/[A-Za-z0-9+/]{43}=|sha1/[A-Za-z0-9+/]{27}=)$"
                             },
+                            "minItems": 1,
                             "additionalItems": false
                         }
                     },
