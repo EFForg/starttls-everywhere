@@ -1,2 +1,8 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r tests/test-requirements.txt
 script:
-    - ./tests/validate_signature.sh
+  - pytest
+  - ./tests/validate_signature.sh
