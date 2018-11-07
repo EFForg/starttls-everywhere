@@ -1,14 +1,16 @@
 {
+    "version": "0.1",
     "author": "Electronic Frontier Foundation",
-    "comment": "Sample policy configuration file",
     "expires": 1404677353,
     "timestamp": 1401093333,
-    "tls-policies": {
-        ".valid.example-recipient.com": {
+    "policy-aliases": {},
+    "pinsets": {},
+    "policies": {
+        "valid.example-recipient.com": {
             "mode": "enforce",
             "mxs": [".valid.example-recipient.com"],
             "require-valid-certificate": true,
-            "tls-report": "https://tls-rpt.example-recipient.org/api/report"
+            "report": ["https://tls-rpt.example-recipient.org/api/report"]
         }
     }
 }

@@ -1,21 +1,23 @@
 {
+  "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "expires": "2015-08-01T12:00:00+08:00",
   "timestamp": 1401414363,
-  "tls-policies": {
-    ".yahoodns.net": {
+  "policy-aliases": {},
+  "pinsets": {},
+  "policies": {
+    "yahoodns.net": {
       "mode": "testing",
-      "mxs": [".yahoodns.net"],
-      "require-valid-certificate": true
+      "mxs": [".yahoodns.net"]
     },
-    ".eff.org": {
+    "eff.org": {
       "mode": "enforce",
-      "require-valid-certificate": true
+      "mxs": [".eff.org"]
     },
-    ".google.com": {
-      "require-valid-certificate": true,
+    "google.com": {
       "mode": "testing",
-      "tls-report": "https://google.com/post/reports/here"
+      "mxs": [".google.com"],
+      "report": ["https://google.com/post/reports/here"]
     }
   }
 }
