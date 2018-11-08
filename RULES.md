@@ -1,6 +1,6 @@
 # Policy rule configuration format
 
-The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/draft-ietf-uta-mta-sts) as well as [Chromium's HSTS Preload List](https://src.chromium.org/chrome/trunk/src/net/http/transport_security_state_static.json) (and the associated CA Pinning list).
+The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/rfc8461) as well as [Chromium's HSTS Preload List](https://hstspreload.org/) (and the associated CA Pinning list).
 The basic file format will be JSON. Example:
 
 ```
@@ -87,7 +87,7 @@ Version of the configuration file.
 The set of allowed SPKIs hashes.
 
 ### Policy fields
-Every field in `tls-policies` maps to a policy object. A policy object can have the following fields:
+Every field in `policies` maps to a policy object. A policy object can have the following fields:
 
 #### policy-alias
 
@@ -105,7 +105,7 @@ If set, then senders should expect this recipient domain to support [MTA-STS](ht
 
 #### mxs
 
-A list of hostnames that the recipient email server's certificates could be valid for. If the server's certificate matches no entry in `mxs`, the MTA should fail delivery or log an advisory failure, according to `mode`. Entries in the `mxs` list can either be a suffix indicated by a leading dot `.example.net` or a fully qualified domain name `mail.example.com`. Arbitrarily deep subdomains can match a particular suffix. For instance, `mta7.am0.yahoodns.net` would match `.yahoodns.net`.
+A list of the expected MX hostnames for your server. At least one of the names on each mailserver's certificate should match one of these patterns. The pattern can be a suffix, like `.eff.org`, or a fully-qualified domain name, like `mx.eff.org`. Suffixes will only match one subdomain label, so `.eff.org` would match names `*.eff.org` and `mx.eff.org`, but not `good.mx.eff.org` or `*.mx.eff.org`.
 
 #### pin
 
