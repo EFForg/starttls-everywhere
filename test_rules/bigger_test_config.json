@@ -4,7 +4,6 @@
   "expires": "2015-08-01T12:00:00+08:00",
   "timestamp": 1401414363,
   "policy-aliases": {},
-  "pinsets": {},
   "policies": {
     "yahoodns.net": {
       "mode": "testing",
@@ -16,8 +15,7 @@
     },
     "google.com": {
       "mode": "testing",
-      "mxs": [".google.com"],
-      "report": ["https://google.com/post/reports/here"]
+      "mxs": [".google.com"]
     }
   }
 }
