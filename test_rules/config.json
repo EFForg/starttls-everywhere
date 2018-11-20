@@ -4,13 +4,10 @@
     "expires": 1404677353,
     "timestamp": 1401093333,
     "policy-aliases": {},
-    "pinsets": {},
     "policies": {
         "valid.example-recipient.com": {
             "mode": "enforce",
-            "mxs": [".valid.example-recipient.com"],
-            "require-valid-certificate": true,
-            "report": ["https://tls-rpt.example-recipient.org/api/report"]
+            "mxs": [".valid.example-recipient.com"]
         }
     }
 }

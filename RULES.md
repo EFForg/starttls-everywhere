@@ -1,6 +1,6 @@
 # Policy rule configuration format
 
-The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/rfc8461) as well as [Chromium's HSTS Preload List](https://hstspreload.org/) (and the associated CA Pinning list).
+The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/rfc8461) as well as [Chromium's HSTS Preload List](https://hstspreload.org/).
 The basic file format will be JSON. Example:
 
 ```
@@ -9,18 +9,9 @@ The basic file format will be JSON. Example:
   "author": "Electronic Frontier Foundation https://eff.org",
   "expires": "2014-06-06T14:30:16+00:00",
   "version": "0.1",
-  "pinsets": {
-    "eff": {
-      "static-spki-hashes": [
-        "sha1/5R0zeLx7EWRxqw6HRlgCRxNLHDo=",
-        "sha1/YlrkMlC6C4SJRZSVyRvnvoJ+8eM=",
-      ]
-    }
-   },
   "policy-aliases": {
     "gmail": {
       "mode": "testing",
-      "report": ["https://google.com/post/reports/here"],
       "mxs": [".mail.google.com"],
     }
   },
@@ -31,7 +22,6 @@ The basic file format will be JSON. Example:
      },
     "eff.org": {
       "mode": "enforce",
-      "pin": "eff",
       "mxs": [".eff.org"]
     },
     "gmail.com": {
@@ -39,7 +29,6 @@ The basic file format will be JSON. Example:
     },
     "example.com": {
       "mode": "testing",
-      "mta-sts": true,
       "mxs": ["mail.example.com", ".example.net"]
     },
   },
@@ -52,14 +41,11 @@ At a high level, senders will expect the following for recipient domains:
     - a. The CN or DNS entry under subjectAltName matches an appropriate hostname.
     - b. The certificate is unexpired.
     - c. There is a valid chain from the certificate to a root included in [Mozilla's trust store](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/included/) (available as [Debian package ca-certificates](https://packages.debian.org/sid/ca-certificates)).
-    - d. If `pins` is set, then one of the `static_spki_hashes` SPKIs in the pinset is found in the chain.
  - 3. Successfully negotiates a TLS session (>= TLS 1.2).
 
 A user of this file format may choose to override individual domain policies. For instance, the EFF might provide an overall configuration covering major mail providers, and another organization might produce an overlay for mail providers in a specific country.
 
-Before adding a policy to this list, we validate:
- - 1. The email domain conforms to the policy, as above.
- - 2. Any specified reporting endpoints via `report` are active (POST succeeds for https endpoints, and mailto: addresses don't bounce)
+Before adding a policy to this list, we validate that the email domain conforms to the policy, as above.
 
 Note that there is no inline signature field. The configuration file should be distributed with authentication using an offline signing key, generated using `gpg --clearsign`. Config-generator should validate the signature against a known GPG public key before extracting. The public key is part of the permanent system configuration, like the fetch URL.
 
@@ -76,15 +62,8 @@ A mapping of alias names onto a policy. Domains in the `policies` field can refe
 #### policies
 A mapping of mail domains (the part of an address after the "@") onto a "policy". Matching of mail domains is on an exact-match basis. For instance, `eff.org` would be listed separately from `lists.eff.org`. Fields in this policy specify security requirements that should be applied when connecting to any MTA server for a given mail domain. If the `mode` is `testing`, then the sender should not stop mail delivery on policy failures, but should produce logging information.
 
-#### pinsets
-Maps a unique pinset name to a list of accepted pins. For a given pinset, a certificate is accepted if at least one of the `static_spki_hashes` SPKIs is found in the chain.
-
 #### version
 Version of the configuration file.
-
-### Pinset fields
-#### static-spki-hashes
-The set of allowed SPKIs hashes.
 
 ### Policy fields
 Every field in `policies` maps to a policy object. A policy object can have the following fields:
@@ -96,21 +75,9 @@ If set, other fields are ignored. This value should be a key in the upper-level 
 #### mode
 Default: `testing` (required)
 
-Either `testing` or `enforce`. If `testing` is set, then any failure in TLS negotiation is logged and reported, but the message is sent over the insecure communication.
-
-#### mta-sts
-Default: `false`
-
-If set, then senders should expect this recipient domain to support [MTA-STS](https://tools.ietf.org/html/draft-ietf-uta-mta-sts).
+Either `testing` or `enforce`. If `testing` is set, then the recipient expects any failure in TLS negotiation to be reported via a mechanism such as TLSRPT, but the message is still sent over the insecure communication.
 
 #### mxs
 
 A list of the expected MX hostnames for your server. At least one of the names on each mailserver's certificate should match one of these patterns. The pattern can be a suffix, like `.eff.org`, or a fully-qualified domain name, like `mx.eff.org`. Suffixes will only match one subdomain label, so `.eff.org` would match names `*.eff.org` and `mx.eff.org`, but not `good.mx.eff.org` or `*.mx.eff.org`.
 
-#### pin
-
-Should match a key of `pinsets` in the higher-level config. For a given pinset, a certificate for this mail domain should be accepted if at least one of the `static_spki_hashes` SPKIs is found in the trust chain.
-
-#### report
-
-Endpoints to report errors to if TLS negotiation fails according to a particular policy. Reports should be aggregated and sent in the format specified by [TLSRPT](https://tools.ietf.org/html/draft-ietf-uta-smtp-tlsrpt). These URIs should be `https` or `mailto` endpoints, and aggregated reports should be `POST`ed to the specified HTTPS URL or mailed to the appropriate address.
