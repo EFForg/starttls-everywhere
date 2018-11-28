@@ -26,30 +26,6 @@
             "description": "Author of policy list.",
             "type": "string"
         },
-        "pinsets": {
-            "description": "Maps a unique pinset name to a list of accepted pins. For a given pinset, a certificate is accepted if at least one of the `static_spki_hashes` SPKIs is found in the chain.",
-            "type": "object",
-            "patternProperties": {
-                ".": {
-                    "type": "object",
-                    "properties": {
-                        "static-spki-hashes": {
-                            "type": "array",
-                            "description": "The set of allowed SPKIs hashes.",
-                            "items": {
-                                "type": "string",
-                                "pattern": "^(sha256/[A-Za-z0-9+/]{43}=|sha1/[A-Za-z0-9+/]{27}=)$"
-                            },
-                            "minItems": 1,
-                            "additionalItems": false
-                        }
-                    },
-                    "required": [ "static-spki-hashes" ],
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": false
-        },
         "policy-aliases": {
             "description": "A mapping of alias names onto a policy. Domains in the `policies` field can refer to policies defined in this object.",
             "type": "object",
@@ -72,7 +48,7 @@
             "additionalProperties": false
         }
     },
-    "required": [ "timestamp", "expires", "version", "pinsets", "policies", "policy-aliases" ],
+    "required": [ "timestamp", "expires", "version", "policies", "policy-aliases" ],
     "additionalProperties": false,
     "definitions": {
         "policyAliasReference": {
@@ -93,10 +69,6 @@
                     "description": "Default: testing (required)\nEither testing or enforce. If testing is set, then any failure in TLS negotiation is logged and reported, but the message is sent over the insecure communication.",
                     "enum": [ "testing", "enforce" ]
                 },
-                "mta-sts": {
-                    "type": "boolean",
-                    "description": "Default: testing (required)\nEither testing or enforce. If testing is set, then any failure in TLS negotiation is logged and reported, but the message is sent over the insecure communication."
-                },
                 "mxs": {
                     "type": "array",
                     "description": "A list of hostnames that the recipient email server's certificates could be valid for. If the server's certificate matches no entry in mxs, the MTA should fail delivery or log an advisory failure, according to mode. Entries in the mxs list can either be a suffix indicated by a leading dot .example.net or a fully qualified domain name mail.example.com. Arbitrarily deep subdomains can match a particular suffix. For instance, mta7.am0.yahoodns.net would match .yahoodns.net.",
@@ -105,26 +77,6 @@
                     "items": {
                         "type": "string",
                         "pattern": "^\\.?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9]{2,63}$"
-                    },
-                    "additionalItems": false
-                },
-                "pin": {
-                    "type": "string",
-                    "description": "Should match a key of `pinsets` in the higher-level config. For a given pinset, a certificate for this mail domain should be accepted if at least one of the `static_spki_hashes` SPKIs is found in the trust chain."
-                },
-                "report": {
-                    "type": "array",
-                    "description": "Endpoints to report errors to if TLS negotiation fails according to a particular policy. Reports should be aggregated and sent in the format specified by TLSRPT. These URIs should be https or mailto endpoints, and aggregated reports should be POSTed to the specified HTTPS URL or mailed to the appropriate address.",
-                    "items": {
-                        "allOf": [
-                            {
-                                "type": "string",
-                                "pattern": "^(https|mailto):"
-                            },
-                            {
-                                "format": "uri"
-                            }
-                        ]
                     },
                     "additionalItems": false
                 }
