@@ -1,6 +1,6 @@
 {
-  "timestamp": "2018-11-26T09:43:25.734784841-08:00",
-  "expires": "2018-12-10T09:43:25.734784841-08:00",
+  "timestamp": "2018-12-07T16:01:32.334468898-08:00",
+  "expires": "2018-12-21T16:01:32.334468898-08:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "policy-aliases": {
@@ -570,12 +570,6 @@
         "mail.protonmail.ch"
       ]
     },
-    "bewonderen.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
     "bingbong.epac.to": {
       "mode": "testing",
       "mxs": [
@@ -645,12 +639,6 @@
       "mode": "testing",
       "mxs": [
         "mail.mobydog.net"
-      ]
-    },
-    "creepycraft.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
       ]
     },
     "crustytoothpaste.net": {
@@ -741,12 +729,6 @@
         ".fran.cr"
       ]
     },
-    "gerardinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
     "getappetite.tv": {
       "mode": "testing",
       "mxs": [
@@ -803,12 +785,6 @@
       "mode": "testing",
       "mxs": [
         "smtp.jcea.es"
-      ]
-    },
-    "jimslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
       ]
     },
     "jtg.business": {
@@ -900,12 +876,6 @@
         "enqueuer.nic.br"
       ]
     },
-    "nienkeslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
     "ninetailed.ninja": {
       "mode": "testing",
       "mxs": [
@@ -976,18 +946,6 @@
       "mxs": [
         "mx1.s-hertogenbosch.nl",
         "mx2.s-hertogenbosch.nl"
-      ]
-    },
-    "sandrainden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
-    "sandraindenfotografie.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
       ]
     },
     "sauerburger.io": {
@@ -1079,12 +1037,6 @@
         "thewiesners.org"
       ]
     },
-    "thijsslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
     "tifaware.com": {
       "mode": "testing",
       "mxs": [
@@ -1134,30 +1086,6 @@
       "mode": "testing",
       "mxs": [
         "mx.webgma.co.il"
-      ]
-    },
-    "willekeinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
-    "wouterslop.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
-    "wouterslop.eu": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
-      ]
-    },
-    "wouterslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx.wouterslop.nl"
       ]
     },
     "xel.nl": {
