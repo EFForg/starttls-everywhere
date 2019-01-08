@@ -85,7 +85,8 @@ If you are working next to or directly on one or more of these things, feel free
 
 ### Contributing
 
- * Mailing list: starttls-everywhere@eff.org, https://lists.eff.org/mailman/listinfo/starttls-everywhere
+ * Announcements mailing list: starttls-everywhere@eff.org, https://lists.eff.org/mailman/listinfo/starttls-everywhere
+ * Developer mailing list: starttls-everywhere-devs@lists.eff.org, https://lists.eff.org/mailman/listinfo/starttls-everywhere-devs
  * IRC/dev channel: TBD
  * We host a weekly development call every Thursday at 11AM Pacific Time. Shoot the mailing list an email if you're interested in joining or just sitting in.
 
