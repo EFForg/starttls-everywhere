@@ -7,26 +7,39 @@
     "google": {
       "mode": "testing",
       "mxs": [
-        ".l.google.com"
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "alt3.aspmx.l.google.com",
+        "alt4.aspmx.l.google.com"
       ]
     },
     "icloud": {
       "mode": "testing",
       "mxs": [
-        ".icloud.com"
+        "mx1.mail.icloud.com",
+        "mx2.mail.icloud.com",
+        "mx3.mail.icloud.com",
+        "mx4.mail.icloud.com",
+        "mx5.mail.icloud.com",
+        "mx6.mail.icloud.com",
+        ".mail.icloud.com"
       ]
     },
     "outlook": {
       "mode": "testing",
       "mxs": [
-        ".outlook.com",
-        "outlook.com"
+        ".olc.protection.outlook.com",
+        ".mail.protection.outlook.com"
       ]
     },
     "yahoo": {
       "mode": "testing",
       "mxs": [
-        ".yahoodns.net"
+        ".am0.yahoodns.net",
+        "mta5.am0.yahoodns.net",
+        "mta6.am0.yahoodns.net",
+        "mta7.am0.yahoodns.net"
       ]
     }
   },
