@@ -1,6 +1,6 @@
 {
-  "timestamp": "2019-02-11T10:27:38.060260-08:00",
-  "expires": "2019-02-25T10:27:38.060290-08:00",
+  "timestamp": "2019-02-22T12:27:10.253028-08:00",
+  "expires": "2019-03-08T12:27:10.253058-08:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "policy-aliases": {
@@ -2177,6 +2177,124 @@
       "mxs": [
         "mta01.wpd.de",
         "mta02.wpd.de"
+      ]
+    },
+    "burzmali.com": {
+      "mode": "testing",
+      "mxs": [
+        "ix.burzmali.com"
+      ]
+    },
+    "centerclick.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.centerclick.org"
+      ]
+    },
+    "davej.org": {
+      "mode": "testing",
+      "mxs": [
+        "mail.centerclick.org"
+      ]
+    },
+    "dombox.org": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "alt3.aspmx.l.google.com",
+        "alt4.aspmx.l.google.com"
+      ]
+    },
+    "espci.fr": {
+      "mode": "testing",
+      "mxs": [
+        "mx3.espci.fr",
+        "mx4.espci.fr"
+      ]
+    },
+    "eurocontrol.int": {
+      "mode": "testing",
+      "mxs": [
+        "esa1.eurocontrol.c3s2.iphmx.com",
+        "esa2.eurocontrol.c3s2.iphmx.com"
+      ]
+    },
+    "grupoicot.es": {
+      "mode": "testing",
+      "mxs": [
+        "correo.grupoicot.es"
+      ]
+    },
+    "hmdb.org": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "alt3.aspmx.l.google.com",
+        "alt4.aspmx.l.google.com"
+      ]
+    },
+    "kwain.net": {
+      "mode": "testing",
+      "mxs": [
+        "smtp.kwain.net",
+        "spool.mail.gandi.net",
+        "fb.mail.gandi.net"
+      ]
+    },
+    "mnfgroup.limited": {
+      "mode": "testing",
+      "mxs": [
+        "mail.mnfgroup.limited",
+        "mail2.mnfgroup.limited"
+      ]
+    },
+    "rhymeswithmogul.com": {
+      "mode": "testing",
+      "mxs": [
+        "rhymeswithmogul.com",
+        "azure.rhymeswithmogul.com"
+      ]
+    },
+    "rogerkunz.ch": {
+      "mode": "testing",
+      "mxs": [
+        "mail.rogerkunz.ch",
+        "rogerkunz.ch"
+      ]
+    },
+    "scarf.org.uk": {
+      "mode": "testing",
+      "mxs": [
+        ".scarf.org.uk"
+      ]
+    },
+    "sequitur.tech": {
+      "mode": "testing",
+      "mxs": [
+        "santos.coffee.co.uk",
+        "colombia.coffee.co.uk"
+      ]
+    },
+    "spendy.org": {
+      "mode": "testing",
+      "mxs": [
+        "toasty.spendy.org"
+      ]
+    },
+    "synergynh.com": {
+      "mode": "testing",
+      "mxs": [
+        "mail.centerclick.org"
+      ]
+    },
+    "vectro.co": {
+      "mode": "testing",
+      "mxs": [
+        ".mail.protection.outlook.com"
       ]
     }
   }
