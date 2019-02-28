@@ -29,13 +29,28 @@ We welcome [contributions](https://github.com/EFForg/starttls-everywhere) for di
 
 ## Submitting your domain to the list
 
+### The process
+
+ 1. Submit [this form](https://starttls-everywhere.org/add-domain).
+ 2. Check your postmaster@ inbox to confirm the addition request.
+
+Now, if your domain has a valid [MTA-STS](https://tools.ietf.org/html/rfc8461) policy up, you're done! Go celebrate. Otherwise:
+
+ 3. In about a month, your postmaster@ address will receive an email prompting you to switch from "testing" mode to "enforce" mode. Reply affirmatively once you'd like to turn on strict validation for your domain.
+
+If anything goes wrong between each of these steps, you'll receive an automated email in your postmaster@ inbox with steps to remedy.
+
+More details below about the process, if you're curious:
+
+#### The form
+
 When submitting your domain to the list through [this form](https://starttls-everywhere.org/add-domain), you must provide and verify:
 
  * A contact email used by STARTTLS Everywhere to notify the mailserver administrator of any deliverablity concerns as well as major updates to the STARTTLS Everywhere project. (We won't use this email for any other purpose).
  * A list of the expected MX hostnames for your server. At least one of the names on each mailserver's certificate should match one of these patterns.
     * These can be a suffix, like `.eff.org`, or a fully-qualified domain name, like `mx.eff.org`. Suffixes will only match one subdomain label, so `.eff.org` would match names `*.eff.org` and `mx.eff.org`, but not `good.mx.eff.org` or `*.mx.eff.org`.
 
-#### Validation
+#### Automated validation
 
 For your email domain to be eligible for addition to the STARTTLS policy list, the requirements are that your domain:
 
@@ -51,6 +66,16 @@ For your email domain to be eligible for addition to the STARTTLS policy list, t
 Before adding a domain to the list, we continue to perform validation against the mailserver for at least one week. If it fails at any point, **it must be resubmitted.**
 
 With that in mind, you can [queue your mail domain](https://starttls-everywhere.org/add-domain) for the STARTTLS policy list. Alternatively, you can send an email to [starttls-policy@eff.org](mailto:starttls-policy@eff.org) or [submit a pull request](https://github.com/EFForg/starttls-everywhere) to add your domain, though these other channels may take longer for your domain to be submitted.
+
+#### Which mode: `testing` or `enforce`?
+
+`testing` mode will allow you to test things out, and gives you a period of time to receive server misconfiguration reports in case you have any. However, there are little security benefits to this.
+
+`enforce` mode gives you the security benefits by enforcing the specified security policy. That is, `enforce` mode asks other mailservers to keep email queued unless they can connect to a mailserver over authenticated TLS whose hostname matches one that appears in the `mxs` policy.
+
+If your domain has a valid MTA-STS policy up, we'll use the mode indicated in your policy file.
+
+If your domain doesn't have a valid MTA-STS policy, your domain will be soft-queued in "testing" mode. Once your email domain has been on the list for at least two weeks, you can request it be upgraded to "enforce"-- send `starttls-policy@eff.org` an email.
 
 #### Continued requirements
 

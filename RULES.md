@@ -1,6 +1,6 @@
 # Policy rule configuration format
 
-The TLS policy file is a `json` file which conforms to the following specification. These fields are draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/rfc8461) as well as [Chromium's HSTS Preload List](https://hstspreload.org/).
+The TLS policy file is a `json` file which conforms to the following specification. These fields draw inspiration from the [MTA-STS policy file format](https://tools.ietf.org/html/rfc8461) as well as [Chromium's HSTS Preload List](https://hstspreload.org/).
 The basic file format will be JSON. Example:
 
 ```
