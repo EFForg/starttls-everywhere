@@ -60,8 +60,10 @@ The project scope is very large, though our development team is extremely small.
 
 If you are working next to or directly on one or more of these things, feel free to shoot us an email at starttls-everywhere@eff.org.
 
-### [Email security database (STARTTLS policy list)](POLICY_LIST.md)
+### Email security database (STARTTLS policy list)
 
+ * [Usage guidelines](USAGE.md) (for configuration of sending mailservers)
+ * [Validation guidelines](VALIDATION.md) (for configuration of receiving mailservers)
  * [Detailed spec](RULES.md) of list format.
  * [Submission site for adding mail domains](https://starttls-everywhere.org)
  * Maintaining and encouraging use of [starttls-policy-cli](https://github.com/EFForg/starttls-policy-cli).
