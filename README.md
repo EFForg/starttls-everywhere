@@ -82,7 +82,7 @@ If you are working next to or directly on one or more of these things, feel free
 ### Currently actively maintaining/building
 
  * Maintaining the [email security database](policy.json) and [submission site](https://starttls-everywhere.org)
- * Building out integrations for [starttls-policy-cli](starttls-policy/README.md)
+ * Building out integrations for [starttls-policy-cli](https://github.com/EFForg/starttls-policy-cli/blob/master/README.md)
  * Encouraging MTA-STS validation support in other MTA software.
 
 ### Contributing
