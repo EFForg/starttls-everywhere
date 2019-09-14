@@ -1,6 +1,6 @@
 {
-  "timestamp": "2019-09-04T19:24:15.006444-07:00",
-  "expires": "2019-09-18T19:24:15.006478-07:00",
+  "timestamp": "2019-09-13T17:20:41.109354-07:00",
+  "expires": "2019-09-27T17:20:41.109373-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "policy-aliases": {
@@ -40,6 +40,271 @@
         "mta5.am0.yahoodns.net",
         "mta6.am0.yahoodns.net",
         "mta7.am0.yahoodns.net"
+      ]
+    },
+    "3a8281ba5e35f616a245af637937a89dabcc827894342028c554a844636a14ca": {
+      "mode": "testing",
+      "mxs": [
+        "norris.urown.net",
+        "pace.urown.net"
+      ]
+    },
+    "36a75ddd20c232ef9e5c2fbe5610a37ca72546df3f503ec6d9b5146ecb0f2e55": {
+      "mode": "testing",
+      "mxs": [
+        "cloud.eltrich.name",
+        "axon.gand.de"
+      ]
+    },
+    "5b932df9901b1c3359d929fb1499ce39731e301e90d27fe6e88fdf9053d3008f": {
+      "mode": "testing",
+      "mxs": [
+        "in.hes.trendmicro.eu",
+        "mail.fabje.nl"
+      ]
+    },
+    "60e08c129c416ab0fe6c1bfaa311d8f2b65a781b5a226db6fb760f2510b77b6b": {
+      "mode": "testing",
+      "mxs": [
+        "ina.pt-server.de"
+      ]
+    },
+    "d82ddbb7029d4b3fcb262a6516cb71ffecf69e465c2f82b0339e9309267be8a9": {
+      "mode": "testing",
+      "mxs": [
+        "mail.eruditium.org"
+      ]
+    },
+    "33fa3b93bbc23ce2e5a1baa50eff4ae908126fa8d2a9c5eddb8a9589faf4933d": {
+      "mode": "testing",
+      "mxs": [
+        ".fivl.it"
+      ]
+    },
+    "eedf343305779af231318a051b1c7acc2f64f640bf1014b58e04b07daed39ba6": {
+      "mode": "testing",
+      "mxs": [
+        "srv02.shivering-isles.com"
+      ]
+    },
+    "77550eecdefd056f36705b383d47c54612848680b8c0f2345a89fd83e4bb459f": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tspu.edu.ru"
+      ]
+    },
+    "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c": {
+      "mode": "testing",
+      "mxs": [
+        "in1-smtp.messagingengine.com",
+        "in2-smtp.messagingengine.com"
+      ]
+    },
+    "19f4b32cb1328e15305f51ea2770dd9cd5810e4575ec6977f6fd49dd287c9cec": {
+      "mode": "testing",
+      "mxs": [
+        "mail.fireserve.net",
+        "mx1.fireserve.net"
+      ]
+    },
+    "fb0ca79f725fc28ac223206b63b1c851460ef6485eef07f8f4720233ca144f5d": {
+      "mode": "testing",
+      "mxs": [
+        "mail.protonmail.ch"
+      ]
+    },
+    "f7b498a61a9e656c6ef03b1522ad3bec625ed5e71be31aad4acef19a6153233f": {
+      "mode": "testing",
+      "mxs": [
+        "dergeraet.c3w.at"
+      ]
+    },
+    "c596993c96a2a2901d50d379c2a64dd73da1c94e76b95d26b412f59128ba2723": {
+      "mode": "testing",
+      "mxs": [
+        ".ninetailed.ninja"
+      ]
+    },
+    "61b3e600cdd5b364c3b0a7800170ceb1347f1ae0762cd87aea5cb798791c28f7": {
+      "mode": "testing",
+      "mxs": [
+        "ybti.net"
+      ]
+    },
+    "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96": {
+      "mode": "testing",
+      "mxs": [
+        "mail.protonmail.ch",
+        "mailsec.protonmail.ch"
+      ]
+    },
+    "ad1ff424003bab3177979f7d0a7cfc21acbd710abb2c291a672ba4d673b635d1": {
+      "mode": "testing",
+      "mxs": [
+        "mx0.backschues.net"
+      ]
+    },
+    "c55cdd5fd9e301095c943fbea3919f83020fa03ab53ad3d8f27928ffc96cb8ab": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "aspmx2.googlemail.com",
+        "aspmx3.googlemail.com"
+      ]
+    },
+    "96724ba07b63ce43b903fd1ab0b953c564170b2321bbc45502690d2a57fe0872": {
+      "mode": "testing",
+      "mxs": [
+        "mx0.backschues.net",
+        "mx1.backschues.net",
+        "mx00.backschues.net",
+        "mx01.backschues.net"
+      ]
+    },
+    "2c1051441d00a30c2fe128b67bbb42e375cf5ad9dcc31450bd02a518ce9fbe1f": {
+      "mode": "testing",
+      "mxs": [
+        "mailfilter2.cdom.de"
+      ]
+    },
+    "5e5ea9fba2c47b812e15547615cc925d83674a214535fd738d831b0e74182545": {
+      "mode": "testing",
+      "mxs": [
+        "ec2.rhymeswithmogul.com",
+        "azure.rhymeswithmogul.com"
+      ]
+    },
+    "2920821dc0104207f4e2e76988d70f1109327788308fa1683075706144b9ffd8": {
+      "mode": "testing",
+      "mxs": [
+        "mail.aegee.org"
+      ]
+    },
+    "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc": {
+      "mode": "testing",
+      "mxs": [
+        "aspmx.l.google.com",
+        "alt1.aspmx.l.google.com",
+        "alt2.aspmx.l.google.com",
+        "alt3.aspmx.l.google.com",
+        "alt4.aspmx.l.google.com"
+      ]
+    },
+    "e08616eee98bfd1f5f5ba4654d461b97288b150d0ae29bc1cfa8b3ceed95a0f5": {
+      "mode": "testing",
+      "mxs": [
+        "mail.js-webcoding.de"
+      ]
+    },
+    "9966706cd173668c9e4c120a88ab2ebf387c0363bd6245db2cdb501b4fa7ea58": {
+      "mode": "testing",
+      "mxs": [
+        "mail.tutanota.de"
+      ]
+    },
+    "46085d7503416860f6d1e858644488c4483df74d76d0673523e489c84c67e429": {
+      "mode": "testing",
+      "mxs": [
+        "mail.bummelwelt.com"
+      ]
+    },
+    "a37dc171752d8c7e481a1a2dee9e810e1308aa8af943bc0e688e3e2ad3011c53": {
+      "mode": "testing",
+      "mxs": [
+        "naksitrallid.com"
+      ]
+    },
+    "f0f828f506488f71974ed1274b20ab88a3941bdaaa3fa5e3f4791a9c2e7a8c6a": {
+      "mode": "testing",
+      "mxs": [
+        "mta01.wpd.de",
+        "mta02.wpd.de"
+      ]
+    },
+    "e70090a22e1bba89d6573f08fb46c478a727b2237c43ff7477f1efcf403043df": {
+      "mode": "testing",
+      "mxs": [
+        "mail.centerclick.org"
+      ]
+    },
+    "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.vicugna.nl"
+      ]
+    },
+    "b000dcb58037e7cf890931da706b11b918b35fab70b7188c4cd65750261642a1": {
+      "mode": "testing",
+      "mxs": [
+        "vade-in1.mail.dreamhost.com",
+        "vade-in2.mail.dreamhost.com"
+      ]
+    },
+    "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d": {
+      "mode": "testing",
+      "mxs": [
+        "linsrv104.linuxcontrolpanel.co.uk"
+      ]
+    },
+    "6737d92ae6d2d39fa028de8dc80b83a23de6573dc22133f6b3af491074993811": {
+      "mode": "testing",
+      "mxs": [
+        "srv01.knop.info"
+      ]
+    },
+    "7312fc53ed80c5b9a0d6e580b27b30f232c816dd58a4568a399a1444ae7a5077": {
+      "mode": "testing",
+      "mxs": [
+        "webmail.jenzi.com"
+      ]
+    },
+    "3350072c26315bab265295606f1c86bc9580490143ba40b28c4154f49585b8fa": {
+      "mode": "testing",
+      "mxs": [
+        ".the-delta.net.eu.org"
+      ]
+    },
+    "92e423614d081da430ed0ae6b3ea19333e37e4855222347cfb5eefe162127c22": {
+      "mode": "testing",
+      "mxs": [
+        "lyra.margatroid.com"
+      ]
+    },
+    "5be3952a6da7fe329cfc1e67508fdcc8b83fbb6a41f3a132119e4d0615c3c656": {
+      "mode": "testing",
+      "mxs": [
+        "mail.section9.london",
+        "post.section9.london"
+      ]
+    },
+    "d11b2c0392dc7c07322ff1e9f0121b20fc879e27ee342d51a5ce36284985be43": {
+      "mode": "testing",
+      "mxs": [
+        "as01.secureme.it",
+        "as02.secureme.it"
+      ]
+    },
+    "43a04cf7c8d3b65c9e9e0f9ad24ad09fb6035038f39d1715e435755e340a7339": {
+      "mode": "testing",
+      "mxs": [
+        "mx1.startmail.com",
+        "mx2.startmail.com"
+      ]
+    },
+    "6a3d56882d4f4667409907bdccec656faecb810714d3006cb453504419660cb4": {
+      "mode": "testing",
+      "mxs": [
+        "mx.zoho.com",
+        "mx2.zoho.com",
+        "mx3.zoho.com"
+      ]
+    },
+    "a48e4faafef8eaabd3d277e1a39ccd5492629129cb2dab61ea9d4e86d29c6373": {
+      "mode": "testing",
+      "mxs": [
+        "webcookies.org"
       ]
     }
   },
@@ -127,11 +392,7 @@
       ]
     },
     "alainwolf.net": {
-      "mode": "testing",
-      "mxs": [
-        "norris.urown.net",
-        "pace.urown.net"
-      ]
+      "policy-alias": "3a8281ba5e35f616a245af637937a89dabcc827894342028c554a844636a14ca"
     },
     "apbox.de": {
       "mode": "testing",
@@ -227,11 +488,7 @@
       ]
     },
     "eltrich.name": {
-      "mode": "testing",
-      "mxs": [
-        "cloud.eltrich.name",
-        "axon.gand.de"
-      ]
+      "policy-alias": "36a75ddd20c232ef9e5c2fbe5610a37ca72546df3f503ec6d9b5146ecb0f2e55"
     },
     "eruditium.org": {
       "mode": "testing",
@@ -254,11 +511,7 @@
       ]
     },
     "familieblume.nl": {
-      "mode": "testing",
-      "mxs": [
-        "in.hes.trendmicro.eu",
-        "mail.fabje.nl"
-      ]
+      "policy-alias": "5b932df9901b1c3359d929fb1499ce39731e301e90d27fe6e88fdf9053d3008f"
     },
     "fau.org": {
       "mode": "testing",
@@ -273,11 +526,7 @@
       ]
     },
     "federation-interstellar.org": {
-      "mode": "testing",
-      "mxs": [
-        "pace.urown.net",
-        "norris.urown.net"
-      ]
+      "policy-alias": "3a8281ba5e35f616a245af637937a89dabcc827894342028c554a844636a14ca"
     },
     "fivl.it": {
       "mode": "testing",
@@ -490,34 +739,19 @@
       ]
     },
     "pt-server.de": {
-      "mode": "testing",
-      "mxs": [
-        "ina.pt-server.de"
-      ]
+      "policy-alias": "60e08c129c416ab0fe6c1bfaa311d8f2b65a781b5a226db6fb760f2510b77b6b"
     },
     "rbbaader.de": {
-      "mode": "testing",
-      "mxs": [
-        "ina.pt-server.de"
-      ]
+      "policy-alias": "60e08c129c416ab0fe6c1bfaa311d8f2b65a781b5a226db6fb760f2510b77b6b"
     },
     "rbr.info": {
-      "mode": "testing",
-      "mxs": [
-        "mail.eruditium.org"
-      ]
+      "policy-alias": "d82ddbb7029d4b3fcb262a6516cb71ffecf69e465c2f82b0339e9309267be8a9"
     },
     "reisebuero-baader.de": {
-      "mode": "testing",
-      "mxs": [
-        "ina.pt-server.de"
-      ]
+      "policy-alias": "60e08c129c416ab0fe6c1bfaa311d8f2b65a781b5a226db6fb760f2510b77b6b"
     },
     "saccani.net": {
-      "mode": "testing",
-      "mxs": [
-        ".fivl.it"
-      ]
+      "policy-alias": "33fa3b93bbc23ce2e5a1baa50eff4ae908126fa8d2a9c5eddb8a9589faf4933d"
     },
     "sheogorath.shivering-isles.com": {
       "mode": "testing",
@@ -526,10 +760,7 @@
       ]
     },
     "shivering-isles.com": {
-      "mode": "testing",
-      "mxs": [
-        "srv02.shivering-isles.com"
-      ]
+      "policy-alias": "eedf343305779af231318a051b1c7acc2f64f640bf1014b58e04b07daed39ba6"
     },
     "spodhuis.org": {
       "mode": "testing",
@@ -556,17 +787,10 @@
       ]
     },
     "tspu.ru": {
-      "mode": "testing",
-      "mxs": [
-        "mail.tspu.edu.ru"
-      ]
+      "policy-alias": "77550eecdefd056f36705b383d47c54612848680b8c0f2345a89fd83e4bb459f"
     },
     "4zal.net": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "anongoth.pl": {
       "mode": "testing",
@@ -658,11 +882,7 @@
       ]
     },
     "decimatechnologies.eu": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "desgrange.net": {
       "mode": "testing",
@@ -721,11 +941,7 @@
       ]
     },
     "fireserve.net": {
-      "mode": "testing",
-      "mxs": [
-        "mail.fireserve.net",
-        "mx1.fireserve.net"
-      ]
+      "policy-alias": "19f4b32cb1328e15305f51ea2770dd9cd5810e4575ec6977f6fd49dd287c9cec"
     },
     "flarn.com": {
       "mode": "testing",
@@ -907,10 +1123,7 @@
       ]
     },
     "petersons.me": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch"
-      ]
+      "policy-alias": "fb0ca79f725fc28ac223206b63b1c851460ef6485eef07f8f4720233ca144f5d"
     },
     "pf.id.au": {
       "mode": "testing",
@@ -926,10 +1139,7 @@
       ]
     },
     "privacyweek.at": {
-      "mode": "testing",
-      "mxs": [
-        "dergeraet.c3w.at"
-      ]
+      "policy-alias": "f7b498a61a9e656c6ef03b1522ad3bec625ed5e71be31aad4acef19a6153233f"
     },
     "raitisoja.com": {
       "mode": "testing",
@@ -971,10 +1181,7 @@
       ]
     },
     "schlarb.eu": {
-      "mode": "testing",
-      "mxs": [
-        ".ninetailed.ninja"
-      ]
+      "policy-alias": "c596993c96a2a2901d50d379c2a64dd73da1c94e76b95d26b412f59128ba2723"
     },
     "sdeziel.info": {
       "mode": "testing",
@@ -1002,11 +1209,7 @@
       ]
     },
     "sunsetdynamics.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.fireserve.net",
-        "mx1.fireserve.net"
-      ]
+      "policy-alias": "19f4b32cb1328e15305f51ea2770dd9cd5810e4575ec6977f6fd49dd287c9cec"
     },
     "sven.de": {
       "mode": "testing",
@@ -1067,10 +1270,7 @@
       ]
     },
     "valorizmusic.com": {
-      "mode": "testing",
-      "mxs": [
-        ".ninetailed.ninja"
-      ]
+      "policy-alias": "c596993c96a2a2901d50d379c2a64dd73da1c94e76b95d26b412f59128ba2723"
     },
     "volitans-software.com": {
       "mode": "testing",
@@ -1225,11 +1425,7 @@
       ]
     },
     "lmcm.io": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "mail.de": {
       "mode": "testing",
@@ -1238,11 +1434,7 @@
       ]
     },
     "mattleidholm.com": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "mingjie.info": {
       "mode": "testing",
@@ -1322,11 +1514,7 @@
       ]
     },
     "thisishugo.com": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "vixrapedia.org": {
       "mode": "testing",
@@ -1373,17 +1561,10 @@
       ]
     },
     "artikel10.org": {
-      "mode": "testing",
-      "mxs": [
-        "ybti.net"
-      ]
+      "policy-alias": "61b3e600cdd5b364c3b0a7800170ceb1347f1ae0762cd87aea5cb798791c28f7"
     },
     "aztecface.email": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "backschues.com": {
       "mode": "testing",
@@ -1401,20 +1582,10 @@
       ]
     },
     "backschues.net": {
-      "mode": "testing",
-      "mxs": [
-        "mx0.backschues.net"
-      ]
+      "policy-alias": "ad1ff424003bab3177979f7d0a7cfc21acbd710abb2c291a672ba4d673b635d1"
     },
     "bearsunderland.com": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "aspmx2.googlemail.com",
-        "aspmx3.googlemail.com"
-      ]
+      "policy-alias": "c55cdd5fd9e301095c943fbea3919f83020fa03ab53ad3d8f27928ffc96cb8ab"
     },
     "benjamin.computer": {
       "mode": "testing",
@@ -1431,11 +1602,7 @@
       ]
     },
     "boenning.me": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "bolte.org": {
       "mode": "testing",
@@ -1555,19 +1722,10 @@
       ]
     },
     "gehrke.in": {
-      "mode": "testing",
-      "mxs": [
-        "mx0.backschues.net",
-        "mx1.backschues.net",
-        "mx00.backschues.net",
-        "mx01.backschues.net"
-      ]
+      "policy-alias": "96724ba07b63ce43b903fd1ab0b953c564170b2321bbc45502690d2a57fe0872"
     },
     "giebel.it": {
-      "mode": "testing",
-      "mxs": [
-        "mailfilter2.cdom.de"
-      ]
+      "policy-alias": "2c1051441d00a30c2fe128b67bbb42e375cf5ad9dcc31450bd02a518ce9fbe1f"
     },
     "goppold.net": {
       "mode": "testing",
@@ -1626,18 +1784,10 @@
       ]
     },
     "kc1hbk.com": {
-      "mode": "testing",
-      "mxs": [
-        "ec2.rhymeswithmogul.com",
-        "azure.rhymeswithmogul.com"
-      ]
+      "policy-alias": "5e5ea9fba2c47b812e15547615cc925d83674a214535fd738d831b0e74182545"
     },
     "kimihia.org.nz": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "kmm.im": {
       "mode": "testing",
@@ -1712,10 +1862,7 @@
       ]
     },
     "mail.aegee.org": {
-      "mode": "testing",
-      "mxs": [
-        "mail.aegee.org"
-      ]
+      "policy-alias": "2920821dc0104207f4e2e76988d70f1109327788308fa1683075706144b9ffd8"
     },
     "mail.com": {
       "mode": "testing",
@@ -1760,14 +1907,7 @@
       ]
     },
     "netera.com": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "onex.de": {
       "mode": "testing",
@@ -1848,33 +1988,16 @@
       ]
     },
     "saulchristie.com": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "schleifenbaum.email": {
-      "mode": "testing",
-      "mxs": [
-        "mail.js-webcoding.de"
-      ]
+      "policy-alias": "e08616eee98bfd1f5f5ba4654d461b97288b150d0ae29bc1cfa8b3ceed95a0f5"
     },
     "schleifenbaum.org": {
-      "mode": "testing",
-      "mxs": [
-        "mail.js-webcoding.de"
-      ]
+      "policy-alias": "e08616eee98bfd1f5f5ba4654d461b97288b150d0ae29bc1cfa8b3ceed95a0f5"
     },
     "scotthsmith.com": {
-      "mode": "testing",
-      "mxs": [
-        "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
-      ]
+      "policy-alias": "973267e228d58a7ec44803a529d7db388aec0a13cde62b0ab666bb8212564a1c"
     },
     "secure.mailbox.org": {
       "mode": "testing",
@@ -1902,10 +2025,7 @@
       ]
     },
     "skynet-devices.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.tutanota.de"
-      ]
+      "policy-alias": "9966706cd173668c9e4c120a88ab2ebf387c0363bd6245db2cdb501b4fa7ea58"
     },
     "snowpaws.de": {
       "mode": "testing",
@@ -1976,10 +2096,7 @@
       ]
     },
     "tresdouteux.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch"
-      ]
+      "policy-alias": "fb0ca79f725fc28ac223206b63b1c851460ef6485eef07f8f4720233ca144f5d"
     },
     "treussart.com": {
       "mode": "testing",
@@ -1988,10 +2105,7 @@
       ]
     },
     "tutanota.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.tutanota.de"
-      ]
+      "policy-alias": "9966706cd173668c9e4c120a88ab2ebf387c0363bd6245db2cdb501b4fa7ea58"
     },
     "vm-0.com": {
       "mode": "testing",
@@ -2000,16 +2114,10 @@
       ]
     },
     "waldkindergarten-ausstattung.de": {
-      "mode": "testing",
-      "mxs": [
-        "mail.bummelwelt.com"
-      ]
+      "policy-alias": "46085d7503416860f6d1e858644488c4483df74d76d0673523e489c84c67e429"
     },
     "ybti.net": {
-      "mode": "testing",
-      "mxs": [
-        "ybti.net"
-      ]
+      "policy-alias": "61b3e600cdd5b364c3b0a7800170ceb1347f1ae0762cd87aea5cb798791c28f7"
     },
     "zip-support.de": {
       "mode": "testing",
@@ -2057,16 +2165,10 @@
       ]
     },
     "artemyev.net": {
-      "mode": "testing",
-      "mxs": [
-        "naksitrallid.com"
-      ]
+      "policy-alias": "a37dc171752d8c7e481a1a2dee9e810e1308aa8af943bc0e688e3e2ad3011c53"
     },
     "artemyev.org": {
-      "mode": "testing",
-      "mxs": [
-        "naksitrallid.com"
-      ]
+      "policy-alias": "a37dc171752d8c7e481a1a2dee9e810e1308aa8af943bc0e688e3e2ad3011c53"
     },
     "cgfreaks.com": {
       "mode": "testing",
@@ -2166,18 +2268,10 @@
       ]
     },
     "wpd.de": {
-      "mode": "testing",
-      "mxs": [
-        "mta01.wpd.de",
-        "mta02.wpd.de"
-      ]
+      "policy-alias": "f0f828f506488f71974ed1274b20ab88a3941bdaaa3fa5e3f4791a9c2e7a8c6a"
     },
     "wpd.fr": {
-      "mode": "testing",
-      "mxs": [
-        "mta01.wpd.de",
-        "mta02.wpd.de"
-      ]
+      "policy-alias": "f0f828f506488f71974ed1274b20ab88a3941bdaaa3fa5e3f4791a9c2e7a8c6a"
     },
     "burzmali.com": {
       "mode": "testing",
@@ -2192,20 +2286,10 @@
       ]
     },
     "davej.org": {
-      "mode": "testing",
-      "mxs": [
-        "mail.centerclick.org"
-      ]
+      "policy-alias": "e70090a22e1bba89d6573f08fb46c478a727b2237c43ff7477f1efcf403043df"
     },
     "dombox.org": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "espci.fr": {
       "mode": "testing",
@@ -2228,14 +2312,7 @@
       ]
     },
     "hmdb.org": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "kwain.net": {
       "mode": "testing",
@@ -2286,10 +2363,7 @@
       ]
     },
     "synergynh.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.centerclick.org"
-      ]
+      "policy-alias": "e70090a22e1bba89d6573f08fb46c478a727b2237c43ff7477f1efcf403043df"
     },
     "vectro.co": {
       "mode": "testing",
@@ -2318,16 +2392,10 @@
       ]
     },
     "arjansteevels.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "bewonderen.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "blackhats.org": {
       "mode": "testing",
@@ -2381,21 +2449,10 @@
       ]
     },
     "chicagocomputers.com.ar": {
-      "mode": "testing",
-      "mxs": [
-        "vade-in1.mail.dreamhost.com",
-        "vade-in2.mail.dreamhost.com"
-      ]
+      "policy-alias": "b000dcb58037e7cf890931da706b11b918b35fab70b7188c4cd65750261642a1"
     },
     "clinique-velpeau.com": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "aspmx3.googlemail.com",
-        "aspmx2.googlemail.com"
-      ]
+      "policy-alias": "c55cdd5fd9e301095c943fbea3919f83020fa03ab53ad3d8f27928ffc96cb8ab"
     },
     "cloudadministrator.com.au": {
       "mode": "testing",
@@ -2432,10 +2489,7 @@
       ]
     },
     "countyhall.london": {
-      "mode": "testing",
-      "mxs": [
-        "linsrv104.linuxcontrolpanel.co.uk"
-      ]
+      "policy-alias": "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d"
     },
     "cybercrew.cc": {
       "mode": "testing",
@@ -2445,14 +2499,7 @@
       ]
     },
     "denaehula.com": {
-      "mode": "testing",
-      "mxs": [
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com",
-        "aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "desfontain.es": {
       "mode": "testing",
@@ -2483,23 +2530,13 @@
       ]
     },
     "fivegenerationshomestead.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "frauenarzt-niendorf.de": {
-      "mode": "testing",
-      "mxs": [
-        "srv01.knop.info"
-      ]
+      "policy-alias": "6737d92ae6d2d39fa028de8dc80b83a23de6573dc22133f6b3af491074993811"
     },
     "freehold.countyhall.london": {
-      "mode": "testing",
-      "mxs": [
-        "linsrv104.linuxcontrolpanel.co.uk"
-      ]
+      "policy-alias": "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d"
     },
     "fripost.org": {
       "mode": "testing",
@@ -2515,16 +2552,10 @@
       ]
     },
     "geitenijs.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "gerardinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "giesen.me": {
       "mode": "testing",
@@ -2618,14 +2649,7 @@
       ]
     },
     "jamesevans.is": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "jenzi.com": {
       "mode": "testing",
@@ -2634,36 +2658,16 @@
       ]
     },
     "jenzi.de": {
-      "mode": "testing",
-      "mxs": [
-        "webmail.jenzi.com"
-      ]
+      "policy-alias": "7312fc53ed80c5b9a0d6e580b27b30f232c816dd58a4568a399a1444ae7a5077"
     },
     "jimslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "jltctech.com": {
-      "mode": "testing",
-      "mxs": [
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com",
-        "aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "johndball.com": {
-      "mode": "testing",
-      "mxs": [
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com",
-        "aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "juggle.fr": {
       "mode": "testing",
@@ -2672,11 +2676,7 @@
       ]
     },
     "kalatzis.net": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "knockaert.nl": {
       "mode": "testing",
@@ -2685,14 +2685,7 @@
       ]
     },
     "kresta.no": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "krvtz.net": {
       "mode": "testing",
@@ -2707,10 +2700,7 @@
       ]
     },
     "lanodan.eu": {
-      "mode": "testing",
-      "mxs": [
-        ".the-delta.net.eu.org"
-      ]
+      "policy-alias": "3350072c26315bab265295606f1c86bc9580490143ba40b28c4154f49585b8fa"
     },
     "laurencball.com": {
       "mode": "testing",
@@ -2743,26 +2733,13 @@
       ]
     },
     "lumicon.co.uk": {
-      "mode": "testing",
-      "mxs": [
-        "linsrv104.linuxcontrolpanel.co.uk"
-      ]
+      "policy-alias": "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d"
     },
     "margatroid.com": {
-      "mode": "testing",
-      "mxs": [
-        "lyra.margatroid.com"
-      ]
+      "policy-alias": "92e423614d081da430ed0ae6b3ea19333e37e4855222347cfb5eefe162127c22"
     },
     "martinploug.dk": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "marwan.ma": {
       "mode": "testing",
@@ -2797,11 +2774,7 @@
       ]
     },
     "mmn.on.ca": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "mohlek.net": {
       "mode": "testing",
@@ -2810,10 +2783,7 @@
       ]
     },
     "mystia.org": {
-      "mode": "testing",
-      "mxs": [
-        "lyra.margatroid.com"
-      ]
+      "policy-alias": "92e423614d081da430ed0ae6b3ea19333e37e4855222347cfb5eefe162127c22"
     },
     "mza.com": {
       "mode": "testing",
@@ -2830,26 +2800,13 @@
       ]
     },
     "nienkeslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "nydig.com": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "aspmx2.googlemail.com",
-        "aspmx3.googlemail.com"
-      ]
+      "policy-alias": "c55cdd5fd9e301095c943fbea3919f83020fa03ab53ad3d8f27928ffc96cb8ab"
     },
     "nztechie.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch"
-      ]
+      "policy-alias": "fb0ca79f725fc28ac223206b63b1c851460ef6485eef07f8f4720233ca144f5d"
     },
     "osemka.biz": {
       "mode": "testing",
@@ -2884,14 +2841,7 @@
       ]
     },
     "pokeinthe.io": {
-      "mode": "testing",
-      "mxs": [
-        "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
-      ]
+      "policy-alias": "025dcc190a38647d66a0dd360647e2560b35569f490f2a5c011dbcd8e839cccc"
     },
     "polak.email": {
       "mode": "testing",
@@ -2901,16 +2851,10 @@
       ]
     },
     "professionaldigitalservices.ltd.uk": {
-      "mode": "testing",
-      "mxs": [
-        "linsrv104.linuxcontrolpanel.co.uk"
-      ]
+      "policy-alias": "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d"
     },
     "psharp.net": {
-      "mode": "testing",
-      "mxs": [
-        "linsrv104.linuxcontrolpanel.co.uk"
-      ]
+      "policy-alias": "198cc3b448a11605d69fe086312daeb539743da5a89b1c7cdf7cd42caefc501d"
     },
     "r42.ch": {
       "mode": "testing",
@@ -2931,29 +2875,16 @@
       ]
     },
     "rjan.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "sandrainden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "sandraindenfotografie.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "section9.co.uk": {
-      "mode": "testing",
-      "mxs": [
-        "mail.section9.london",
-        "post.section9.london"
-      ]
+      "policy-alias": "5be3952a6da7fe329cfc1e67508fdcc8b83fbb6a41f3a132119e4d0615c3c656"
     },
     "secumail.nl": {
       "mode": "testing",
@@ -2963,11 +2894,7 @@
       ]
     },
     "secureme.it": {
-      "mode": "testing",
-      "mxs": [
-        "as01.secureme.it",
-        "as02.secureme.it"
-      ]
+      "policy-alias": "d11b2c0392dc7c07322ff1e9f0121b20fc879e27ee342d51a5ce36284985be43"
     },
     "shoelace.org": {
       "mode": "testing",
@@ -2992,11 +2919,7 @@
       ]
     },
     "stonefirefarms.com": {
-      "mode": "testing",
-      "mxs": [
-        "mail.protonmail.ch",
-        "mailsec.protonmail.ch"
-      ]
+      "policy-alias": "b3e070ea5ed54d55c3daba960b7a46518386352100e2f77573df41dcd549ca96"
     },
     "tech-ninja.de": {
       "mode": "testing",
@@ -3005,10 +2928,7 @@
       ]
     },
     "thijsslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "trampel.org": {
       "mode": "testing",
@@ -3042,55 +2962,28 @@
       ]
     },
     "use.startmail.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.startmail.com",
-        "mx2.startmail.com"
-      ]
+      "policy-alias": "43a04cf7c8d3b65c9e9e0f9ad24ad09fb6035038f39d1715e435755e340a7339"
     },
     "valasens.io": {
-      "mode": "testing",
-      "mxs": [
-        "mx.zoho.com",
-        "mx2.zoho.com",
-        "mx3.zoho.com"
-      ]
+      "policy-alias": "6a3d56882d4f4667409907bdccec656faecb810714d3006cb453504419660cb4"
     },
     "vicugna.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "webcookies.org": {
-      "mode": "testing",
-      "mxs": [
-        "webcookies.org"
-      ]
+      "policy-alias": "a48e4faafef8eaabd3d277e1a39ccd5492629129cb2dab61ea9d4e86d29c6373"
     },
     "willekeinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "wouterslop.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "wouterslop.eu": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     },
     "wouterslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
+      "policy-alias": "106fc69e93f445e93abf612a911f60e3618c60d13b704bf5340d68f8f4a55105"
     }
   }
 }
