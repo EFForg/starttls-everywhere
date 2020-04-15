@@ -1,6 +1,6 @@
 {
-  "timestamp": "2020-04-15T00:16:03.955794-07:00",
-  "expires": "2020-04-29T00:16:03.955874-07:00",
+  "timestamp": "2020-04-15T00:20:23.754731-07:00",
+  "expires": "2020-04-29T00:20:23.754754-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "policy-aliases": {
@@ -1485,8 +1485,8 @@
     "colincogle.name": {
       "mode": "testing",
       "mxs": [
-        "ec2.rhymeswithmogul.com",
-        "azure.rhymeswithmogul.com"
+        "ec2.colincogle.name",
+        "colincogle.name"
       ]
     },
     "connordav.is": {
@@ -1628,8 +1628,8 @@
     "kc1hbk.com": {
       "mode": "testing",
       "mxs": [
-        "ec2.rhymeswithmogul.com",
-        "azure.rhymeswithmogul.com"
+        "ec2.colincogle.name",
+        "colincogle.name"
       ]
     },
     "kimihia.org.nz": {
@@ -2255,8 +2255,8 @@
     "rhymeswithmogul.com": {
       "mode": "testing",
       "mxs": [
-        "rhymeswithmogul.com",
-        "azure.rhymeswithmogul.com"
+        "ec2.colincogle.name",
+        "colincogle.name"
       ]
     },
     "rogerkunz.ch": {
@@ -2309,24 +2309,6 @@
       "mxs": [
         "as01.secureme.it",
         "as02.secureme.it"
-      ]
-    },
-    "arjan.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "arjansteevels.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "bewonderen.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
       ]
     },
     "blackhats.org": {
@@ -2514,18 +2496,6 @@
         "mail.wjg.dk"
       ]
     },
-    "geitenijs.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "gerardinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
     "giesen.me": {
       "mode": "testing",
       "mxs": [
@@ -2637,12 +2607,6 @@
       "mode": "testing",
       "mxs": [
         "webmail.jenzi.com"
-      ]
-    },
-    "jimslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
       ]
     },
     "jltctech.com": {
@@ -2829,12 +2793,6 @@
         "mail.nerdheim.se"
       ]
     },
-    "nienkeslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
     "nydig.com": {
       "mode": "testing",
       "mxs": [
@@ -2930,24 +2888,6 @@
         "mail.rin.rs"
       ]
     },
-    "rjan.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "sandrainden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "sandraindenfotografie.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
     "section9.co.uk": {
       "mode": "testing",
       "mxs": [
@@ -3004,12 +2944,6 @@
         "alderaan.tech-ninja.de"
       ]
     },
-    "thijsslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
     "trampel.org": {
       "mode": "testing",
       "mxs": [
@@ -3056,40 +2990,10 @@
         "mx3.zoho.com"
       ]
     },
-    "vicugna.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
     "webcookies.org": {
       "mode": "testing",
       "mxs": [
         "webcookies.org"
-      ]
-    },
-    "willekeinden.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "wouterslop.com": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "wouterslop.eu": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
-      ]
-    },
-    "wouterslop.nl": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
       ]
     },
     "2718282.net": {
@@ -5936,12 +5840,6 @@
         "alt2.aspmx.l.google.com",
         "alt3.aspmx.l.google.com",
         "alt4.aspmx.l.google.com"
-      ]
-    },
-    "thijs.amsterdam": {
-      "mode": "testing",
-      "mxs": [
-        "mx1.vicugna.nl"
       ]
     },
     "thomaskoscheck.de": {
