@@ -1,6 +1,6 @@
 {
-  "timestamp": "2020-04-15T11:19:10.581595-07:00",
-  "expires": "2020-04-29T11:19:10.581618-07:00",
+  "timestamp": "2020-04-22T13:39:26.906657-07:00",
+  "expires": "2020-05-06T13:39:26.906684-07:00",
   "version": "0.1",
   "author": "Electronic Frontier Foundation https://eff.org",
   "policy-aliases": {
@@ -48,9 +48,10 @@
       "policy-alias": "yahoo"
     },
     "comcast.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".comcast.net"
+        "mx1.comcast.net",
+        "mx2.comcast.net"
       ]
     },
     "eff.org": {
@@ -66,7 +67,11 @@
       ]
     },
     "gmail.com": {
-      "policy-alias": "google"
+      "mode": "enforce",
+      "mxs": [
+        "gmail-smtp-in.l.google.com",
+        ".gmail-smtp-in.l.google.com"
+      ]
     },
     "hotmail.com": {
       "policy-alias": "outlook"
@@ -120,17 +125,19 @@
       ]
     },
     "alainwolf.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "norris.urown.net",
         "pace.urown.net",
-        "norris.urown.net"
+        "mail.urown.net"
       ]
     },
     "alainwolf.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "norris.urown.net",
-        "pace.urown.net"
+        "pace.urown.net",
+        "mail.urown.net"
       ]
     },
     "apbox.de": {
@@ -176,7 +183,7 @@
       ]
     },
     "compucation.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.compucation.de"
       ]
@@ -221,9 +228,11 @@
       ]
     },
     "dietrich.cx": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "ybti.net"
+        "mxext1.mailbox.org",
+        "mxext2.mailbox.org",
+        "mxext3.mailbox.org"
       ]
     },
     "eltrich.name": {
@@ -273,10 +282,11 @@
       ]
     },
     "federation-interstellar.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "norris.urown.net",
         "pace.urown.net",
-        "norris.urown.net"
+        "mail.urown.net"
       ]
     },
     "fivl.it": {
@@ -286,7 +296,7 @@
       ]
     },
     "flawy.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "lx1.flawy.de"
       ]
@@ -304,10 +314,9 @@
       ]
     },
     "grepular.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.grepular.com",
-        "mx1.grepular.com"
+        "mail.grepular.com"
       ]
     },
     "gwalarn.eu": {
@@ -331,7 +340,7 @@
       ]
     },
     "itzer.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.itzer.de"
       ]
@@ -387,9 +396,10 @@
       ]
     },
     "livoris.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "livoris.net"
+        "livoris.net",
+        "chris-schuster.net"
       ]
     },
     "locker.email": {
@@ -417,7 +427,7 @@
       ]
     },
     "miggy.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.fysh.org"
       ]
@@ -429,7 +439,7 @@
       ]
     },
     "modum.by": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.office.modum.by"
       ]
@@ -532,7 +542,7 @@
       ]
     },
     "spodhuis.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.spodhuis.org"
       ]
@@ -562,22 +572,24 @@
       ]
     },
     "4zal.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        ".4zal.net",
         "in1-smtp.messagingengine.com",
         "in2-smtp.messagingengine.com"
       ]
     },
     "anongoth.pl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anongoth.pl"
       ]
     },
     "arkadiyt.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.protonmail.ch"
+        "mail.protonmail.ch",
+        "mailsec.protonmail.ch"
       ]
     },
     "bingbong.epac.to": {
@@ -607,7 +619,7 @@
       ]
     },
     "c3w.at": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "dergeraet.c3w.at"
       ]
@@ -678,13 +690,14 @@
       ]
     },
     "dismail.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mx1.dismail.de"
+        "mx1.dismail.de",
+        "mx2.dismail.de"
       ]
     },
     "druwe.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "delores.druwe.net"
       ]
@@ -696,9 +709,9 @@
       ]
     },
     "f00f.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".stupidest.org"
+        "proxima.stupidest.org"
       ]
     },
     "familieverberne.nl": {
@@ -746,15 +759,14 @@
       ]
     },
     "ggp2.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "c.fsckd.com",
-        "d.fsckd.com",
-        "e.fsckd.com"
+        "d.fsckd.com"
       ]
     },
     "gkd-el.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mailgw.gkd-el.de",
         "filter.gkd-el.de"
@@ -780,7 +792,7 @@
       ]
     },
     "incenp.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.incenp.org"
       ]
@@ -810,7 +822,7 @@
       ]
     },
     "klausen.dk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.klausen.dk"
       ]
@@ -824,13 +836,13 @@
       ]
     },
     "ko-sys.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.ko-sys.com"
       ]
     },
     "kubica.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".burzum.ch"
       ]
@@ -848,10 +860,9 @@
       ]
     },
     "maclemon.at": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "dungeon.maclemon.at",
-        "prometheus.maclemon.at"
+        "dungeon.maclemon.at"
       ]
     },
     "menthiere.fr": {
@@ -938,7 +949,7 @@
       ]
     },
     "randolf.at": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.randolf.at"
       ]
@@ -977,7 +988,7 @@
       ]
     },
     "sdeziel.info": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.sdeziel.info"
       ]
@@ -989,16 +1000,17 @@
       ]
     },
     "sixpak.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "sixpak.sixpak.org"
+        "sixpak.sixpak.org",
+        ".sixpak.org",
+        "sixpak.org"
       ]
     },
     "sufix.cz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.sufix.cz",
-        "sufix.cz"
+        "sufix-cz.mail.protection.outlook.com"
       ]
     },
     "sunsetdynamics.com": {
@@ -1137,7 +1149,7 @@
       ]
     },
     "dhautefeuille.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
@@ -1149,10 +1161,10 @@
       ]
     },
     "durel.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "arrakeen.geekwu.org",
-        "corrin.geekwu.org"
+        "corrin.geekwu.org",
+        "arrakeen.geekwu.org"
       ]
     },
     "eckhofer.com": {
@@ -1219,7 +1231,7 @@
       ]
     },
     "ledovskis.lv": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ariake.ledovskis.lv"
       ]
@@ -1232,9 +1244,10 @@
       ]
     },
     "mail.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".mail.de"
+        "mx01.mail.de",
+        "mx02.mail.de"
       ]
     },
     "mattleidholm.com": {
@@ -1270,9 +1283,9 @@
       ]
     },
     "pa5am.nl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "pa5am.nl"
+        "ipoac.nl"
       ]
     },
     "sanker.by": {
@@ -1282,11 +1295,9 @@
       ]
     },
     "santoshpandit.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "node487.myfcloud.com",
-        "mx.santoshpandit.com",
-        "mail.santoshpandit.com"
+        "mail.tutanota.de"
       ]
     },
     "saskpension.com": {
@@ -1329,7 +1340,7 @@
       ]
     },
     "vixrapedia.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.vixrapedia.org"
       ]
@@ -1347,10 +1358,9 @@
       ]
     },
     "wiktel.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.wiktel.com",
-        "mx.wiktel.com"
+        "mail.wiktel.com"
       ]
     },
     "xylon.de": {
@@ -1360,9 +1370,11 @@
       ]
     },
     "aegee.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.aegee.org"
+        "mail.aegee.org",
+        "mxf-1.aegee.org",
+        "mxf-2.aegee.org"
       ]
     },
     "anthonyvadala.me": {
@@ -1373,37 +1385,48 @@
       ]
     },
     "artikel10.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "ybti.net"
+        "mxext1.mailbox.org",
+        "mxext2.mailbox.org",
+        "mxext3.mailbox.org"
       ]
     },
     "aztecface.email": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch",
         "mailsec.protonmail.ch"
       ]
     },
     "backschues.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mx0.backschues.net"
+        "mail.backschues.net",
+        "mx0.backschues.net",
+        "mx00.backschues.net",
+        "mx01.backschues.net",
+        "mx1.backschues.net"
       ]
     },
     "backschues.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "mail.backschues.net",
         "mx0.backschues.net",
         "mx00.backschues.net",
-        "mx1.backschues.net",
-        "mx01.backschues.net"
+        "mx01.backschues.net",
+        "mx1.backschues.net"
       ]
     },
     "backschues.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mx0.backschues.net"
+        "mail.backschues.net",
+        "mx0.backschues.net",
+        "mx00.backschues.net",
+        "mx01.backschues.net",
+        "mx1.backschues.net"
       ]
     },
     "bearsunderland.com": {
@@ -1424,10 +1447,10 @@
       ]
     },
     "billaud.eu.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "billaud.eu.org",
-        "www2.billaud.eu.org"
+        "www2.billaud.eu.org",
+        "billaud.eu.org"
       ]
     },
     "boenning.me": {
@@ -1438,7 +1461,7 @@
       ]
     },
     "bolte.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.bolte.org"
       ]
@@ -1457,10 +1480,9 @@
       ]
     },
     "caletka.cz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".oskarcz.net",
-        ".caletka.cz"
+        "flexi.oskarcz.net"
       ]
     },
     "castlehoward.co.uk": {
@@ -1476,21 +1498,26 @@
       ]
     },
     "ck-energy.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alpha.mail.ck-energy.info",
         "beta.mail.ck-energy.info"
       ]
     },
     "colincogle.name": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "rhymeswithmogul.com",
+        "colincogle.name",
         "ec2.colincogle.name",
-        "colincogle.name"
+        "greenpartyofnewmilford.org",
+        "mta-sts.rhymeswithmogul.com",
+        "mta-sts.colincogle.name",
+        "mta-sts.greenpartyofnewmilford.org"
       ]
     },
     "connordav.is": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.zoho.com",
         "mx2.zoho.com",
@@ -1504,21 +1531,25 @@
       ]
     },
     "ddimension.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "gamenet.ddimension.net"
       ]
     },
     "divegearexpress.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.divegearexpress.com",
         "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
+        "in2-smtp.messagingengine.com",
+        "smtp.postmarkapp.com",
+        ".messagingengine.com",
+        ".divegearexpress.com",
+        ".postmarkapp.com"
       ]
     },
     "domblogger.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.domblogger.net"
       ]
@@ -1555,12 +1586,13 @@
       ]
     },
     "gehrke.in": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "mail.backschues.net",
         "mx0.backschues.net",
-        "mx1.backschues.net",
         "mx00.backschues.net",
-        "mx01.backschues.net"
+        "mx01.backschues.net",
+        "mx1.backschues.net"
       ]
     },
     "giebel.it": {
@@ -1570,7 +1602,7 @@
       ]
     },
     "goppold.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.goppold.net",
         "mail2.goppold.net"
@@ -1583,7 +1615,7 @@
       ]
     },
     "hengroenet.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.hengroenet.de"
       ]
@@ -1602,7 +1634,7 @@
       ]
     },
     "inethost.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.inethost.eu"
       ]
@@ -1614,19 +1646,19 @@
       ]
     },
     "jonaswitmer.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "jonaswitmer.ch"
       ]
     },
     "js-webcoding.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.js-webcoding.de"
       ]
     },
     "kc1hbk.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ec2.colincogle.name",
         "colincogle.name"
@@ -1646,26 +1678,25 @@
       ]
     },
     "koehn-consulting.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".koehn.com"
+        "mail.koehn.com",
+        ".googlemail.com",
+        ".aspmx.l.google.com",
+        "aspmx.l.google.com"
       ]
     },
     "koehn.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".koehn.com",
-        "aspmx3.googlemail.com",
-        "aspmx4.googlemail.com",
-        "aspmx5.googlemail.com",
-        "aspmx.l.google.com",
-        "aspmx2.googlemail.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com"
+        "mail.koehn.com",
+        ".googlemail.com",
+        ".aspmx.l.google.com",
+        "aspmx.l.google.com"
       ]
     },
     "kryptonresearch.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.tutanota.de"
       ]
@@ -1687,7 +1718,7 @@
       ]
     },
     "librelamp.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "librelamp.com"
       ]
@@ -1712,9 +1743,11 @@
       ]
     },
     "mail.aegee.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.aegee.org"
+        "mail.aegee.org",
+        "mxf-1.aegee.org",
+        "mxf-2.aegee.org"
       ]
     },
     "mail.com": {
@@ -1741,10 +1774,10 @@
       ]
     },
     "mercedcapital.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "smtp1-msp.securence.com",
-        "smtp1-mke.securence.com"
+        "smtp1-mke.securence.com",
+        "smtp1-msp.securence.com"
       ]
     },
     "mewp.pl": {
@@ -1803,16 +1836,10 @@
       ]
     },
     "protonmail.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "protonmail.com",
-        ".protonlabs.org",
-        ".protonmail.com",
-        ".protonvpn.ch",
-        ".protonvpn.com",
-        ".protonmail.ch",
-        "protonmail.ch",
-        ".pm.me"
+        "mail.protonmail.ch",
+        "mailsec.protonmail.ch"
       ]
     },
     "robwillis.org": {
@@ -1848,7 +1875,7 @@
       ]
     },
     "saulchristie.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -1858,13 +1885,13 @@
       ]
     },
     "schleifenbaum.email": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.js-webcoding.de"
       ]
     },
     "schleifenbaum.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.js-webcoding.de"
       ]
@@ -1890,25 +1917,26 @@
       ]
     },
     "semox.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "www.semox.de"
       ]
     },
     "setemares.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.setemares.org"
+        "mail.setemares.org",
+        ".setemares.org"
       ]
     },
     "skynet-devices.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.tutanota.de"
       ]
     },
     "snowpaws.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.snowpaws.de"
       ]
@@ -1920,7 +1948,7 @@
       ]
     },
     "srs-sys.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01a.srs-sys.de",
         "mx01b.srs-sys.de",
@@ -1935,23 +1963,25 @@
       ]
     },
     "systemausfall.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.systemausfall.org",
         "mx2.systemausfall.org"
       ]
     },
     "tbz-pariv.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.tbz-pariv.de",
         "mail2.tbz-pariv.de"
       ]
     },
     "technikumnukleoniczne.pl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "technikumnukleoniczne-pl.mail.protection.outlook.com"
+        "TechnikumNukleoniczne-pl.mail.protection.outlook.com",
+        "mx1.comcast.net",
+        "mx2.comcast.net"
       ]
     },
     "the.sexy": {
@@ -1994,7 +2024,7 @@
       ]
     },
     "vm-0.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.vm-0.com"
       ]
@@ -2006,7 +2036,7 @@
       ]
     },
     "ybti.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ybti.net"
       ]
@@ -2032,16 +2062,16 @@
       ]
     },
     "aipi.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.aipi.de"
       ]
     },
     "airpost.pw": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "w.xi.ht",
-        "mx2.xi.ht"
+        "w.robotham.dev",
+        "mx2.robotham.dev"
       ]
     },
     "allnetwork.de": {
@@ -2093,7 +2123,13 @@
       ]
     },
     "emilstahl.dk": {
-      "policy-alias": "google"
+      "mode": "enforce",
+      "mxs": [
+        "mx1.smtp.goog",
+        "mx2.smtp.goog",
+        "mx3.smtp.goog",
+        "mx4.smtp.goog"
+      ]
     },
     "klinikum-oldenburg.de": {
       "mode": "testing",
@@ -2109,7 +2145,7 @@
       ]
     },
     "lists.aegee.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.aegee.org",
         "mxf-1.aegee.org",
@@ -2145,7 +2181,7 @@
       ]
     },
     "systemli.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.systemli.org"
       ]
@@ -2180,7 +2216,7 @@
       ]
     },
     "burzmali.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ix.burzmali.com"
       ]
@@ -2215,7 +2251,7 @@
       ]
     },
     "eurocontrol.int": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "esa1.eurocontrol.c3s2.iphmx.com",
         "esa2.eurocontrol.c3s2.iphmx.com"
@@ -2345,10 +2381,11 @@
       ]
     },
     "carolineeball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".carolineeball.com",
+        ".carolineball.com",
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
@@ -2363,7 +2400,7 @@
       ]
     },
     "chicagocomputers.com.ar": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "vade-in1.mail.dreamhost.com",
         "vade-in2.mail.dreamhost.com"
@@ -2491,7 +2528,7 @@
       ]
     },
     "gauthier.dk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
@@ -2507,7 +2544,7 @@
       ]
     },
     "graeber.dev": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "c.fsckd.com",
         "d.fsckd.com"
@@ -2570,13 +2607,13 @@
       ]
     },
     "it-inside.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.it-inside.ch"
       ]
     },
     "jacksball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".jacksball.com",
@@ -2610,23 +2647,26 @@
       ]
     },
     "jltctech.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        ".johndball.com",
+        ".jltctech.com",
+        "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
         "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com",
-        "aspmx.l.google.com"
+        "alt4.aspmx.l.google.com"
       ]
     },
     "johndball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        ".johndball.com",
+        "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
         "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com",
-        "aspmx.l.google.com"
+        "alt4.aspmx.l.google.com"
       ]
     },
     "juggle.fr": {
@@ -2643,7 +2683,7 @@
       ]
     },
     "knockaert.nl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.knockaert.nl"
       ]
@@ -2677,10 +2717,11 @@
       ]
     },
     "laurencball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".laurencball.com",
+        ".laurenball.com",
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
@@ -2741,10 +2782,10 @@
       ]
     },
     "mdewendt.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "vs2201.mdewendt.de",
-        "vs7118.mdewendt.de"
+        "ben.mdewendt.de",
+        "tim.mdewendt.de"
       ]
     },
     "megacash.com.ve": {
@@ -2768,7 +2809,7 @@
       ]
     },
     "mohlek.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.mohlek.net"
       ]
@@ -2788,13 +2829,13 @@
       ]
     },
     "nerdheim.se": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.nerdheim.se"
       ]
     },
     "nydig.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -2830,7 +2871,7 @@
       ]
     },
     "pmf.uns.ac.rs": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.pmf.uns.ac.rs"
       ]
@@ -2852,7 +2893,7 @@
       ]
     },
     "polak.email": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "npmail.at",
         "it.np-edv.at"
@@ -2883,7 +2924,7 @@
       ]
     },
     "rin.rs": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.rin.rs"
       ]
@@ -2903,7 +2944,7 @@
       ]
     },
     "secureme.it": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "as01.secureme.it",
         "as02.secureme.it"
@@ -2925,10 +2966,11 @@
       ]
     },
     "startmail.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.startmail.com",
-        "mx2.startmail.com"
+        "mx2.startmail.com",
+        ".smtp.startmail.com"
       ]
     },
     "stonefirefarms.com": {
@@ -2939,7 +2981,7 @@
       ]
     },
     "tech-ninja.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alderaan.tech-ninja.de"
       ]
@@ -2951,7 +2993,7 @@
       ]
     },
     "trindonball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".trindonball.com",
@@ -2969,17 +3011,18 @@
       ]
     },
     "twolife.be": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "loki.twolife.be",
-        "scw-c1.twolife.be"
+        "hp.twolife.be"
       ]
     },
     "use.startmail.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.startmail.com",
-        "mx2.startmail.com"
+        "mx2.startmail.com",
+        ".smtp.startmail.com"
       ]
     },
     "valasens.io": {
@@ -2991,13 +3034,13 @@
       ]
     },
     "webcookies.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "webcookies.org"
       ]
     },
     "2718282.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.2718282.net"
       ]
@@ -3009,31 +3052,31 @@
       ]
     },
     "3733366.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nixnet.email"
       ]
     },
     "3b.pm": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "3b.pm"
       ]
     },
     "4wrd.cc": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anonaddy.me"
       ]
     },
     "647630.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nixnet.email"
       ]
     },
     "7748229.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nixnet.email"
       ]
@@ -3062,13 +3105,13 @@
       ]
     },
     "acsemb.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "adagia.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.adagia.eu",
         "adagia.eu"
@@ -3081,30 +3124,24 @@
       ]
     },
     "aehe.us": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch",
         "mailsec.protonmail.ch"
       ]
     },
     "affinityvision.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.affinityvision.com",
         "mail.affinityvision.com.au"
       ]
     },
     "affinityvision.com.au": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "affinityvision.com",
-        "affinityvision.com.au",
-        "affinityvision.net",
         "mail.affinityvision.com",
-        "mail.affinityvision.com.au",
-        "secure.affinityvision.com.au",
-        "webmail.affinityvision.com.au",
-        "www.affinityvision.com.au"
+        "mail.affinityvision.com.au"
       ]
     },
     "aircraftnoisemodel.org": {
@@ -3115,7 +3152,7 @@
       ]
     },
     "aivd.lol": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.soverin.net"
       ]
@@ -3128,7 +3165,7 @@
       ]
     },
     "ak-krasavia.ru": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "gaston.ak-krasavia.ru",
         ".ak-krasavia.ru",
@@ -3161,7 +3198,7 @@
       ]
     },
     "alexyang.me": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alexyang-me.mail.protection.outlook.com"
       ]
@@ -3174,15 +3211,15 @@
       ]
     },
     "alphachat.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.alphachat.net"
       ]
     },
     "amegrund.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "letbox-vps.us-core.com"
+        ".us-core.com"
       ]
     },
     "amolindo.com": {
@@ -3199,19 +3236,19 @@
       ]
     },
     "anguta.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anguta.net"
       ]
     },
     "anonaddy.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.tutanota.de"
       ]
     },
     "anonaddy.me": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anonaddy.me"
       ]
@@ -3223,13 +3260,13 @@
       ]
     },
     "apex.ac": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.apex.ac"
       ]
     },
     "arcana.jp": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -3239,10 +3276,10 @@
       ]
     },
     "arch-libertas.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.arch-libertas.net",
-        "arch-libertas.net"
+        "bouquetin.arch-libertas.net",
+        "mail.arch-libertas.net"
       ]
     },
     "asdzxc.eu": {
@@ -3252,19 +3289,19 @@
       ]
     },
     "aurorafest.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".aurorafest.org"
       ]
     },
     "babysittor.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "backstrom.me": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "postal.pebe.net"
       ]
@@ -3277,7 +3314,7 @@
       ]
     },
     "barneshay.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.zoho.com",
         "mx2.zoho.com",
@@ -3285,27 +3322,27 @@
       ]
     },
     "baucum.me": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.baucum.me",
         "baucum.me"
       ]
     },
     "bayerstefan.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ncars.douzer.de",
         "lcars.douzer.de"
       ]
     },
     "bbtmv.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.bbtmv.de"
       ]
     },
     "beckorg.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "box.beckemail.net"
       ]
@@ -3345,7 +3382,7 @@
       ]
     },
     "blitiri.com.ar": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "cdt.blitiri.com.ar",
         "alerce.blitiri.com.ar"
@@ -3359,7 +3396,7 @@
       ]
     },
     "c0x0.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "io.onefellow.com",
         "shield.c0x0.com"
@@ -3372,13 +3409,13 @@
       ]
     },
     "calvertk9search.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.calvertk9search.org"
       ]
     },
     "calypsohost.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.calypsohost.net"
       ]
@@ -3396,13 +3433,13 @@
       ]
     },
     "carobme.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".carobme.de"
       ]
     },
     "carolineball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".carolineeball.com",
@@ -3415,14 +3452,14 @@
       ]
     },
     "castaing.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mta-gw.infomaniak.ch",
         "mta-gw.scubadata.net"
       ]
     },
     "castlepointanime.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         ".aspmx.l.google.com",
@@ -3433,7 +3470,7 @@
       ]
     },
     "catram.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.catram.org"
       ]
@@ -3449,21 +3486,19 @@
       ]
     },
     "cendata.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "a.mx.cendata.co.uk"
       ]
     },
     "centurion-consulting.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "centurion-consulting.tech",
-        "mxext1.mailbox.org",
-        "mxext2.mailbox.org"
+        "centurion-consulting.tech"
       ]
     },
     "cfv.biz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".dcfv.com",
         ".itrust.com.tw",
@@ -3478,7 +3513,7 @@
       ]
     },
     "chris-schuster.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "chris-schuster.net"
       ]
@@ -3504,7 +3539,7 @@
       ]
     },
     "cool110.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.cool110.xyz"
       ]
@@ -3530,32 +3565,31 @@
       ]
     },
     "creativesandbox.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.creativesandbox.de"
       ]
     },
     "ctemplar.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.ctemplar.com"
       ]
     },
     "currentc.capital": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "cyber-core.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.cyber-core.co.uk",
-        "mxfail1.cyber-core.co.uk"
+        "mail.cyber-core.co.uk"
       ]
     },
     "cyberdynesecuritysystems.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anonaddy.me"
       ]
@@ -3575,7 +3609,7 @@
       ]
     },
     "cygnitec.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx0.cygnitec.com"
       ]
@@ -3594,14 +3628,14 @@
       ]
     },
     "darknetlive.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch",
         "mailsec.protonmail.ch"
       ]
     },
     "datahoarder.dev": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.datahoarder.dev"
       ]
@@ -3613,7 +3647,7 @@
       ]
     },
     "dcfv.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".dcfv.com",
         ".itrust.com.tw",
@@ -3622,7 +3656,7 @@
       ]
     },
     "debien.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.namaste.ovh"
       ]
@@ -3653,31 +3687,31 @@
       ]
     },
     "deprecate.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".deprecate.de"
       ]
     },
     "dinepont.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "ding.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "server9.comtrends.net"
       ]
     },
     "dips.no": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.dips.no"
       ]
     },
     "disroot.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "disroot.org",
         "mx01.disroot.org"
@@ -3690,7 +3724,7 @@
       ]
     },
     "dnsprivado.com.es": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "server.dnsprivado.com.es"
       ]
@@ -3723,14 +3757,14 @@
       ]
     },
     "drewhess.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mxa.drewhess.com",
         "mxb.drewhess.com"
       ]
     },
     "durel.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "corrin.geekwu.org",
         "arrakeen.geekwu.org"
@@ -3745,7 +3779,7 @@
       ]
     },
     "e-doctor.com.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
@@ -3763,13 +3797,13 @@
       ]
     },
     "eerie.garden": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "eerie.garden"
       ]
     },
     "ekvastra.in": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "server50.hostingraja.org",
         "mx.zoho.in"
@@ -3783,13 +3817,13 @@
       ]
     },
     "eleith.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.eleith.com"
       ]
     },
     "elizabethbeck.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "box.beckemail.net"
       ]
@@ -3808,7 +3842,7 @@
       ]
     },
     "email.peterjin.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".aspmx.l.google.com",
         "aspmx.l.google.com",
@@ -3823,7 +3857,7 @@
       ]
     },
     "emilstahl.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.smtp.goog",
         "mx2.smtp.goog",
@@ -3832,13 +3866,13 @@
       ]
     },
     "emisto.com.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
     },
     "empost.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "empost.eu"
       ]
@@ -3856,19 +3890,19 @@
       ]
     },
     "etyd.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "torgny.etyd.org"
       ]
     },
     "ewanto.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".lauterus.com"
       ]
     },
     "exon.name": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "exon.name"
       ]
@@ -3935,7 +3969,7 @@
       ]
     },
     "foixet.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.snargol.com"
       ]
@@ -3953,7 +3987,7 @@
       ]
     },
     "frogeye.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "rana.frogeye.fr"
       ]
@@ -3977,7 +4011,7 @@
       ]
     },
     "fxdiler.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -3989,7 +4023,7 @@
       ]
     },
     "gauthier.tel": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
@@ -4001,26 +4035,26 @@
       ]
     },
     "gchq.lol": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.soverin.net"
       ]
     },
     "geekwu.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "corrin.geekwu.org",
         "arrakeen.geekwu.org"
       ]
     },
     "gekemoti.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "gekemoti.fr"
       ]
     },
     "gennerator.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.yandex.net"
       ]
@@ -4042,20 +4076,20 @@
       ]
     },
     "google.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         ".aspmx.l.google.com"
       ]
     },
     "gsd-software.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".antispameurope.com"
       ]
     },
     "gsuite.tonytan.io": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -4065,7 +4099,7 @@
       ]
     },
     "gtaxl.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.gtaxl.net"
       ]
@@ -4077,31 +4111,31 @@
       ]
     },
     "hackworthltd.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mxa.mail.hackworth-corp.com"
       ]
     },
     "hadrons.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".hadrons.org"
       ]
     },
     "hamiltoncoin.io": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "hase.dev": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.hase.dev"
       ]
     },
     "hboeck.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "zucker.schokokeks.org"
       ]
@@ -4121,34 +4155,37 @@
       ]
     },
     "heijmans.email": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
+        "in2-smtp.messagingengine.com",
+        ".messagingengine.com"
       ]
     },
     "heijmans.io": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
+        "in2-smtp.messagingengine.com",
+        ".messagingengine.com"
       ]
     },
     "heijmans.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
-        "in2-smtp.messagingengine.com"
+        "in2-smtp.messagingengine.com",
+        ".messagingengine.com"
       ]
     },
     "hermitant.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.rust.pm"
       ]
     },
     "heutger.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".heutger.net"
       ]
@@ -4180,10 +4217,10 @@
       ]
     },
     "hkmap.live": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mailsec.protonmail.ch",
-        "mail.protonmail.ch"
+        "mail.protonmail.ch",
+        "mailsec.protonmail.ch"
       ]
     },
     "hkmap.net": {
@@ -4194,7 +4231,7 @@
       ]
     },
     "hlfh.space": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
@@ -4206,33 +4243,27 @@
       ]
     },
     "hquest.pro.br": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.hquest.pro.br"
       ]
     },
     "humblebee.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "humblebee.ie": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "ibon.ws": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".dcfv.com",
         ".itrust.com.tw",
@@ -4247,7 +4278,7 @@
       ]
     },
     "ievlev.email": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "ievlev.email"
       ]
@@ -4271,7 +4302,7 @@
       ]
     },
     "incardoc.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
@@ -4289,13 +4320,13 @@
       ]
     },
     "innovametro.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "letbox-vps.us-core.com"
+        ".us-core.com"
       ]
     },
     "intermedia.mx": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -4305,7 +4336,7 @@
       ]
     },
     "intermediacontrol.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -4315,7 +4346,7 @@
       ]
     },
     "intr0.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch",
         "mailsec.protonmail.ch"
@@ -4328,7 +4359,7 @@
       ]
     },
     "ipv6-adresse.dk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.smtp.goog",
         "mx2.smtp.goog",
@@ -4344,7 +4375,7 @@
       ]
     },
     "itrust.com.tw": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".dcfv.com",
         ".itrust.com.tw",
@@ -4353,7 +4384,7 @@
       ]
     },
     "itsystemsteam.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "a.mx.cendata.co.uk"
       ]
@@ -4463,7 +4494,7 @@
       ]
     },
     "k-telecom.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "relay.k-telecom.org"
       ]
@@ -4475,7 +4506,7 @@
       ]
     },
     "keys.openpgp.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.keys.openpgp.org"
       ]
@@ -4487,7 +4518,7 @@
       ]
     },
     "knrt.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.kuhnerts.eu"
       ]
@@ -4512,7 +4543,7 @@
       ]
     },
     "kpopsource.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.kpopsource.com"
       ]
@@ -4524,22 +4555,19 @@
       ]
     },
     "kydara.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mail.kydara.com",
-        "imap.kydara.com",
-        "smtp.kydara.com",
-        "kydara.com"
+        "mail.kydara.com"
       ]
     },
     "laatikainen.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.1nt3r.net"
       ]
     },
     "lacordillere.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
@@ -4557,13 +4585,13 @@
       ]
     },
     "larrybeck.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "box.beckemail.net"
       ]
     },
     "laurenball.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".johndball.com",
         ".laurencball.com",
@@ -4576,9 +4604,9 @@
       ]
     },
     "lease-up.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "letbox-vps.us-core.com"
+        ".us-core.com"
       ]
     },
     "lebihan.pl": {
@@ -4588,7 +4616,7 @@
       ]
     },
     "leidinger.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mailgate.leidinger.net"
       ]
@@ -4619,14 +4647,14 @@
       ]
     },
     "liu-family.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "random.randomcrap.eu",
         "mini.randomcrap.eu"
       ]
     },
     "logsnitch.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -4642,13 +4670,13 @@
       ]
     },
     "m01.info": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.m01.info"
       ]
     },
     "m2.peterjin.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "apps-vm1.srv.peterjin.org",
         "apps-vm3.srv.peterjin.org"
@@ -4662,13 +4690,13 @@
       ]
     },
     "mail.logsnitch.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "feedback-smtp.us-east-1.amazonses.com"
       ]
     },
     "mail.m01.info": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.m01.info"
       ]
@@ -4680,14 +4708,14 @@
       ]
     },
     "mailfence.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp1.mailfence.com",
         "smtp2.mailfence.com"
       ]
     },
     "mailhardener.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "alt1.aspmx.l.google.com",
@@ -4703,9 +4731,8 @@
       ]
     },
     "maneraperez.com.ar": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".mail.dreamhost.com",
         "vade-in1.mail.dreamhost.com",
         "vade-in2.mail.dreamhost.com"
       ]
@@ -4719,20 +4746,22 @@
       ]
     },
     "marywalesloomis.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".marywalesloomis.com",
-        ".richw.org"
+        "mail.richw.org",
+        "drizzle.richw.org",
+        "fogbank.richw.org",
+        "express.richw.org"
       ]
     },
     "matejgroma.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.matejgroma.com"
       ]
     },
     "matrixwissen.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alpha.meta-matrix.de",
         "gamma.meta-matrix.de",
@@ -4749,7 +4778,7 @@
       ]
     },
     "medway.gov.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx0.medway.gov.uk"
       ]
@@ -4768,23 +4797,22 @@
       ]
     },
     "meiliboxi.fi": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "meiliboxi.fi"
       ]
     },
     "meta-matrix.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alpha.meta-matrix.de",
-        "sigma.meta-matrix.de",
         "gamma.meta-matrix.de",
         "omega.meta-matrix.de",
         "delta.meta-matrix.de"
       ]
     },
     "mfen.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "al.mfen.de"
       ]
@@ -4805,7 +4833,7 @@
       ]
     },
     "mihgroup.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.mihgroup.net"
       ]
@@ -4842,43 +4870,43 @@
       ]
     },
     "mthode.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.mthode.org"
       ]
     },
     "myface.ph": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.myface.ph"
       ]
     },
     "nadovich.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "hwsrv.nadovich.com"
       ]
     },
     "nadovich.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "hwsrv.nadovich.com"
       ]
     },
     "nadovich.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "hwsrv.nadovich.com"
       ]
     },
     "namaste.ovh": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.namaste.ovh"
       ]
     },
     "navigate-it-services.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nroute.de",
         "mta01.nroute.de",
@@ -4902,7 +4930,7 @@
       ]
     },
     "neon.peterjin.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "apps-vm1.srv.peterjin.org",
         "apps-vm3.srv.peterjin.org",
@@ -4924,7 +4952,7 @@
       ]
     },
     "nixnetmail.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nixnet.email"
       ]
@@ -4971,13 +4999,13 @@
       ]
     },
     "obd-car-doctor.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
     },
     "obdcardoc.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
@@ -4989,20 +5017,20 @@
       ]
     },
     "onefellow.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "io.onefellow.com",
         "shield.c0x0.com"
       ]
     },
     "oneweb.hu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "filter.mx-eu-01.oneweb.hu"
       ]
     },
     "openmpt.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.openmpt.org",
         ".openmpt.org",
@@ -5010,20 +5038,20 @@
       ]
     },
     "orbglobal.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx0.orbglobal.com"
       ]
     },
     "osthome.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.osthome.de",
         ".osthome.de"
       ]
     },
     "ournet.cloud": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "box.ournet.cloud"
       ]
@@ -5035,14 +5063,14 @@
       ]
     },
     "paranoidpenguin.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "server3.paranoidpenguin.net",
         ".paranoidpenguin.net"
       ]
     },
     "parinov.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
@@ -5054,13 +5082,13 @@
       ]
     },
     "pebe.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "postal.pebe.net"
       ]
     },
     "peterjin.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".aspmx.l.google.com",
         "aspmx.l.google.com",
@@ -5069,7 +5097,7 @@
       ]
     },
     "pjin.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".aspmx.l.google.com",
         "aspmx.l.google.com",
@@ -5084,25 +5112,25 @@
       ]
     },
     "pnn.com.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
     },
     "pnn.in.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
     },
     "pnn.org.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
     },
     "pnnsoft.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
@@ -5122,13 +5150,13 @@
       ]
     },
     "pollendine.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "a.mx.cendata.co.uk"
       ]
     },
     "praxis-garnhaenki.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mailcow.praxis-garnhaenki.ch"
       ]
@@ -5158,13 +5186,13 @@
       ]
     },
     "ptrk.io": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.ptrk.io"
       ]
     },
     "pwned.life": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.nixnet.email"
       ]
@@ -5176,7 +5204,7 @@
       ]
     },
     "quoratetechnology.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "aspmx2.googlemail.com",
@@ -5186,13 +5214,13 @@
       ]
     },
     "r13t.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.r13t.de"
       ]
     },
     "r14t.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.r13t.de"
       ]
@@ -5216,7 +5244,7 @@
       ]
     },
     "randomcrap.eu": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "random.randomcrap.eu",
         "mini.randomcrap.eu"
@@ -5298,10 +5326,12 @@
       ]
     },
     "richw.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        ".richw.org",
-        ".marywalesloomis.com"
+        "mail.richw.org",
+        "drizzle.richw.org",
+        "fogbank.richw.org",
+        "express.richw.org"
       ]
     },
     "ricwein.com": {
@@ -5323,7 +5353,7 @@
       ]
     },
     "riseup.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "riseup.net",
         ".riseup.net"
@@ -5336,16 +5366,15 @@
       ]
     },
     "rodier.me": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.rodier.me",
-        "smtp2.rodier.me",
         "spool.mail.gandi.net",
         "fb.mail.gandi.net"
       ]
     },
     "roseitsolutions.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "384b6aa7.21.ik2.com",
         "384b6aa7.22.ik2.io",
@@ -5353,7 +5382,7 @@
       ]
     },
     "roualland.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anguta.net"
       ]
@@ -5371,7 +5400,7 @@
       ]
     },
     "rust.pm": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.rust.pm"
       ]
@@ -5384,7 +5413,7 @@
       ]
     },
     "sabbottlabs.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "sabbottlabs.com"
       ]
@@ -5397,7 +5426,7 @@
       ]
     },
     "sapience.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "sapience.com",
         ".sapience.com",
@@ -5421,10 +5450,11 @@
       ]
     },
     "scanmailx.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mxdk01.scanmailx.com",
-        "mxdk02.scanmailx.com"
+        "mxdk02.scanmailx.com",
+        ".scanmailx.com"
       ]
     },
     "schaltstube.de": {
@@ -5440,7 +5470,7 @@
       ]
     },
     "schultz.re": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.schultz.re",
         ".schultz.re",
@@ -5462,8 +5492,9 @@
       ]
     },
     "sean.taipei": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        "sean.taipei",
         "mail.sean.taipei"
       ]
     },
@@ -5474,19 +5505,19 @@
       ]
     },
     "securedlegion.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.anonaddy.me"
       ]
     },
     "sermesa.es": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "server.dnsprivado.com.es"
       ]
     },
     "sethvargo.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "sethvargo.com",
         "sethvargo.dev",
@@ -5504,16 +5535,17 @@
       ]
     },
     "shat.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mailman.shaunc.com",
         "mail.shaunc.com"
       ]
     },
     "shaunc.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "mailman.shaunc.com"
+        "mailman.shaunc.com",
+        "mail.shaunc.com"
       ]
     },
     "sheridanwest.net": {
@@ -5534,107 +5566,77 @@
       ]
     },
     "sigmalux.ca": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.co.nz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.com.au": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.es": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.llc": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.nz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.sarl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sigmalux.us": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
-        "alt1.aspmx.l.google.com",
-        "alt2.aspmx.l.google.com",
-        "alt3.aspmx.l.google.com",
-        "alt4.aspmx.l.google.com"
+        ".aspmx.l.google.com"
       ]
     },
     "sit-test.dk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx1.sit-test.dk",
         "mx2.sit-test.dk"
@@ -5647,39 +5649,39 @@
       ]
     },
     "smart-dm.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "imap.smart-dm.de",
-        "smtp.smart-dm.de",
-        "sdm.smart-dm.de"
+        "sdm.smart-dm.de",
+        ".smart-dm.de"
       ]
     },
     "sniffton.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
+        ".sniffton.com",
         "mail.sniffton.com"
       ]
     },
     "snopyta.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.snopyta.org"
       ]
     },
     "socketlabs.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "socketlabs-com.mail.protection.outlook.com"
       ]
     },
     "southsidebarbershop.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "soverin.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.soverin.net",
         ".soverin.net"
@@ -5692,25 +5694,25 @@
       ]
     },
     "stefanheil.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.stefanheil.com"
       ]
     },
     "storedsafe.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.xpd.se"
       ]
     },
     "stuartbell.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".messagingengine.com"
       ]
     },
     "sufliarsky.sk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "vps.sufliarsky.sk"
       ]
@@ -5737,7 +5739,7 @@
       ]
     },
     "tcy.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".tcy.com",
         ".tcy.com.tw",
@@ -5746,7 +5748,7 @@
       ]
     },
     "tcy.com.tw": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".tcy.com",
         ".tcy.com.tw",
@@ -5755,7 +5757,7 @@
       ]
     },
     "tcy.tw": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".tcy.com",
         ".tcy.com.tw",
@@ -5764,7 +5766,7 @@
       ]
     },
     "techlevel.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.techlevel.org"
       ]
@@ -5796,13 +5798,13 @@
       ]
     },
     "tegitur.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.tegitur.com"
       ]
     },
     "teichroeb.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
@@ -5850,7 +5852,7 @@
       ]
     },
     "tigreraye.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "tigreraye.org"
       ]
@@ -5875,35 +5877,35 @@
       ]
     },
     "tmthrgd.dev": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
         "in2-smtp.messagingengine.com"
       ]
     },
     "tomasmoberg.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch",
         "mailsec.protonmail.ch"
       ]
     },
     "tomthorogood.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
         "in2-smtp.messagingengine.com"
       ]
     },
     "tomthorogood.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
         "in2-smtp.messagingengine.com"
       ]
     },
     "tonytan.io": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.protonmail.ch"
       ]
@@ -5919,25 +5921,25 @@
       ]
     },
     "tritiumdisposal.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "tritiumdisposal.com"
       ]
     },
     "trolldi.eu.org": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "trolldi.eu.org"
       ]
     },
     "trousers.co.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "a.mx.cendata.co.uk"
       ]
     },
     "truong.fi": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "alt1.aspmx.l.google.com",
         "alt2.aspmx.l.google.com",
@@ -5971,7 +5973,7 @@
       ]
     },
     "twancoenraad.nl": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "in1-smtp.messagingengine.com",
         "in2-smtp.messagingengine.com"
@@ -5984,7 +5986,7 @@
       ]
     },
     "ulys.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mta-gw.infomaniak.ch"
       ]
@@ -6002,32 +6004,31 @@
       ]
     },
     "uriports.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "uriports.com",
-        ".uriports.com"
+        "uriports.com"
       ]
     },
     "urti-k.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "urtik.fr": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "arch-server.dhautefeuille.eu"
       ]
     },
     "us-core.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
-        "letbox-vps.us-core.com"
+        ".us-core.com"
       ]
     },
     "vconesa.es": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx.flipmail.es"
       ]
@@ -6047,7 +6048,7 @@
       ]
     },
     "vestibtech.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "host-klax-c.vestibtech.com",
         "host-kewr-e.vestibtech.com"
@@ -6077,7 +6078,7 @@
       ]
     },
     "volk.kiev.ua": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mx01.pnnsoft.com"
       ]
@@ -6089,7 +6090,7 @@
       ]
     },
     "walkingandcycling.org.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "6ae66d92.21.ik2.com",
         "6ae66d92.22.ik2.io",
@@ -6130,31 +6131,31 @@
       ]
     },
     "williamjohngauthier.net": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
     },
     "wjg.ca": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
     },
     "wjg.dk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
     },
     "wjg.se": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.wjg.dk"
       ]
     },
     "woofercare.uk": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "unaszplodrmann.plus.com"
       ]
@@ -6179,7 +6180,7 @@
       ]
     },
     "ximex.at": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.ximex.at",
         "mxext1.mailbox.org",
@@ -6194,13 +6195,13 @@
       ]
     },
     "xpd.se": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "smtp.xpd.se"
       ]
     },
     "xsen.de": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         ".xsen.de"
       ]
@@ -6240,13 +6241,13 @@
       ]
     },
     "zeroanarchy.com": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "zeroanarchy.com"
       ]
     },
     "zerobase.jp": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "aspmx.l.google.com",
         "aspmx2.googlemail.com",
@@ -6264,7 +6265,7 @@
       ]
     },
     "zli.ch": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "relay.zli.ch"
       ]
@@ -6276,7 +6277,7 @@
       ]
     },
     "zumbi.xyz": {
-      "mode": "testing",
+      "mode": "enforce",
       "mxs": [
         "mail.zumbi.xyz"
       ]
